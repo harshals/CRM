@@ -19,7 +19,10 @@ set plugins => {
     
 };
 
-set serializer => 'JSON';
+setting("serializer", "JSON");
+
+set apphandler => 'PSGI';
+set logger => 'console';
 
 set 'show_errors' => 1;
 

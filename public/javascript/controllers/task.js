@@ -1,6 +1,8 @@
 TaskController = function(app) { with (app) {
 			
 			app.use("Template" , 'html');
+			app.use("JSON");
+
 			app.before(/^#\/task-/, function(context) {
 
 				context.log("inisde task");
@@ -30,11 +32,29 @@ TaskController = function(app) { with (app) {
 
 			bind("task-complete", function(ev, data) {
 				
-				$.post("/api/Task/" + data["id"], data, function(json) {
+				this.log( this.json({ 'Task' : data }) );
+				
+				$.post("/api/Task/" + data["id"], this.json({ 'Task' : data }), function(json) {
+
+						alert("Task marked completed");
+
+						$(".list :checked").parents("li:first").hide();
+				});	
+
+	/*			$.ajax( {
 					
-					alert("Task marked completed");
+					url : "/api/Task/" + data["id"],
+					dataType : "json",
+					type : "POST",
+					data : this.json({ 'Task' : data }),
+					success: function(json) {
+
+						alert("Task marked completed");
+
+						$(".list :checked").parents("li:first").hide();
+					}
 				});
-			});
+		*/	});
 
 			bind("task-populate", function(ev, data) {
 				
@@ -51,10 +71,9 @@ TaskController = function(app) { with (app) {
 								$(".list :checkbox").click(function(ev) {
 									
 									var id = $(this).attr("name").replace("task_", '');
-							
-									context.trigger("task-complete", { "id": id, "task_status" : "Success"});
 									
-									$(this).parents("li:first").hide();
+									context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
+									
 									
 
 									// make ajax call to database
