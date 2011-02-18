@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org" />
+
+  <title>App Name</title>
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=iso-8859-1" />
+  <meta name="description" content="App Name app" />
+  <meta name="keywords" content="App Name" />
+  <!-- <link rel="stylesheet" href="css/reset.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="css/text.css" type="text/css" />-->
+ 
+  <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
+  
+  <link rel="stylesheet/less" href="css/main.css" type="text/css"> 
+  <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css"> 
+  <link rel="stylesheet" href="css/facebox.css" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+  <script src="javascript/less.js" type="text/javascript"></script>
+
+
+  	<script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>		
+    <script type="text/javascript" src="javascript/jquery.form.js"></script> 
+    <script type="text/javascript" src="javascript/jquery.validate.js"></script> 
+    <script type="text/javascript" src="javascript/bbq.js"></script> 
+    <script type="text/javascript" src="javascript/jquery-ui.min.js"></script> 
+    <script type="text/javascript" src="javascript/jquery.form.wizard-3.0.0.js"></script> 
+  	<script type="text/javascript" src="javascript/jquery.tablehover.min.js"></script>
+  	<script type="text/javascript" src="javascript/jquery.tablesorter.min.js"></script>
+  	<script type="text/javascript" src="javascript/jquery.tablesorter.pager.js"></script>
+  	<script type="text/javascript" src="javascript/jquery.formTowizard.js"></script>
+	<script type="text/javascript" src="javascript/jquery.facebox.js"></script>
+
+  	<script type="text/javascript" src="javascript/sammy/sammy.js"></script>
+  	<script type="text/javascript" src="javascript/sammy/min/plugins/sammy.template-latest.min.js"></script>
+	<script type="text/javascript" src="javascript/controllers/app.js"></script>
+	<script type="text/javascript" src="javascript/controllers/form.js"></script>
+	<script type="text/javascript" src="javascript/controllers/table.js"></script>
+	<script type="text/javascript" src="javascript/controllers/media.js"></script>
+	<script type="text/javascript" src="javascript/controllers/task.js"></script>
+
+ 
+  <!-- <script type="text/javascript" src="javascript/firebug-lite-debug.js"></script> -->
+
+    <script type="text/javascript">
+	
+	
+	
+	
+	/* Handle all routes starting with #/form- */
+
+	
+	;(function($) {
+		var main_menu = $.sammy('body', function() {
+        this.debug = true;
+        var form_fields = null;
+		
+		
+		/* generic application wide before method */
+
+		this.before( function(context) {
+			
+			context.log("step 1");
+			
+			var path = context.path;
+			var controllers = path.split('-');
+			
+			var el = $("#main-menu").find('a[href="' + controllers[0] + '"]');
+			
+			$(el).parent("li").siblings("li").removeClass("active");
+			$(el).parent("li").addClass("active");
+			
+			
+		
+
+		});	
+
+				/* Do something if main menu is clicked */
+
+		this.before(/(home|table|form|menu|overview)$/, function(context) {
+			
+			/* some additional log */
+			$("#main-content").html('');
+			$("#sidebar-content").html('');
+			$("#content-extra").html('');
+			$("#section-menu").html('');	
+
+		});
+
+		/* Main Menu Selections */
+		
+		this.get('#/', function() {
+				this.redirect("#/home");
+		});
+		
+       
+		/* Sub Menu Selections */
+	  
+		MainController(this);  
+		TaskController(this);
+		
+     });
+
+      $(function() {
+	  
+		
+		main_menu.run('#/');
+
+	
+      });
+
+    })(jQuery);
+  </script>
+</head>
+
+<body>
+  <div class="container_24" id="content">
+    <!-- header -->
+    <div class="grid_17">
+      <div id="logo">
+        <h1><a href="#">App Name</a></h1>
+
+        <span class="right">sub name or slogan</span>
+      </div>
+    </div>
+
+    <div class="grid_6">
+      <div id="top">
+       
+        <form id="search_engine" method="post" action="."
+        accept-charset="UTF-8">
+          <input class="small-field" name="search_query" type="text"          id="keywords" value="Search Keywords"  />
+          <input class="small-button" name="submit" type="submit" value="Search" />
+        </form>
+      </div>
+    </div>
+	<!-- header -->
+    <div class="clear"></div><!-- sidebar form container -->
+    <!-- menu -->
+      <div  class="grid_24" id="main-menu">
+        <ul >
+          <li class="" ><a href="#/home"  name=
+          "current">Home</a></li>
+
+        		  
+		  <li><a href="#/task">Taks</a></li>
+		  
+		  <li class="right"> <a href="#/logout" id="logout">Logout</a></li>
+	
+			<li class="right"> <a href="#/profile" id="profile">John Simth</a></li>
+        </ul>
+	   
+
+    </div>
+	<!-- menu -->
+    <div class="clear"></div>
+	<!-- main content -->
+    <div class="grid_18 main" id="main-content"></div><!-- main content -->
+	<!-- grid_6 right sidebar -->
+	<div class="grid_6 main right "  >
+		
+		<div id="section-menu"></div>
+		<div class="" id="sidebar-content"></div>
+
+	</div><!-- grid_6 right sidebar -->
+		
+	<div class="clear"></div>
+	<!-- further content -->
+	<div class="grid_24" id="content-extra" ></div>
+    
+	<!-- further content -->
+	<!-- footer -->
+	<div class="grid_24" id="footer">
+		<div class="grid_17 left">
+		
+          <p>&copy; Copyright <a hrf="http://www.mksoftware.in/">MK Software</a> </p>
+		  <p>          Created by <a href=
+          "http://www.mksoftware.in/harshalshah">Harshal Shah</a></p>
+			
+		</div>
+		<div class="grid_6 right">
+		
+          <h4>RSS Feed</h4>
+
+          <ul>
+            <li><a href=
+            "http://www.mksoftware.in/rss">Feed me</a></li>
+
+            <li><a href="http://www.github.com/harshals">
+           My Projects</a></li>
+          </ul>
+        		</div>
+       
+      	</div>
+	<!-- footer -->
+    
+  </div><!-- container_24 -->
+</body>
+</html>

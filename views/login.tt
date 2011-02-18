@@ -1,0 +1,90 @@
+  
+
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items"></ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Perl is dancing</h1>
+          <h2>You&rsquo;ve joined the dance floor!</h2>
+        </div>
+
+        <div id="getting-started">
+          <h1></h1>
+          <h2>Welcome, you are currently not logged in</h2>
+                    
+
+          <div id="about-content" style="display: none;">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Perl version</td>
+                    <td><tt>5.012001</tt></td>
+                </tr>
+                <tr>
+                    <td>Dancer version</td>
+                    <td><tt>1.2003</tt></td>
+                </tr>
+                <tr>
+                    <td>Backend</td>
+                    <td><tt><% settings.apphandler %></tt></td>
+                </tr>
+                <tr>
+                    <td>Appdir</td>
+                    <td><tt>/Users/harshal/Developments/Projects/Library</tt></td>
+                </tr>
+                <tr>
+                    <td>Template engine</td>
+                    <td><tt><% settings.template %></tt></td>
+                </tr>
+                <tr>
+                    <td>Logger engine</td>
+                    <td><tt><% settings.logger %></tt></td>
+                </tr>
+                <tr>
+                    <td>Running environment</td>
+                    <td><tt><% settings.environment %></tt></td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+
+    <script type="text/javascript">
+    $('#about_env_link').click(function() {
+        $('#about-content').slideToggle('fast', function() {
+            // ok
+        });
+    });
+    </script>
+		<form method="POST" action="/login">
+
+          <ol>          
+            <li>
+              <h2>Login  </h2>
+
+              <p><label for="username">Username</label>
+				<input type=text name=username></input>
+				
+                            </p>
+							
+              <p><label for="password">Password</label>
+				<input type=password name=password></input>
+				
+                            </p>
+							
+              <p>
+				<input type=submit name=submit value="Login"></input>
+				<input type=reset name=reset value="Cancel"></input>
+				
+                            </p>
+            </li>
+
+          </ol>
+		  </form>
+        </div>
+      </div>
+    </div>
