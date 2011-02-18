@@ -34,17 +34,12 @@ TaskController = function(app) { with (app) {
 				
 				this.log( this.json({ 'Task' : data }) );
 				
-				$.post("/api/Task/" + data["id"], this.json({ 'Task' : data }), function(json) {
-
-						alert("Task marked completed");
-
-						$(".list :checked").parents("li:first").hide();
-				});	
-
-	/*			$.ajax( {
+			
+				$.ajax( {
 					
 					url : "/api/Task/" + data["id"],
-					dataType : "json",
+					dataType : "JSON",
+					contentType: "application/json",
 					type : "POST",
 					data : this.json({ 'Task' : data }),
 					success: function(json) {
@@ -54,7 +49,7 @@ TaskController = function(app) { with (app) {
 						$(".list :checked").parents("li:first").hide();
 					}
 				});
-		*/	});
+			});
 
 			bind("task-populate", function(ev, data) {
 				
