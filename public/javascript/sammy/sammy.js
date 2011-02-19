@@ -1631,7 +1631,15 @@
         if (typeof data == 'undefined') { data = {content: content}; }
         this.event_context.trigger(name, data);
       });
-    }
+    },
+	renderTT : function(path,data) { 
+		
+		return this.then(function(content){
+
+			Jemplate.process(path, data)
+		
+		});
+	} 
 
   });
 
