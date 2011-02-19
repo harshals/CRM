@@ -13,5 +13,10 @@ MainController = function(app) { with (app) {
         	context.redirect("#/task-pending");
 	});
 
+        app.get('#/contacts', function(context) {
+
+        	context.render('views/contacts-menu.html').replace("#section-menu");
+        	context.redirect("#/contacts-all");
+	});
 
 }};

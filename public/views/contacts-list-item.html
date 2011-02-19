@@ -1,0 +1,17 @@
+<% for  ( var i = 0; i < data.length; i++ ) {%>
+<tr>
+		<td class="blue"><%=data[i].id%></td>
+                
+		<td class="blue"><%=data[i].name%></td>
+
+		<td class="blue"><%=data[i].business_city%></td>
+
+                <td class="blue"><%=data[i].web_page%></td>
+
+		<td class="yellow action">
+                    <span class="edit" id="row_<%=data[i].id%>"></span>
+			<span class="delete" id="row_<%=data[i].id%>"></span>
+			<br><a id="row_<%=data[i].id%>" class="expand"><u>Expand</u></a>
+		</td>
+</tr>
+<% } %> 

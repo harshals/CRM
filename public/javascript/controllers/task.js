@@ -79,11 +79,11 @@ TaskController = function(app) { with (app) {
 				context.render('views/task-list.html')
 					.replace("#main-content")
 					.then(function(html) {
-
+                                                
 						context.renderEach("views/task-list-item.html", data)
 							.appendTo(".list > ul")
 							.then(function(html) {
-						
+
 								$(".list :checkbox").click(function(ev) {
 									
 									var id = $(this).attr("name").replace("task_", '');
@@ -105,7 +105,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-pending', function(context) {
 						
-				context.load("/api/Task/custom/incomplete_tasks")
+				context.load("http://192.168.2.4:5000/api/Task/custom/incomplete_tasks")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -113,7 +113,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-completed', function(context) {
 						
-				context.load("/api/Task/custom/completed_tasks")
+				context.load("http://192.168.2.4:5000/api/Task/custom/completed_tasks")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -121,7 +121,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-all', function(context) {
 						
-				context.load("/api/Task")
+				context.load("http://192.168.2.4:5000/api/Task")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -133,7 +133,7 @@ TaskController = function(app) { with (app) {
 				
 				var form = context.params;
 				alert("coming");
-				$.put("/api/Task" , form, function(onSuccess) {
+				$.put("192.168.2.4:5000/api/Task" , form, function(onSuccess) {
 
 					context.redirect("#/task-pending");
 				});
