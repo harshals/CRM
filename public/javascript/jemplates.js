@@ -41,38 +41,50 @@ output += '\n<form name=task action="#/task-add" method=POST>\n<h2 class="">Add 
     return output;
 }
 
-Jemplate.templateMap['task-list-item.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '\n<li class="task-';
-//line 2 "task-list-item.html"
-output += stash.get('task_status');
-output += '">\n	<span class="status " ></span>\n	<a href="#">';
-//line 4 "task-list-item.html"
-output += stash.get('description');
-output += '</a>\n	<span class="action" > \n		<a href="#" >edit</a>\n		<input type=checkbox name="task_';
-//line 7 "task-list-item.html"
-output += stash.get('id');
-output += '" />\n	</span>\n</li>\n';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['task-list.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
     var output = '';
 
     try {
-output += '<div class="grid_17 list" >\n   <ul>\n   </ul>\n</div>\n\n';
+output += '<div class="grid_17 list" >\n   <ul>\n		';
+//line 12 "task-list.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('list');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['item'] = value;
+output += '\n				<li class="task-';
+//line 4 "task-list.html"
+output += stash.get(['item', 0, 'task_status', 0]);
+output += '">\n					<span class="status " ></span>\n					<a href="#">';
+//line 6 "task-list.html"
+output += stash.get(['item', 0, 'description', 0]);
+output += '</a>\n					<span class="action" > \n						<a href="#" >edit</a>\n						<input type=checkbox name="task_';
+//line 9 "task-list.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '" />\n					</span>\n				</li>\n		';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
+output += '\n   </ul>\n</div>\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
