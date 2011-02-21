@@ -58,7 +58,7 @@ TaskController = function(app) { with (app) {
 						alert("Task marked completed");
 
 						//$(".list :checked").parents("li").hide();
-						context.log("
+						//context.log("
 					}(context)
 				});
 			});
