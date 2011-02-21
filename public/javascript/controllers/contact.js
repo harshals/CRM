@@ -17,14 +17,15 @@ ContactController = function(app) { with (app) {
 
                         context .render('views/Pager.html')
 				.replace("#sidebar-content")
-		  		/*.then(function(task_html) {
-                                    $("#sidebar-content").hide();
-                                    $("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
-                                    $("#section-menu").find("a").click(function() {
-                                        $("#sidebar-content").toggle();
-					return false;
-                                    });
-                                });*/
+                                .then(function(contact_html) {
+					$("#section-menu").find("a.contacts-add").click(function() {
+                                            context .load("views/contact-details.html")
+                                                    .then(function(content){
+                                                        $.facebox(content);
+                                                    });
+                                            return false;
+					});
+		  		});
                     });
 //=====================================BIND FUNCTION============================
                     bind('Process',function(){
@@ -53,9 +54,37 @@ ContactController = function(app) { with (app) {
                             alert(id);
                             $.getJSON("api/Contacts.json",function(json){
                                 alert(json['data'][id-1].name)
-                                context .load('views/Expand.html',{"id":id,"list":json})
+                                context .load('views/Expand.html',{"id":id,"data":json['data']})
                                         .then(function(content){
                                             $.facebox( content );
+                                            (function() {
+
+						$(".form-steps").find("input[name=save]").click(function() {
+
+							alert("submit this form");
+							return false;
+						})
+
+						$("#main-content")
+							.find("fieldset.step").not("#step1")
+							.hide();
+						$(".form-steps").find("a.nav-step").click(function(ev){
+
+							var stp = $(this).attr("id").replace("nav-",'');
+
+
+							$("#main-content")
+								.find("fieldset.step")
+								.hide();
+							$("#main-content")
+								.find("fieldset#" + stp).show();
+
+
+							return false;
+
+						});
+
+					});
                                         })
                             })
                         });
@@ -73,20 +102,13 @@ ContactController = function(app) { with (app) {
                                                 $("#MyTable").tablesorter()
                                                              .tablesorterPager({ container : $("#pager") , positionFixed: false})
                                             })
-                                            /*.then(function(html) {
-                                                $(".list :checkbox").click(function(ev) {
-                                                    var id = $(this).attr("name").replace("task_", '');
-                                                    context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
-                                                    // make ajax call to database
-						});
-                                            });*/
 				});
                     });
 //=====================================AFTER LOADING============================
                     app.get('#/contacts-list', function(context) {
                         context.redirect("#/contacts-all");
                     });
-//--------------------------------------CONTACT PENDING-------------------------
+//------------------------------------ALL CONTACT-------------------------------
                     app.get('#/contacts-all', function(context) {
                         context .load("api/Contacts.json")
                                 .then(function(json) {
@@ -94,7 +116,7 @@ ContactController = function(app) { with (app) {
                                 });
 
                     });
-//--------------------------------------CONTACT COMPLETE-------------------------
+//--------------------------------------COMPANY CONTACT-------------------------
                     app.get('#/contacts-company', function(context) {
 			context .load("api/Contacts.json")
 				.then(function(json) {
@@ -102,11 +124,12 @@ ContactController = function(app) { with (app) {
                                     context.trigger("contacts-populate", json['data']);
 				});
                     });
-//--------------------------------------ALL CONTACT-------------------------
+//--------------------------------------PERSON CONTACT--------------------------
                     app.get('#/contacts-person', function(context) {
                         context .load("http://192.168.2.4:5000/api/Contact")
                                 .then(function(json) {
                                     context.trigger("contacts-populate", json['data']);
                                 });
                     });
+                    
 }}
