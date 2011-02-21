@@ -1,7 +1,33 @@
 TaskController = function(app) { with (app) {
 			
-			app.use("Template" , 'html');
 			app.use("JSON");
+		
+			/*
+			Sammy.RenderContext.prototype.renderTT = function() { 
+  				var args = $.makeArray(arguments); 
+  				// iterate over args making sure to return `this`; 
+
+				Jemplate.process(args[0], args[1]);
+				return this;
+			}; 
+			
+			*/
+
+			bind("task-init", function(ev, data) {
+				
+				Jemplate.process('task-add.html', {}, '#sidebar-content');
+				
+				Jemplate.process('task-menu.html', {}, '#section-menu');
+
+				$("#sidebar-content").hide();
+				$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
+				$("#section-menu").find("a.task-add").click(function() {
+
+				$("#sidebar-content").toggle();
+
+					return false;
+				});
+			});
 
 			app.before(/^#\/task-/, function(context) {
 
@@ -11,29 +37,14 @@ TaskController = function(app) { with (app) {
 				$("#content-extra").html('');
 
 				// make sure the menu remains all the time
-
-		  		context.render('views/task-menu.html')
-		  			.replace("#section-menu")
-
-				context.render('views/task-add.html')
-					.replace("#sidebar-content")
-		  			.then(function(task_html) {
+				context.trigger("task-init")
 					
-						$("#sidebar-content").hide();
-						$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
-						$("#section-menu").find("a.task-add").click(function() {
-
-							$("#sidebar-content").toggle();
-
-							return false;
-						});
-		  			});
+					
 			});
 
 			bind("task-complete", function(ev, data) {
 				
-				this.log( this.json({ 'Task' : data }) );
-				
+				var context = this;
 			
 				$.ajax( {
 					
@@ -46,8 +57,9 @@ TaskController = function(app) { with (app) {
 
 						alert("Task marked completed");
 
-						$(".list :checked").parents("li:first").hide();
-					}
+						//$(".list :checked").parents("li").hide();
+						context.log("
+					}(context)
 				});
 			});
 
@@ -55,26 +67,15 @@ TaskController = function(app) { with (app) {
 				
 				var context = this;
 
-				context.render('views/task-list.html')
-					.replace("#main-content")
-					.then(function(html) {
-                                                
-						context.renderEach("views/task-list-item.html", data)
-							.appendTo(".list > ul")
-							.then(function(html) {
-
-								$(".list :checkbox").click(function(ev) {
-									
-									var id = $(this).attr("name").replace("task_", '');
-									
-									context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
-									
-									
-
-									// make ajax call to database
-								});
-							});
-					});
+				Jemplate.process('task-list.html', { list: data }, '#main-content');
+				
+				$(".list :checkbox").click(function(ev) {
+					
+					var id = $(this).attr("name").replace("task_", '');
+					
+					context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
+					
+				});
 
 			});
 
@@ -84,7 +85,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-pending', function(context) {
 						
-				context.load("http://192.168.2.4:5000/api/Task/custom/incomplete_tasks")
+				context.load("/api/Task/custom/incomplete_tasks")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -92,7 +93,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-completed', function(context) {
 						
-				context.load("http://192.168.2.4:5000/api/Task/custom/completed_tasks")
+				context.load("/api/Task/custom/completed_tasks")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -100,13 +101,12 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-all', function(context) {
 						
-				context.load("http://192.168.2.4:5000/api/Task")
+				context.load("/api/Task")
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
 
 			});
-
 
 			app.post("#/task-add", function(context) {
 				

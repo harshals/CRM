@@ -1,7 +1,6 @@
 
 MainController = function(app) { with (app) {
 
-	app.use("Template" , 'html');
 
 	app.get('#/home', function(context) {
 

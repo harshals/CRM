@@ -1,0 +1,15 @@
+<div class="grid_17 list" >
+   <ul>
+		[% FOREACH item IN list %]
+				<li class="task-[% item.task_status %]">
+					<span class="status " ></span>
+					<a href="#">[% item.description %]</a>
+					<span class="action" > 
+						<a href="#" >edit</a>
+						<input type=checkbox name="task_[% item.id %]" />
+					</span>
+				</li>
+		[% END %]
+   </ul>
+</div>
+
