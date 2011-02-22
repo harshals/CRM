@@ -19,14 +19,7 @@ TaskController = function(app) { with (app) {
 				
 				Jemplate.process('task-menu.html', {}, '#section-menu');
 
-				$("#sidebar-content").hide();
-				$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
-				$("#section-menu").find("a.task-add").click(function() {
-
-				$("#sidebar-content").toggle();
-
-					return false;
-				});
+				
 			});
 
 			app.before(/^#\/task-/, function(context) {
@@ -37,8 +30,16 @@ TaskController = function(app) { with (app) {
 				$("#content-extra").html('');
 
 				// make sure the menu remains all the time
-				context.trigger("task-init")
-					
+				context.trigger("task-init");
+				
+				$("#sidebar-content").hide();
+				$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
+				$("#section-menu").find("a.task-add").click(function() {
+
+					$("#sidebar-content").toggle();
+					return false;
+				});
+	
 					
 			});
 
@@ -57,7 +58,7 @@ TaskController = function(app) { with (app) {
 
 						alert("Task marked completed");
 
-						//$(".list :checked").parents("li").hide();
+						$(".list :checked").parents("li").hide();
 						//context.log("
 					}(context)
 				});
@@ -84,8 +85,8 @@ TaskController = function(app) { with (app) {
 				context.redirect("#/task-pending");
 			});
 			app.get('#/task-pending', function(context) {
-						
-				context.load("/api/Task/custom/incomplete_tasks")
+				
+				context.load("/api/Task/custom/incomplete_tasks", {cache: false} )
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});
@@ -93,7 +94,7 @@ TaskController = function(app) { with (app) {
 			});
 			app.get('#/task-completed', function(context) {
 						
-				context.load("/api/Task/custom/completed_tasks")
+				context.load("/api/Task/custom/completed_tasks", {cache:false})
 				.then(function(json) {
 					context.trigger("task-populate", json['data']);
 				});

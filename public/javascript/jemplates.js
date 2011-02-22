@@ -68,7 +68,7 @@ output += '\n				<li class="task-';
 output += stash.get(['item', 0, 'task_status', 0]);
 output += '">\n					<span class="status " ></span>\n					<a href="#">';
 //line 6 "task-list.html"
-output += stash.get(['item', 0, 'description', 0]);
+output += stash.get(['item', 0, 'name', 0]);
 output += '</a>\n					<span class="action" > \n						<a href="#" >edit</a>\n						<input type=checkbox name="task_';
 //line 9 "task-list.html"
 output += stash.get(['item', 0, 'id', 0]);
