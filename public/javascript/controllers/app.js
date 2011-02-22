@@ -13,9 +13,9 @@ MainController = function(app) { with (app) {
         	context.redirect("#/task-pending");
 	});
 
-        app.get('#/contacts', function(context) {
+        app.get('#/contact', function(context) {
 
-        	context.render('views/contacts-menu.html').replace("#section-menu");
-        	context.redirect("#/contacts-all");
+        	context.render('views/contact-menu.html').replace("#section-menu");
+        	context.redirect("#/contact-all");
 	});
 }};

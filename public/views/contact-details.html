@@ -1,13 +1,20 @@
     <form method="POST" name="" action="#/contact-add" id=contact-form>
         <h1><font color="red" allign="center">Personal Information Form</font></h1>
+    <p class="form-steps form">
+         <input type=submit value="save" name="save" class="button" />
+        <input type=reset value="Reset" name="reset" class="button" />
+        
         <a  class="nav-step" id="nav-step1">Personal Details :-1</a>|
         <a  class="nav-step" id="nav-step2">Personal Details :-2</a>|
         <a  class="nav-step" id="nav-step3">Company Details :-1</a>|
         <a  class="nav-step" id="nav-step4">Company Details :-2</a>
-        <br>
+      
+       
+    </p>
         <input type=hidden value="<%= data.id %>" name="id" />
-        <input type=submit value="Save" name="save" id="save" class="button"/>
-        <input type=reset value="Reset" name="reset" class="button" />
+        
+        
+
         <fieldset class="grid_17 blue box step" id="step1">
             <legend>I m a legend</legend>
             <h3>Personal Details :-1</h3>
@@ -22,7 +29,7 @@
                 </li>
                 <li>
                     <label class="required">Enter Name :- </label>
-                        <input type="text"  name="first_name" value=" <%=data.name%>" />
+                        <input type="text"  name="first_name" value="" />
                         <input type="text"  name="middle_name" value="" />
                         <input type="text" name="last_name" value="" />
                 </li>
@@ -79,13 +86,17 @@
         <ul class="form tar">
             <li>
                 <label class="required">email-id</label>
-                      <input type="text" value="raj.81@gmail.com" name="email_address">
+                      <input type="text" value="" name="email_address">
+            </li>
+            <li>
                 <label>Alternate email-id</label>
-                      <input type="text" value="raj.81@gmail.com" name="email_address_2">
+                      <input type="text" value="" name="email_address_2">
             </li>
             <li>
                 <label class="required">Landline No.</label>
                       <input type="text" name="home_phone">
+            </li>
+            <li>
                 <label>Alternate No</label>
                        <input type="text" name="home_phone_2">
             </li>
@@ -106,12 +117,24 @@
         <h3>Company Details 1</h3>
         <ul class="form tar">
             <li>
-                <label class="required" name="company_job_title" value="<%=data.title%>">Company's Name</label>
-                <input type="text">
+                <label class="required">Company's Name</label>
+                <input type="text" name="name" value="<%=data.name%>">
             </li>
              <li>
+                <label class="required">Company ID</label>
+                <input type="text" name="title" value="<%=data.id%>">
+            </li>
+            <li>
+                <label class="required">Company/Employee</label>
+                <input type="text" name="title" value="<%=data.is_human%>">
+            </li>
+            <li>
                 <label class="required">Your Profession</label>
-                <input type="text" name="profession">
+                <input type="text" name="title" value="<%=data.title%>">
+            </li>
+            <li>
+                <label class="required">User Id</label>
+                <input type="text" name="title" value="<%=data.user_id%>">
             </li>
             <li>
                 <label class="required">Department</label>
@@ -158,14 +181,18 @@
         <h3>Company Details 2</h3>
         <ul class="form tar">
             <li>
-                <label class="required">email-id</label>
-                <input type="text" value="<%=data.email%>" name="email_3_address">
-                 <label>Alternate email-id</label>
-                      <input type="text" value="hardcore@gmail.com">
+                <label class="required" for="webpage">Company's web page</label>
+                <input id="webpage" name="web_page" value="<%=data.web_page%>" class="required email" />
+            </li>
+            <li>
+                 <label>email-id</label>
+                      <input type="text" value="<%=data.email%>">
             </li>
             <li>
                  <label class="required">Landline No.</label>
-                <input type="text" name="business_phone" value="<%=data.primary_phone%>"
+                 <input type="text" name="business_phone" value="<%=data.primary_phone%>">
+            </li>
+            <li>
                 <label>Alternate No</label>
                 <input type="text" name="business_phone_2">
              </li>
@@ -191,6 +218,8 @@
                 </select>
             </li>
         </ul>
+
+        <input type=submit value="Save" name="save" id="save" class="button"/>
     </fieldset>
 
     
