@@ -24,6 +24,7 @@ ContactController = function(app) { with (app) {
 					})
 		  		})
                     });
+                    
 //=====================================BIND FUNCTION============================
 //-------------------------------------PROCESS BIND-----------------------------
                     bind('Process',function(){
@@ -34,11 +35,8 @@ ContactController = function(app) { with (app) {
                             var id = $(this).attr("id").replace("row_",'');
                             alert(id);
                             $.getJSON("api/Contacts.json", function(json){
-                                alert("i m in edit")
-                                var json1=json['data']
-                                context .render("views/contact-details.html", {"data":json1})
+                                context .render("views/contact-details.html", {"data":json['data'],"id":id})
                                     .then(function(content){
-                                        alert("i m in livebox")
                                         $.facebox(content);
                                         context.trigger("contact-save");
                                     });
@@ -47,9 +45,9 @@ ContactController = function(app) { with (app) {
 
 //........................................DELETE................................
                         $("#MyTable").find("span.delete").click(function() {
-                            /*$(this).unbind("click");
-                            $(this).siblings().unbind("click");
-                            $(this).parent("td").siblings().css("text-decoration", "line-through");*/
+                            //$(this).unbind("click");
+                            //$(this).siblings().unbind("click");
+                            //$(this).parent("td").siblings().css("text-decoration", "line-through");
                             $(this).parents("tr").hide();
                             //context.forward("#/all-contact");
                             //("#MyTable").trigger('updates');
@@ -60,7 +58,6 @@ ContactController = function(app) { with (app) {
                             	var id = $(this).attr("id").replace("row_",'');
                             	$.getJSON("api/Contacts.json",function(json){
                                     	console.log(json);
-                                        alert("hello")
                                 	context .render('views/Expand.html',{"id":id,"data":json['data']})
                                                 .then(function(content){
                                                    	$.facebox( content );
@@ -138,11 +135,11 @@ ContactController = function(app) { with (app) {
                                 });
                     });
 
-//--------------------------------------POST------------------------------------
+//--------------------------------------------POST------------------------------
                     app.post("#/contact-add", function(context) {
 				var form = context.params;
 				alert("coming");
-                                alert(form)
+                                console.log(form)
 				$.put("192.168.2.4:5000/api/Contact" , form, function(onSuccess) {
 					context.redirect("#/contacts-all");
 				});

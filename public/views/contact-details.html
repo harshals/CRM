@@ -1,59 +1,57 @@
-  <% if ( data[0].id) { %>
-<form method="POST" name="" action="#/contact-add" id=contact-form>
-    <h1><font color="red" allign="center">Personal Information Form</font></h1>
-
-      
-
-    <a  class="nav-step" id="nav-step1">Personal Details :-1</a>|
-    <a  class="nav-step" id="nav-step2">Personal Details :-2</a>|
-    <a  class="nav-step" id="nav-step3">Company Details :-1</a>|
-    <a  class="nav-step" id="nav-step4">Company Details :-2</a>
-   <br>
-    <input type=submit value="Save" name="save" id="save" class="button"/>
-       <input type=reset value="Reset" name="reset" class="button" />
+<% if ( data[0].id)  { %>
+    <form method="POST" name="" action="#/contact-add" id=contact-form>
+        <h1><font color="red" allign="center">Personal Information Form</font></h1>
+        <a  class="nav-step" id="nav-step1">Personal Details :-1</a>|
+        <a  class="nav-step" id="nav-step2">Personal Details :-2</a>|
+        <a  class="nav-step" id="nav-step3">Company Details :-1</a>|
+        <a  class="nav-step" id="nav-step4">Company Details :-2</a>
+        <br>
+        <input type=submit value="Save" name="save" id="save" class="button"/>
+        <input type=reset value="Reset" name="reset" class="button" />
         <fieldset class="grid_17 blue box step" id="step1">
-        <h3>Personal Details :-1</h3>
-           <ul class="form tar">
-               <li>
-                   <label>Initial</label>
-                       <select name="suffix initials">
-                           <option value="i1">Mr.
-                           <option value="i2">Mrs.
-                           <option value="i3">Ms.
-                       </select>
-               </li>
-               <li>
-                   <label class="required">Enter Name :- </label>
-                       <input type="text"  name="first_name" value="first 11111111111 name" />
-                       <input type="text"  name="middle_name" value="middle 11111111111111111 name" />
-                       <input type="text" name="last_name" value="last 1111111111111111111111111111 name" />
-               </li>
-               <li>
-                       <label>Select Gender</label>
-                      <input type="radio" name="gender" value="Male"/>Male<br>
-                      <input type="radio" name="gender" value="Female"/>Female
-               </li>
-               <li>
-                   <label class="required">Birth-Date</label>
-                      <input type="text" name="birthday anniversary" value="" class="datepicker"/>
-               </li>
-               <li>
-                   <label>Language</label>
-                      <input type="text"  name="language">
-               </li>
-               <li>
-                   <label class="required">Country</label>
-                      <input type="text" name="home_country">
-               </li>
-               <li>
-                   <label class="required">State</label>
-                      <input type="text" name="home_state">
-               </li>
-               <li>
-                   <label class="required">City</label>
-                      <input type="text" name="home_city">
-               </li>
-              <label class="required">Personal Address</label>
+            <legend>I m a legend</legend>
+            <h3>Personal Details :-1</h3>
+            <ul class="form tar">
+                <li>
+                    <label>Initial</label>
+                        <select name="suffix initials">
+                            <option value="i1">Mr.
+                            <option value="i2">Mrs.
+                            <option value="i3">Ms.
+                        </select>
+                </li>
+                <li>
+                    <label class="required">Enter Name :- </label>
+                        <input type="text"  name="first_name" value=" <%=data[id-1].name%>" />
+                        <input type="text"  name="middle_name" value="" />
+                        <input type="text" name="last_name" value="" />
+                </li>
+                <li>
+                    <label>Select Gender</label>
+                        <input type="radio" name="gender" value="Male"/>Male<br>
+                        <input type="radio" name="gender" value="Female"/>Female
+                </li>
+                <li>
+                    <label class="required">Birth-Date</label>
+                        <input type="text" name="birthday" value="" class="datepicker"/>
+                </li>
+                <li>
+                    <label>Language</label>
+                        <input type="text"  name="language">
+                </li>
+                <li>
+                    <label class="required">Country</label>
+                        <input type="text" name="home_country">
+                </li>
+                <li>
+                    <label class="required">State</label>
+                        <input type="text" name="home_state">
+                </li>
+                <li>
+                    <label class="required">City</label>
+                        <input type="text" name="home_city">
+                </li>
+                
                            <li>
                             <label>Street</label>
                             <input type="text" name="home_street" />
@@ -76,6 +74,7 @@
 
 
     <fieldset class="grid_17 blue box step" id="step2">
+         <legend>I m a legend</legend>
         <h3>Personal Details :-2</h3>
         <ul class="form tar">
             <li>
@@ -103,10 +102,11 @@
 
 
     <fieldset class="grid_17 blue box step" id="step3">
+         <legend>I m a legend</legend>
         <h3>Company Details 1</h3>
         <ul class="form tar">
             <li>
-                <label class="required" name="company_job_title">Company's Name</label>
+                <label class="required" name="company_job_title" value="<%=data[id-1].title%>">Company's Name</label>
                 <input type="text">
             </li>
              <li>
@@ -127,7 +127,7 @@
                </li>
                <li>
                    <label>City</label>
-                       <input type="text" name="business_city">
+                       <input type="text" name="business_city" value="<%=data[id-1].business_city%>">
                </li>
             <li>
                    <label class="required">Office Address</label>
@@ -154,17 +154,18 @@
 
 
     <fieldset class="grid_17 blue box step" id="step4">
+         <legend>I m a legend</legend>
         <h3>Company Details 2</h3>
         <ul class="form tar">
             <li>
                 <label class="required">email-id</label>
-                <input type="text" value="hardcore@gmail.com" name="email_3_address">
+                <input type="text" value="<%=data[id-1].email%>" name="email_3_address">
                  <label>Alternate email-id</label>
                       <input type="text" value="hardcore@gmail.com">
             </li>
             <li>
                  <label class="required">Landline No.</label>
-                <input type="text" name="business_phone">
+                <input type="text" name="business_phone" value="<%=data[id-1].primary_phone%>"
                 <label>Alternate No</label>
                 <input type="text" name="business_phone_2">
              </li>
@@ -209,6 +210,7 @@
     <input type=submit value="Save" name="save" id="save" class="button"/>
        <input type=reset value="Reset" name="reset" class="button" />
         <fieldset class="grid_17 blue box step" id="step1">
+             <legend>I m a legend</legend>
         <h3>Personal Details :-1</h3>
            <ul class="form tar">
                <li>
@@ -221,9 +223,9 @@
                </li>
                <li>
                    <label class="required">Enter Name :- </label>
-                       <input type="text"  name="first_name" value="first name" />
-                       <input type="text"  name="middle_name" value="middle name" />
-                       <input type="text" name="last_name" value="last name" />
+                       <input type="text"  name="first_name" value=""/>
+                       <input type="text"  name="middle_name" value="" />
+                       <input type="text" name="last_name" value="" />
                </li>
                <li>
                        <label>Select Gender</label>
@@ -232,7 +234,7 @@
                </li>
                <li>
                    <label class="required">Birth-Date</label>
-                      <input type="text" name="birthday anniversary" value="" class="datepicker"/>
+                      <input type="text" name="birthday" value="" class="datepicker"/>
                </li>
                <li>
                    <label>Language</label>
@@ -250,7 +252,7 @@
                    <label class="required">City</label>
                       <input type="text" name="home_city">
                </li>
-              <label class="required">Personal Address</label>
+              <li class="required">Personal Address</li>
                            <li>
                             <label>Street</label>
                             <input type="text" name="home_street" />
@@ -273,6 +275,7 @@
 
 
     <fieldset class="grid_17 blue box step" id="step2">
+         <legend>I m a legend</legend>
         <h3>Personal Details :-2</h3>
         <ul class="form tar">
             <li>
@@ -300,6 +303,7 @@
 
 
     <fieldset class="grid_17 blue box step" id="step3">
+         <legend>I m a legend</legend>
         <h3>Company Details 1</h3>
         <ul class="form tar">
             <li>
@@ -351,6 +355,7 @@
 
 
     <fieldset class="grid_17 blue box step" id="step4">
+         <legend>I m a legend</legend>
         <h3>Company Details 2</h3>
         <ul class="form tar">
             <li>
