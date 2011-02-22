@@ -18,5 +18,4 @@ MainController = function(app) { with (app) {
         	context.render('views/contacts-menu.html').replace("#section-menu");
         	context.redirect("#/contacts-all");
 	});
-
 }};
