@@ -9,6 +9,61 @@
 if (typeof(Jemplate) == 'undefined')
     throw('Jemplate.js must be loaded before any Jemplate template files');
 
+Jemplate.templateMap['contact-select.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+//line 6 "contact-select.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('contacts');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['contact'] = value;
+output += '\n<option value="';
+//line 2 "contact-select.html"
+output += stash.get(['contact', 0, 'id', 0]);
+output += '" ';
+//line 2 "contact-select.html"
+if (stash.get(['contact', 0, 'id', 0]) == stash.get('match')) {
+output += ' selected ';
+}
+
+output += '>\n	';
+//line 3 "contact-select.html"
+output += stash.get(['contact', 0, 'name', 0]);
+output += '\n</option>\n\n';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
+output += '\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['index.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -31,7 +86,10 @@ Jemplate.templateMap['task-add.html'] = function(context) {
     var output = '';
 
     try {
-output += '\n<form name=task action="#/task-add" method=POST>\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" /></li>\n		<li class="required"><label>Assigned to ?</label><select><option selected>Myself</option><option>Harshal Shah</option></select></li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
+output += '\n<form name=task action="#/task-add" method=POST>\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" /></li>\n		<li class="required"><label>Assigned to ?</label>\n			<select>\n				';
+//line 9 "task-add.html"
+output += context.process('contact-select.html');
+output += '\n			</select>\n		</li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

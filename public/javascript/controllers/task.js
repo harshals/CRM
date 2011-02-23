@@ -19,7 +19,6 @@ TaskController = function(app) { with (app) {
 				
 				Jemplate.process('task-menu.html', {}, '#section-menu');
 
-				
 			});
 
 			app.before(/^#\/task-/, function(context) {
