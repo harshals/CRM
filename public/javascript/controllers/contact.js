@@ -22,19 +22,19 @@ ContactController = function(app) { with (app) {
             });
 
 	bind("contact-delete", function(ev, id) {
-				
+
 		var context = this;
-				
+
 		context.log("comin ghere");
 		$.ajax( {
-			
+
 			url : "/api/Contact/" + id,
 			dataType : "JSON",
 			contentType: "application/json",
 			type : "DELETE",
 			data : {},
 			success: function(json) {
-				
+
 				context.log(json);
 				alert("Contact " + json['data']['name'] + " has been deleted");
 
@@ -53,19 +53,19 @@ ContactController = function(app) { with (app) {
             $("#MyTable").find("span.edit").click(function(ev) {
 
                 var id = $(this).attr("id").replace("row_",'');
-            
+
                 context.trigger("contact-form", id);
             	alert(id);
-                
+
                                 });
 
 			//........................................DELETE................................
             $("#MyTable").find("span.delete").click(function() {
-				
- 				context.trigger("contact-delete", $(this).attr("id").replace("row_",''));           
+
+ 				context.trigger("contact-delete", $(this).attr("id").replace("row_",''));
             });
-			
-			
+
+
 			//........................................EXPAND................................
             $("#MyTable").find("a.expand").click(function() {
 
@@ -100,7 +100,7 @@ ContactController = function(app) { with (app) {
 
 	//-------------------------------------CONTACT SAVE BIND------------------------
     bind('contact-form',function( ev, id){
-		
+
 		var context  = this;
 		var data ;
 		if (id ){
@@ -113,28 +113,29 @@ ContactController = function(app) { with (app) {
 
        context .render("views/contact-details.html", data )
        	.then(function(html) {
-			
+
 			console.log(html);
            	$.facebox(html);
        	}).then( function(html) {
-       		
+
        		$("#contact-form" )
        			.find("input.datepicker")
-       			.datepicker( { altFormat: 'yy-mm-dd' , 
+       			.datepicker( { altFormat: 'yy-mm-dd' ,
        							dateFormat : 'dd-mm-yy'});
  //========================validation part==========================
                $.validator.setDefaults({
   	                     submitHandler: function() { alert("submitted!"); }
                           });
 
-                         $("#contact-form").validate({
+
+	$("#contact-form").validate({
 		               rules: {
                                     name: "required",
 			            title: "required",
 			            company_id: "required",
 		                    is_human: "required",
                                     user_id: "required",
-                                    primary_phone: "required",
+                                    business_phone: "required",
                                     email: "required",
                                     business_city: "required",
                                     web_page: "required"
@@ -142,31 +143,47 @@ ContactController = function(app) { with (app) {
 		              messages: {
                                     name: "Enter Name",
 			            title: "Enter Title",
-			            company_id: "Company Id",
+			            company_id: "Enter Company Id",
 		                    is_human: "Fill It",
                                     user_id: "Enter Id",
-                                    primary_phone: "Enter No.",
+                                    business_phone: "Enter No.",
                                     email: "Enter email id ",
                                     business_city: "Enter Bussiness city",
                                     web_page: "Enter web page"
-		              }
-	});
+
+		              },
+                              errorContainer: "#MSGBOX",
+                              errorLabelContainer: "#MSGBOX ul",
+                              wrapper: "li"
+                        });
+
+        		 $("#contact-form")
+                                .find("input[name=save]").hide()
+                                .find("fieldset.step").not("#step1")
+                                .hide();
+                         $("#contact-form").find("a.nav-step").click(function(ev){
+                             $("#contact-form").find("input[name=save]").hide()
+                                var stp = $(this).attr("id").replace("nav-",'');
+                                $("#contact-form")
+                                    .find("fieldset.step")
+                                    .hide();
+                                $("#contact-form")
+                                    .find("fieldset#" + stp).show();
+                                //return false;
+                         });
+                         $("#nav-step4").click(function(ev){
+                           $("#contact-form").find("input[name=save]").show();
+                         });
+                         $(".form-steps").find("input[name=save]").click(function() {
+                            $("#contact-form").find("div.box").show();
+                                //alert("submit this form");
+                                //return false;
+                         })
 
     });
 
-    
-   $("#contact-form")
-   	.find("fieldset.step").not("#step1")
-   	.hide();
-  $("#contact-form").find("a.nav-step").click(function(ev){
-  	var stp = $(this).attr("id").replace("nav-",'');
-                $("#contact-form")
-                .find("fieldset.step")
-                .hide();
-                $("#contact-form")
-                .find("fieldset#" + stp).show();
-                return false;
-      });
+
+
     });
 
 	//=====================================AFTER LOADING============================
@@ -206,17 +223,17 @@ ContactController = function(app) { with (app) {
 			alert("coming");
             console.log(form);
 			$.ajax( {
-			
+
 				url : "/api/Contact/" + form['id'],
 				dataType : "JSON",
 				contentType: "application/json",
 				type : "POST",
 				data : { "Contact" : form},
 				success: function(json) {
-					
+
 					context.log(json);
 					alert(json['message']);
-
+                                        $("#save").trigger('close.facebox');
 					context.redirect("#/contact-all");
 				}
 			});
