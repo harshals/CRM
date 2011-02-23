@@ -1,15 +1,14 @@
 
 
-
 <form method="POST" name="" action="#/contact-add" id=contact-form>
     <div id="MSGBOX" class="box negative notice">
     <ul></ul>
  </div>
         <h1><font color="red" allign="center">Personal Information Form</font></h1>
   <p class="form-steps form">
-        
-    
-        
+
+
+
         <a  class="nav-step" id="nav-step1">Personal Details :-1</a>|
         <a  class="nav-step" id="nav-step2">Personal Details :-2</a>|
         <a  class="nav-step" id="nav-step3">Company Details :-1</a>|
@@ -20,8 +19,8 @@
        <input type=reset value="Reset" name="reset" class="button" />
    </p>
         <input type=hidden value="<%= data.id %>" name="id" />
-        
-        
+
+
 
         <fieldset class="grid_17 blue box step" id="step1">
             <legend>I m a legend</legend>
@@ -66,7 +65,7 @@
                         <label>City</label>
                         <input type="text" name="home_city" value="">
                 </li>
-                
+
                 <li>
                          <label>Street</label>
                          <input type="text" name="home_street" value=""/>
@@ -125,23 +124,23 @@
         <ul class="form tar">
             <li>
                   <label class="required">Company's Name</label>
-                  <input type="text" name="name" class="required" value="<%=data.name%>">
+                  <input type="text" name="name" value="<%=data.name%>">
             </li>
              <li>
                   <label class="required">Company ID</label>
-                  <input type="text" class="required" name="company_id" value="<%=data.id%>">
+                  <input type="text" name="company_id" value="<%=data.id%>">
             </li>
             <li>
                   <label class="required">Company/Employee</label>
-                  <input type="text" class="required" name="is_human" value="<%=data.is_human%>">
+                  <input type="text" name="is_human" value="<%=data.is_human%>">
             </li>
             <li>
                   <label class="required">Your Profession</label>
-                  <input type="text" class="required" name="title" value="<%=data.title%>">
+                  <input type="text" name="title" value="<%=data.title%>">
             </li>
             <li>
                  <label class="required">User Id</label>
-                 <input type="text" class="required" name="user_id" value="<%=data.user_id%>">
+                 <input type="text" name="user_id" value="<%=data.user_id%>">
             </li>
             <li>
                  <label>Department</label>
@@ -157,7 +156,7 @@
              </li>
              <li>
                    <label class="required">City</label>
-                   <input type="text" class="required" name="business_city" value="<%=data.business_city%>">
+                   <input type="text" name="business_city" value="<%=data.business_city%>">
              </li>
              <li>
                    <label>Office Address</label>
@@ -188,7 +187,7 @@
         <ul class="form tar">
             <li>
                 <label class="required" for="webpage">Company's web page</label>
-                <input type="text" class="required" name="web_page" value="<%=data.web_page%>"/>
+                <input type="text" name="web_page" value="<%=data.web_page%>"/>
             </li>
             <li>
                  <label class="required">email-id</label>
@@ -196,7 +195,7 @@
             </li>
             <li>
                  <label class="required">Landline No.</label>
-                 <input type="text" class="required" name="business_phone" value="<%=data.primary_phone%>">
+                 <input type="text" name="business_phone" value="<%=data.primary_phone%>">
             </li>
             <li>
                 <label>Alternate No</label>
@@ -225,7 +224,3 @@
             </li>
         </ul>
     </fieldset>
-
-    
-</form>
-
