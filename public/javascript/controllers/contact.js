@@ -114,7 +114,7 @@ ContactController = function(app) {with (app) {
                 context .load("/api/Contact/" + id )
                         .then(function( json ) {
                             if (json['error']) {
-                                json = {};
+                                json = {"data":{}};
                             }
                             context .render("views/contact-details.html", json )
                                     .then(function(html) {
@@ -148,7 +148,7 @@ ContactController = function(app) {with (app) {
         app.get('#/contact-list', function(context) {
                 context.redirect("#/contact-all");
         });
-
+        
 //----------------------------------ALL CONTACT---------------------------------
         app.get('#/contact-all', function(context) {
                 context .load("/api/Contact")

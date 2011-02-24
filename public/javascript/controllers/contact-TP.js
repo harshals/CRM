@@ -53,8 +53,7 @@ ContactController = function(app) { with (app) {
                 $("#MyTable").find("a.expand").click(function() {
                     var id = $(this).attr("id").replace("row_",'');
                     $.getJSON("api/Contacts.json",function(json){
-                        console.log(json);
-                        alert("hello")
+                        alert(json);
                         context .render('views/Expand.html',{"id":id,"data":json['data']})
                                 .then(function(content){
                                     $.facebox( content );
@@ -104,9 +103,12 @@ ContactController = function(app) { with (app) {
             var data ;
             context .load("api/Single.json" )
                     .then(function( json ) {
+                            if (json['data']) {
+                                json = {"data":{}};
+                            }
                         context .render("views/contact-details.html", json )
                                 .then(function(html) {
-                                    console.log(html);
+                                    alert(html);
                                     $.facebox(html);
                                     context.trigger("navigate-form");
                                 })
