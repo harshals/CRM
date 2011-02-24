@@ -103,7 +103,7 @@ ContactController = function(app) { with (app) {
             var data ;
             context .load("api/Single.json" )
                     .then(function( json ) {
-                            if (json['data']) {
+                        if (json['data']) {
                                 json = {"data":{}};
                             }
                         context .render("views/contact-details.html", json )
@@ -166,9 +166,11 @@ ContactController = function(app) { with (app) {
 
 //--------------------------------------POST------------------------------------
         app.post("#/contact-add", function(context) {
-            var form = context.params;
+            var form = context.params.toHash();
             alert("coming");
             alert(form)
+            var data = this.json({"Contact" : form})
+            console.log(data)
             //$.put("192.168.2.4:5000/api/Contact" , form, function(onSuccess) {
                 context.redirect("#/contact-all");
                 $("#save").trigger('close.facebox');

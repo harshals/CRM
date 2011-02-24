@@ -118,7 +118,6 @@ ContactController = function(app) {with (app) {
                             }
                             context .render("views/contact-details.html", json )
                                     .then(function(html) {
-                                        console.log(html);
                                         $.facebox(html);
                                     })
                                     .then( function(html) {
@@ -178,19 +177,26 @@ ContactController = function(app) {with (app) {
                 var form = context.params.toHash();
 		alert("coming");
                 console.log(form);
-		$.ajax( {
-                    url : "/api/Contact/" + form['id'],
+                if(form['id']==""){
+                    url = "/api/Contact"
+                    method="POST"
+                }else {
+                    url = "/api/Contact/" + form['id']
+                    method="PUT"
+                }
+                $.ajax( {
+                    url : url,
                     dataType : "JSON",
                     contentType: "application/json",
-                    type : "POST",
-                    data : {"Contact" : form},
+                    type : method,
+                    data : this.json({"Contact" : form}),
                     success: function(json) {
                         context.log(json);
-			alert(json['message']);
+                        alert(json['message']);
                         $("#save").trigger('close.facebox');
-			context.redirect("#/contact-all");
+                        context.redirect("#/contact-all");
                     }
-		});
-	});
+                });
+        });
 
 }}
