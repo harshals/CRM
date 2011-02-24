@@ -14,7 +14,7 @@ ContactController = function(app) {with (app) {
                         .replace("#sidebar-content")
                         .then(function(contact_html) {
                                 $("#section-menu").find("a.contact-add").click(function() {
-                                    context.trigger("contact-form",{"id":0});
+                                    context.trigger("contact-form", "new");
                                     return false;
                                 })
                         })
@@ -113,9 +113,6 @@ ContactController = function(app) {with (app) {
                 };*/
                 context .load("/api/Contact/" + id )
                         .then(function( json ) {
-                            if (json['error']) {
-                                json = {"data":{}};
-                            }
                             context .render("views/contact-details.html", json )
                                     .then(function(html) {
                                         console.log(html);
