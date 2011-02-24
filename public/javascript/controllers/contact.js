@@ -174,12 +174,13 @@ ContactController = function(app) {with (app) {
                 var form = context.params.toHash();
 		alert("coming");
                 console.log(form);
+                var url, method;
                 if(form['id']==""){
-                    url = "/api/Contact"
-                    method="POST"
+                    url = "/api/Contact";
+                    method="PUT";
                 }else {
-                    url = "/api/Contact/" + form['id']
-                    method="PUT"
+                    url = "/api/Contact/" + form['id'];
+                    method="POST";
                 }
                 $.ajax( {
                     url : url,

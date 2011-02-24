@@ -17,11 +17,11 @@ TaskController = function(app) { with (app) {
 				
 				var context = this;
 
-				//context.load("/api/Contact", function(json) {
+				context.load("/api/Contact", function(json) {
 
-					Jemplate.process('task-add.html', { }, '#sidebar-content');
-					//Jemplate.process('task-add.html', { list : json['data'] }, '#sidebar-content');
-				//});
+					//Jemplate.process('task-add.html', { }, '#sidebar-content');
+					Jemplate.process('task-add.html', { contacts : json['data'] }, '#sidebar-content');
+				});
 
 				
 				Jemplate.process('task-menu.html', {}, '#section-menu');

@@ -1,5 +1,5 @@
 
-[% FOREACH contact IN model.contacts.all %]
+[% FOREACH contact IN contacts %]
 <option value="[% contact.id %]" [% IF contact.id == match %] selected [% END %]>
 	[% contact.name %]
 </option>

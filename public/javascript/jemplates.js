@@ -20,7 +20,7 @@ output += '\n';
 
 // FOREACH 
 (function() {
-    var list = stash.get(['model', 0, 'contacts', 0, 'all', 0]);
+    var list = stash.get('contacts');
     list = new Jemplate.Iterator(list);
     var retval = list.get_first();
     var value = retval[0];
@@ -88,6 +88,8 @@ Jemplate.templateMap['task-add.html'] = function(context) {
 
     try {
 output += '\n<form name=task action="#/task-add" method=POST>\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" /></li>\n		<li class="required"><label>Assigned to ?</label>\n			<select>\n				';
+//line 9 "task-add.html"
+output += context.process('contact-select.html', { 'contacts': [ ] });
 output += '\n			</select>\n		</li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
     }
     catch(e) {
