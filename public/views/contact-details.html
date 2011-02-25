@@ -120,13 +120,13 @@
             </li>
             <li>
                 <label>Company/Employee</label>
-                <% if ( is_human==0) { %>
+                <% if  ( data.is_human == '0') { %>
                         <select name="is_human" class="required">
                             <option value="0">Company
                             <option value="1">Employee
                         </select>
                 <%}%>
-                <% if ( is_human==1) { %>
+                <% if  ( data.is_human == '1') { %>
                         <select name="is_human" class="required">
                             <option value="1">Employee
                             <option value="0">Company

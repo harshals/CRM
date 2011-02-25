@@ -102,8 +102,8 @@ ContactController = function(app) { with (app) {
                         $("#contact-form").find("input[name=company_id]").parents("li").show();
                     }
                     if (component=='0'){
-                        $("#contact-form").find("input[name=user_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").parents("li").show();
+                        $("#contact-form").find("input[name=user_id]").parents("li").hide();
+                        $("#contact-form").find("input[name=company_id]").parents("li").hide();
                         $("#contact-form").find("input[name=user_id]").attr("class").replace("error","");
                         $("#contact-form").find("input[name=company_id]").rules("remove", "required");
                         // $("#contact-form").find("input[name=user_id]").attr(rules1);
