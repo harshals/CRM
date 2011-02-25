@@ -118,17 +118,28 @@
                   <label class="required">Company's Name</label>
                   <input type="text" name="name" class="required" value="<%=data.name%>">
             </li>
-             <li>
-                  <label class="required">Company ID</label>
-                  <input type="text" class="required" name="company_id" value="<%=data.id%>">
-            </li>
             <li>
-                  <label class="required">Company/Employee</label>
-                  <input type="text" class="required" name="is_human" value="<%=data.is_human%>">
+                <label>Company/Employee</label>
+                <% if ( is_human==0) { %>
+                        <select name="is_human" class="required">
+                            <option value="0">Company
+                            <option value="1">Employee
+                        </select>
+                <%}%>
+                <% if ( is_human==1) { %>
+                        <select name="is_human" class="required">
+                            <option value="1">Employee
+                            <option value="0">Company
+                        </select>
+                <%}%>
             </li>
             <li>
                   <label class="required">Your Profession</label>
                   <input type="text" class="required" name="title" value="<%=data.title%>">
+            </li>
+            <li>
+                  <label class="required">Company ID</label>
+                  <input type="text" class="required" name="company_id" value="<%=data.id%>">
             </li>
             <li>
                  <label class="required">User Id</label>
@@ -186,7 +197,7 @@
             </li>
             <li>
                  <label class="required">Landline No.</label>
-                 <input type="text" class="required" name="business_phone" value="<%=data.primary_phone%>">
+                 <input type="text" class="required" name="primary_phone" value="<%=data.primary_phone%>">
             </li>
             <li>
                 <label>Alternate No</label>

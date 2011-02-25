@@ -53,7 +53,7 @@ ContactController = function(app) { with (app) {
                 $("#MyTable").find("a.expand").click(function() {
                     var id = $(this).attr("id").replace("row_",'');
                     $.getJSON("api/Contacts.json",function(json){
-                        alert(json);
+                        //alert(json);
                         context .render('views/Expand.html',{"id":id,"data":json['data']})
                                 .then(function(content){
                                     $.facebox( content );
@@ -84,6 +84,9 @@ ContactController = function(app) { with (app) {
                 $("#contact-form")
                     .find("fieldset.step").not("#step1")
                     .hide();
+                $("#contact-form").find("input[name=is_human]")
+                    $("#contact-form").find("input[name=user_id]").parents("li").hide();
+                    $("#contact-form").find("input[name=company_id]").parents("li").hide();
                 $("#contact-form").find("a.nav-step").click(function(ev){
                     var stp = $(this).attr("id").replace("nav-",'');
                     $("#contact-form")
@@ -92,6 +95,21 @@ ContactController = function(app) { with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
+                $("#contact-form").find("select[name=is_human]").change(function(ev){
+                    var component=$(this).val();
+                    if (component=='1'){
+                        $("#contact-form").find("input[name=user_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").parents("li").show();
+                    }
+                    if (component=='0'){
+                        $("#contact-form").find("input[name=user_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").parents("li").show();
+                        $("#contact-form").find("input[name=user_id]").attr("class").replace("error","");
+                        $("#contact-form").find("input[name=company_id]").rules("remove", "required");
+                        // $("#contact-form").find("input[name=user_id]").attr(rules1);
+                        //$("#contact-form").find("input[name=company_id]").attr(rules2);
+                    }
+                }).change();
                 /*$(".form-steps").find("input[name=save]").click(function() {
                     $("#contact-form").find("div.box").show();
                 })*/
@@ -103,35 +121,33 @@ ContactController = function(app) { with (app) {
             var data ;
             context .load("api/Single.json" )
                     .then(function( json ) {
-                        if (json['data']) {
+                        if (json['error']) {
                                 json = {"data":{}};
                             }
                         context .render("views/contact-details.html", json )
                                 .then(function(html) {
-                                    alert(html);
                                     $.facebox(html);
-                                    context.trigger("navigate-form");
+                                    
                                 })
                                 .then( function(html) {
                                     $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
                                     $("#contact-form").validate({
                                         messages: {
                                                     name: "Enter Name",
-                                                    title: "Enter Title",
+                                                    title: "Enter Profession Title",
                                                     company_id: "Enter Company Id",
                                                     is_human: "Fill It",
-                                                    user_id: "Enter Id",
-                                                    business_phone: "Enter No.",
+                                                    user_id: "Enter User Id",
+                                                    primary_phone: "Enter No.",
                                                     email: "Enter email id ",
                                                     business_city: "Enter Bussiness city",
                                                     web_page: "Enter web page"
-
                                                 },
                                         errorContainer: "#MSGBOX",
                                         errorLabelContainer: "#MSGBOX ul",
                                         wrapper: "li"
                                     });
-                                    
+                                    context.trigger("navigate-form");
                 });
             });
         });
@@ -158,7 +174,7 @@ ContactController = function(app) { with (app) {
 
 //--------------------------------------PERSON CONTACT--------------------------
         app.get('#/contact-person', function(context) {
-            context .load("http://192.168.2.4:5000/api/Contact")
+            context .load("http://192.168.2.4:5000/api/Contact/custom/person")
                     .then(function(json) {
                         context.trigger("contact-populate", json['data']);
                     });
