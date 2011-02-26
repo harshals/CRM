@@ -1,4 +1,4 @@
-ContactController = function(app) { with (app) {
+ContactController = function(app) {with (app) {
 
         app.use("Template" , 'html');
         app.use("JSON");
@@ -81,10 +81,16 @@ ContactController = function(app) { with (app) {
 
 //------------------------------------NAVIGATE FORM-----------------------------
         bind("navigate-form", function(ev, data){
+             
                 $("#contact-form")
                     .find("fieldset.step").not("#step1")
                     .hide();
                 $("#contact-form").find("input[name=is_human]")
+                
+                if ("input.[name=is_human]"){
+                    
+                  
+                };
                     $("#contact-form").find("input[name=user_id]").parents("li").hide();
                     $("#contact-form").find("input[name=company_id]").parents("li").hide();
                 $("#contact-form").find("a.nav-step").click(function(ev){

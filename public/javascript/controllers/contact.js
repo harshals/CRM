@@ -133,19 +133,25 @@ ContactController = function(app) {with (app) {
                 };*/
                 context .load("/api/Contact/" + id )
                         .then(function( json ) {
-<<<<<<< HEAD
+
                             if (json['error']) {
                                 json = {"data":{}};
                             }
                             context .render("views/contact-details.html", [json,{cache:false}])
-=======
+
                             context .render("views/contact-details.html", json )
->>>>>>> e7c05439522bc47925e5b8ca2ce1757708bfd428
+                                    alert("inside")
                                     .then(function(html) {
                                         $.facebox(html);
                                     })
                                     .then( function(html) {
-                                        $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                                         
+                                       if (this.is_human=='0'){
+                                            this.user_id="0";
+                                           
+                                        };
+                                       $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                                        
                                         $("#contact-form").validate({
                                             messages: {
                                                     name: "Enter Name",
@@ -199,13 +205,11 @@ ContactController = function(app) {with (app) {
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
-<<<<<<< HEAD
-                //console.log(form);
-=======
+
 		alert("coming");
                 console.log(form);
                 var url, method;
->>>>>>> e7c05439522bc47925e5b8ca2ce1757708bfd428
+
                 if(form['id']==""){
                     url = "/api/Contact";
                     method="PUT";
