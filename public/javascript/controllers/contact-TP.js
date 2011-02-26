@@ -1,4 +1,4 @@
-ContactController = function(app) {with (app) {
+ContactController = function(app) { with (app) {
 
         app.use("Template" , 'html');
         app.use("JSON");
@@ -81,16 +81,10 @@ ContactController = function(app) {with (app) {
 
 //------------------------------------NAVIGATE FORM-----------------------------
         bind("navigate-form", function(ev, data){
-             
                 $("#contact-form")
                     .find("fieldset.step").not("#step1")
                     .hide();
                 $("#contact-form").find("input[name=is_human]")
-                
-                if ("input.[name=is_human]"){
-                    
-                  
-                };
                     $("#contact-form").find("input[name=user_id]").parents("li").hide();
                     $("#contact-form").find("input[name=company_id]").parents("li").hide();
                 $("#contact-form").find("a.nav-step").click(function(ev){
@@ -104,16 +98,20 @@ ContactController = function(app) {with (app) {
                 $("#contact-form").find("select[name=is_human]").change(function(ev){
                     var component=$(this).val();
                     if (component=='1'){
+                        var us_id=data['data'].user_id;
+                        var cs_id=data['data'].company_id;
                         $("#contact-form").find("input[name=user_id]").parents("li").show();
                         $("#contact-form").find("input[name=company_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").attr("value",cs_id);
+                        $("#contact-form").find("input[name=user_id]").attr("value",us_id);
+
                     }
                     if (component=='0'){
-                        $("#contact-form").find("input[name=user_id]").parents("li").hide();
-                        $("#contact-form").find("input[name=company_id]").parents("li").hide();
-                        $("#contact-form").find("input[name=user_id]").attr("class").replace("error","");
-                        $("#contact-form").find("input[name=company_id]").rules("remove", "required");
-                        // $("#contact-form").find("input[name=user_id]").attr(rules1);
-                        //$("#contact-form").find("input[name=company_id]").attr(rules2);
+                        $("#contact-form").find("input[name=user_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").attr("value","000");
+                        $("#contact-form").find("input[name=user_id]").attr("value","000");
+
                     }
                 }).change();
                 /*$(".form-steps").find("input[name=save]").click(function() {
@@ -133,7 +131,6 @@ ContactController = function(app) {with (app) {
                         context .render("views/contact-details.html", json )
                                 .then(function(html) {
                                     $.facebox(html);
-                                    
                                 })
                                 .then( function(html) {
                                     $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
@@ -153,7 +150,7 @@ ContactController = function(app) {with (app) {
                                         errorLabelContainer: "#MSGBOX ul",
                                         wrapper: "li"
                                     });
-                                    context.trigger("navigate-form");
+                                    context.trigger("navigate-form",json);
                 });
             });
         });

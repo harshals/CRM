@@ -24,7 +24,6 @@ ContactController = function(app) {with (app) {
 //----------------------------------CONTACT DELETE BIND-------------------------
         bind("contact-delete", function(ev, id) {
                 var context = this;
-		context.log("comin ghere");
 		$.ajax( {
                     url : "/api/Contact/" + id,
                     dataType : "JSON",
@@ -38,6 +37,7 @@ ContactController = function(app) {with (app) {
                     }
 		});
 	});
+        
 //-----------------------------------PROCESS BIND-------------------------------
         bind('Process',function(){
                 var context=this
@@ -104,16 +104,20 @@ ContactController = function(app) {with (app) {
                 $("#contact-form").find("select[name=is_human]").change(function(ev){
                     var component=$(this).val();
                     if (component=='1'){
+                        var us_id=data['data'].user_id;
+                        var cs_id=data['data'].company_id;
                         $("#contact-form").find("input[name=user_id]").parents("li").show();
                         $("#contact-form").find("input[name=company_id]").parents("li").show();
+                        $("#contact-form").find("input[name=company_id]").attr("value",cs_id);
+                        $("#contact-form").find("input[name=user_id]").attr("value",us_id);
+
                     }
                     if (component=='0'){
                         $("#contact-form").find("input[name=user_id]").parents("li").show();
                         $("#contact-form").find("input[name=company_id]").parents("li").show();
-                        $("#contact-form").find("input[name=user_id]").attr("class").replace("error","");
-                        $("#contact-form").find("input[name=company_id]").rules("remove", "required");
-                        // $("#contact-form").find("input[name=user_id]").attr(rules1);
-                        //$("#contact-form").find("input[name=company_id]").attr(rules2);
+                        $("#contact-form").find("input[name=company_id]").attr("value","000");
+                        $("#contact-form").find("input[name=user_id]").attr("value","000");
+
                     }
                 }).change();
                 /*$(".form-steps").find("input[name=save]").click(function() {
@@ -133,25 +137,16 @@ ContactController = function(app) {with (app) {
                 };*/
                 context .load("/api/Contact/" + id )
                         .then(function( json ) {
-
                             if (json['error']) {
                                 json = {"data":{}};
                             }
                             context .render("views/contact-details.html", [json,{cache:false}])
-
                             context .render("views/contact-details.html", json )
-                                    alert("inside")
                                     .then(function(html) {
                                         $.facebox(html);
                                     })
                                     .then( function(html) {
-                                         
-                                       if (this.is_human=='0'){
-                                            this.user_id="0";
-                                           
-                                        };
-                                       $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                                        
+                                        $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
                                         $("#contact-form").validate({
                                             messages: {
                                                     name: "Enter Name",
@@ -168,7 +163,7 @@ ContactController = function(app) {with (app) {
                                             errorLabelContainer: "#MSGBOX ul",
                                             wrapper: "li"
                                         });
-                                        context.trigger("navigate-form");
+                                        context.trigger("navigate-form",json);
                                     });
                         });
         });
@@ -205,11 +200,10 @@ ContactController = function(app) {with (app) {
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
-
+                //console.log(form);
 		alert("coming");
                 console.log(form);
                 var url, method;
-
                 if(form['id']==""){
                     url = "/api/Contact";
                     method="PUT";

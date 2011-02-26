@@ -14,14 +14,13 @@
         <input type="submit" value="Save" name="save" id="save" class="button " />
        <input type=reset value="Reset" name="reset" class="button" />
    </p>
-   <% if  ( data.id == '') { %>
-            <input type=hidden value="new" name="id" />
-   <%}%>
-   <% if  ( data.id != '') { %>
+   
+   <!--<% if  ( data.id != '') { %>
             <input type=hidden value="<%= data.id %>" name="id" />
    <%}%>
-        <input type=hidden value="<%= data.id %>" name="id" />
-
+   <% if  ( data.id == '') { %>
+            <input type=hidden value="new" name="id" />
+   <%}%>-->
         <fieldset class="grid_17 blue box step" id="step1">
             <legend>I m a legend</legend>
             <h3>Personal Details :-1</h3>
@@ -126,16 +125,16 @@
             </li>
             <li>
                 <label>Company/Employee</label>
-                <% if  ( data.is_human == '0') { %>
+                <% if  ( data.is_human != '1') { %>
                         <select name="is_human" class="required">
-                            <option value="0">Company
-                            <option value="1">Employee
+                            <option value="0">Company</option>
+                            <option value="1">Employee</option>
                         </select>
                 <%}%>
                 <% if  ( data.is_human == '1') { %>
                         <select name="is_human" class="required">
-                            <option value="1">Employee
-                            <option value="0">Company
+                            <option value="1">Employee</option>
+                            <option value="0">Company</option>
                         </select>
                 <%}%>
             </li>
