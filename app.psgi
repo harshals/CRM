@@ -22,8 +22,9 @@ set plugins => {
 setting("serializer", "JSON");
 
 set apphandler => 'PSGI';
-set logger => 'console';
+set logger => 'file';
 
+set access_log => 0;
 set 'show_errors' => 1;
 
 set 'log' => 'debug';
@@ -46,7 +47,8 @@ builder {
 		enable 'Session', store => 'File';
 		enable 'Debug' ,
 			panels => [qw/Memory Response Timer Environment Dancer::Settings Dancer::Logger Parameters Dancer::Version Session DBIC::QueryLog/];
-    	enable "ConsoleLogger";
+		enable "SimpleLogger";
+		# enable ConsoleLogger;
 		enable "Plack::Middleware::Static",
           	   path => qr{^/?(images|javascript|css|views)/}, root => './public/';
  		enable "Plack::Middleware::ServerStatus::Lite",
