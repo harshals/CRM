@@ -1,6 +1,11 @@
 
 MainController = function(app) { with (app) {
 
+	app.profile = {
+		
+		id : 1,
+		name : 'Harshal Shah'
+	};
 
 	app.get('#/home', function(context) {
 

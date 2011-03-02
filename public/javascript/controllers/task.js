@@ -1,6 +1,7 @@
 TaskController = function(app) { with (app) {
 			
 			app.use("JSON");
+			app.use(utils);
 		
 			/*
 			Sammy.RenderContext.prototype.renderTT = function() { 
@@ -17,13 +18,18 @@ TaskController = function(app) { with (app) {
 				
 				var context = this;
 
-				context.load("/api/Contact", function(json) {
+				context.load("/api/Contact/custom/person")
+				.then(function(json) {
+					
+					this.wait();
 
-					//Jemplate.process('task-add.html', { }, '#sidebar-content');
-					Jemplate.process('task-add.html', { contacts : json['data'] }, '#sidebar-content');
+					context.jemplate('task-add.html', { id: 'new', contacts : json['data'] }, '#sidebar-content', this);
+
+				}).then( function(json) {
+				
+					$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
 				});
 
-				
 				Jemplate.process('task-menu.html', {}, '#section-menu');
 
 			});
@@ -39,7 +45,6 @@ TaskController = function(app) { with (app) {
 				context.trigger("task-init");
 				
 				$("#sidebar-content").hide();
-				$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
 				$("#section-menu").find("a.task-add").click(function() {
 
 					$("#sidebar-content").toggle();
@@ -80,7 +85,11 @@ TaskController = function(app) { with (app) {
 					
 					var id = $(this).attr("name").replace("task_", '');
 					
-					context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
+					context.save("Task", { "id": id, "task_status" : "Success"}, function() {
+						
+						$(".list :checked").parents("li").hide();
+
+					});
 					
 				});
 
@@ -118,13 +127,21 @@ TaskController = function(app) { with (app) {
 			app.post("#/task-add", function(context) {
 				
 				var form = context.params;
-				alert("coming");
-				$.put("192.168.2.4:5000/api/Task" , form, function(onSuccess) {
-
-					context.redirect("#/task-pending");
-				});
-
 				
+				
+
+				var callback = function(json) {
+					
+					if (json.data.id && json.data.id != 'new') {
+						
+						alert("Saved New object");
+					}
+				};
+
+				context.save("Task", form, callback);
+
+				context.redirect("#/task-pending");
+
 			});
 
 	}};

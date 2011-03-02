@@ -4,10 +4,12 @@
 				<li class="task-[% item.task_status %]">
 					<span class="status " ></span>
 					<a href="#">[% item.name %]</a>
+					[% UNLESS item.task_status == 'Success' %]
 					<span class="action" > 
 						<a href="#" >edit</a>
 						<input type=checkbox name="task_[% item.id %]" />
 					</span>
+					[% END %]
 				</li>
 		[% END %]
    </ul>

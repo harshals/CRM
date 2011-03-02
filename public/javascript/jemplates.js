@@ -87,9 +87,15 @@ Jemplate.templateMap['task-add.html'] = function(context) {
     var output = '';
 
     try {
-output += '\n<form name=task action="#/task-add" method=POST>\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" /></li>\n		<li class="required"><label>Assigned to ?</label>\n			<select>\n				';
-//line 9 "task-add.html"
-output += context.process('contact-select.html', { 'contacts': [ ] });
+output += '\n<form name=task action="#/task-add" method=POST>\n<input type=hidden name=id value="';
+//line 3 "task-add.html"
+output += stash.get('id');
+output += '">\n<input type=hidden name=assigned_by value="';
+//line 4 "task-add.html"
+output += stash.get(['profile', 0, 'id', 0]);
+output += '">\n<input type=hidden name=task_status value="Incomplete">\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" name="name" /></li>\n		<li class="required"><label>Assigned to ?</label>\n			<select name=assigned_to>\n				';
+//line 12 "task-add.html"
+output += context.process('contact-select.html');
 output += '\n			</select>\n		</li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
     }
     catch(e) {
@@ -107,7 +113,7 @@ Jemplate.templateMap['task-list.html'] = function(context) {
 
     try {
 output += '<div class="grid_17 list" >\n   <ul>\n		';
-//line 12 "task-list.html"
+//line 14 "task-list.html"
 
 // FOREACH 
 (function() {
@@ -128,10 +134,16 @@ output += stash.get(['item', 0, 'task_status', 0]);
 output += '">\n					<span class="status " ></span>\n					<a href="#">';
 //line 6 "task-list.html"
 output += stash.get(['item', 0, 'name', 0]);
-output += '</a>\n					<span class="action" > \n						<a href="#" >edit</a>\n						<input type=checkbox name="task_';
-//line 9 "task-list.html"
+output += '</a>\n					';
+//line 12 "task-list.html"
+if (!(stash.get(['item', 0, 'task_status', 0]) == 'Success')) {
+output += '\n					<span class="action" > \n						<a href="#" >edit</a>\n						<input type=checkbox name="task_';
+//line 10 "task-list.html"
 output += stash.get(['item', 0, 'id', 0]);
-output += '" />\n					</span>\n				</li>\n		';;
+output += '" />\n					</span>\n					';
+}
+
+output += '\n				</li>\n		';;
             retval = list.get_next();
             value = retval[0];
             done = retval[1];

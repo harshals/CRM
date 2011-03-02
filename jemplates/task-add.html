@@ -1,11 +1,14 @@
 
 <form name=task action="#/task-add" method=POST>
+<input type=hidden name=id value="[% id %]">
+<input type=hidden name=assigned_by value="[% profile.id %]">
+<input type=hidden name=task_status value="Incomplete">
 <h2 class="">Add a Task </h2>
 <fieldset class=" yellow box">
 	<ul class="form vvv thin">
-		<li class="required"><label>To do ?</label><input type="text" /></li>
+		<li class="required"><label>To do ?</label><input type="text" name="name" /></li>
 		<li class="required"><label>Assigned to ?</label>
-			<select>
+			<select name=assigned_to>
 				[% PROCESS "contact-select.html" %]
 			</select>
 		</li>
