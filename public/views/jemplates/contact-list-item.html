@@ -1,0 +1,17 @@
+[% FOREACH id IN data %]
+<tr>
+		<td class="blue">[%data.id%]</td>
+                
+		<td class="blue">[%data.name%]</td>
+
+		<td class="blue">[%data.business_city%]</td>
+
+                <td class="blue">[%data.web_page%]</td>
+
+		<td class="yellow action">
+                    <span class="edit" id="row_[%data.id%]"></span>
+			<span class="delete" id="row_[%data.id%]"></span>
+			<br><a id="row_[%data.id%]" class="expand"><u>Expand</u></a>
+		</td>
+</tr>
+[% END %]

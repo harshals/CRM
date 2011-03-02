@@ -84,9 +84,6 @@ ContactController = function(app) { with (app) {
                 $("#contact-form")
                     .find("fieldset.step").not("#step1")
                     .hide();
-                $("#contact-form").find("input[name=is_human]")
-                    $("#contact-form").find("input[name=user_id]").parents("li").hide();
-                    $("#contact-form").find("input[name=company_id]").parents("li").hide();
                 $("#contact-form").find("a.nav-step").click(function(ev){
                     var stp = $(this).attr("id").replace("nav-",'');
                     $("#contact-form")
@@ -95,25 +92,6 @@ ContactController = function(app) { with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
-                $("#contact-form").find("select[name=is_human]").change(function(ev){
-                    var component=$(this).val();
-                    if (component=='1'){
-                        var us_id=data['data'].user_id;
-                        var cs_id=data['data'].company_id;
-                        $("#contact-form").find("input[name=user_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").attr("value",cs_id);
-                        $("#contact-form").find("input[name=user_id]").attr("value",us_id);
-
-                    }
-                    if (component=='0'){
-                        $("#contact-form").find("input[name=user_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").attr("value","000");
-                        $("#contact-form").find("input[name=user_id]").attr("value","000");
-
-                    }
-                }).change();
                 /*$(".form-steps").find("input[name=save]").click(function() {
                     $("#contact-form").find("div.box").show();
                 })*/
@@ -138,9 +116,7 @@ ContactController = function(app) { with (app) {
                                         messages: {
                                                     name: "Enter Name",
                                                     title: "Enter Profession Title",
-                                                    company_id: "Enter Company Id",
                                                     is_human: "Fill It",
-                                                    user_id: "Enter User Id",
                                                     primary_phone: "Enter No.",
                                                     email: "Enter email id ",
                                                     business_city: "Enter Bussiness city",
@@ -177,10 +153,16 @@ ContactController = function(app) { with (app) {
 
 //--------------------------------------PERSON CONTACT--------------------------
         app.get('#/contact-person', function(context) {
-            context .load("http://192.168.2.4:5000/api/Contact/custom/person")
-                    .then(function(json) {
-                        context.trigger("contact-populate", json['data']);
-                    });
+            context .load("api/Single.json" )
+                    .then(function( json ) {
+                        context .render("PDF.html",json ).replace("#main-content")
+                                .then(function(html) {
+                                    $("#DATA").hide();
+                                    $('#CLICK').click(function(e){
+                                        eval($('#DATA').val());
+                                    });
+                                })
+                    })
         });
 
 //--------------------------------------POST------------------------------------
@@ -189,11 +171,15 @@ ContactController = function(app) { with (app) {
             alert("coming");
             alert(form)
             var data = this.json({"Contact" : form})
-            console.log(data)
             //$.put("192.168.2.4:5000/api/Contact" , form, function(onSuccess) {
                 context.redirect("#/contact-all");
                 $("#save").trigger('close.facebox');
+
             //});
+
+//---------------------------------------PDF CONTENT----------------------------
+            
         });
+
 
 }}
