@@ -9,6 +9,122 @@
 if (typeof(Jemplate) == 'undefined')
     throw('Jemplate.js must be loaded before any Jemplate template files');
 
+Jemplate.templateMap['Pager.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div id="pager" class="pager box blue ">\n	<form>\n		<span class="icon first"/>\n		<span class="icon prev" />\n		<input type="text" class="pagedisplay grid_2"/>\n		<span class="icon last"/>\n		<span class="icon next"/>\n		<select class="pagesize">\n			<option selected="selected"  value="10">10</option>\n			<option value="20">20</option>\n			<option value="30">30</option>\n			<option  value="40">40</option>\n		</select>\n	</form>\n</div>\n<ul id=EDIT>\n</ul>\n\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['contact-list-item.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n		<td class="blue">';
+//line 2 "contact-list-item.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '</td>\n                \n		<td class="blue">';
+//line 4 "contact-list-item.html"
+output += stash.get(['item', 0, 'name', 0]);
+output += '</td>\n\n		<td class="blue">';
+//line 6 "contact-list-item.html"
+output += stash.get(['item', 0, 'business_city', 0]);
+output += '</td>\n\n                <td class="blue">';
+//line 8 "contact-list-item.html"
+output += stash.get(['item', 0, 'web_page', 0]);
+output += '</td>\n\n		<td class="yellow action">\n                    <span class="edit" id="row_';
+//line 11 "contact-list-item.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '"></span>\n			<span class="delete" id="row_';
+//line 12 "contact-list-item.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '"></span>\n			<br><a id="row_';
+//line 13 "contact-list-item.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '" class="expand"><u>Expand</u></a>\n		</td>\n</tr>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['contact-list.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<table class="basetable tablesorter" id="MyTable"  >\n    <thead>\n        <tr>\n            <th> ID </th>\n\n            <th> Name </th>\n\n            <th> Business City </th>\n\n            <th> Web Page </th>\n\n	</tr>\n    </thead>\n    <tbody >\n			\n		';
+//line 20 "contact-list.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('list');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['item'] = value;
+output += '\n			\n			';
+//line 18 "contact-list.html"
+output += context.process('contact-list-item.html');
+output += '\n\n		';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
+output += '\n    </tbody>\n</table>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['contact-menu.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '\n\n        <p>Actions</p>\n\n        <ul>\n          <li><a id="create" href="#/contact-all">All Contacts</a></li>\n\n          <li><a id="create" href="#/contact-company">Company</a></li>\n\n          <li><a id="create" href="#/contact-person">Person</a></li>\n\n          <li><a id="create" href="#" class="contact-add">Add New Contacts</a></li>\n\n        </ul>\n\n\n\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['contact-select.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -96,7 +212,7 @@ output += stash.get(['profile', 0, 'id', 0]);
 output += '">\n<input type=hidden name=task_status value="Incomplete">\n<h2 class="">Add a Task </h2>\n<fieldset class=" yellow box">\n	<ul class="form vvv thin">\n		<li class="required"><label>To do ?</label><input type="text" name="name" /></li>\n		<li class="required"><label>Assigned to ?</label>\n			<select name=assigned_to>\n				';
 //line 12 "task-add.html"
 output += context.process('contact-select.html');
-output += '\n			</select>\n		</li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
+output += '\n			</select>\n		</li>\n		<li><label>Due in ?</label><input type="text" name="due_date" value="" class="datepicker"/></li>\n		\n		<li><input class="button" type="submit" value="Do it"/> <input class="button" type="reset" value="reset" name="reset"/></li>\n	</ul>\n</fieldset>\n</form>\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

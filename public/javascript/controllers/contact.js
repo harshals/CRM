@@ -8,34 +8,38 @@ ContactController = function(app) {with (app) {
                 $("#main-content").html('');
                 $("#sidebar-content").html('');
                 $("#content-extra").html('');
-                context .render('views/contact-menu.html')
-                        .replace("#section-menu")
-                context .render('views/Pager.html')
-                        .replace("#sidebar-content")
-                        .then(function(contact_html) {
+
+				context.jemplate('contact-menu.html', {}, '#section-menu');
+
+				context.jemplate('Pager.html', {}, '#sidebar-content');
+
+                //context .render('views/contact-menu.html')
+                //        .replace("#section-menu")
+                //context .render('views/Pager.html')
+                //        .replace("#sidebar-content")
+                //        .then(function(contact_html) {
                                 $("#section-menu").find("a.contact-add").click(function() {
                                     context.trigger("contact-form", "new");
                                     return false;
-                                })
-                        })
+                                });
+                  //      })
         });
 //====================================BIND FUNCTION=============================
 
 //----------------------------------CONTACT DELETE BIND-------------------------
         bind("contact-delete", function(ev, id) {
+
                 var context = this;
-		$.ajax( {
-                    url : "/api/Contact/" + id,
-                    dataType : "json",
-                    contentType: "application/json",
-                    type : "DELETE",
-                    data : {},
-                    success: function(json) {
-        		context.log(json);
+				
+				var callback = function(json) {
+        				
+        				context.log(json);
                         //alert("Contact " + json['data']['name'] + " has been deleted");
                         $("#row_" + json['data']['id']).parents("tr:first").hide();
                     }
-		});
+
+                context.remove("Contact", id, callback) ;
+
 	});
         
 //-----------------------------------PROCESS BIND-------------------------------
@@ -72,17 +76,14 @@ ContactController = function(app) {with (app) {
 //--------------------------------CONTACE POPULATE BIND-------------------------
         bind("contact-populate", function(ev, data) {
                 var context = this;
-                context .render('views/contact-list.html',{cache:false})
-			.replace("#main-content")
-			.then(function(html) {
-                            context .render("views/contact-list-item.html",[{"data":data},{cache:false}])
-                                    .appendTo("#ADD")
-                                    .then(function(){
-                                        context.trigger("Process");
-                                        $("#MyTable").tablesorter()
-                                                     .tablesorterPager({container : $("#pager") , positionFixed: false})
-                                    })
-                        });
+
+                context .jemplate('contact-list.html', {}, "#main-content");
+				
+                //.then(function(){
+                 //   context.trigger("Process");
+                   // $("#MyTable").tablesorter()
+                   // .tablesorterPager({container : $("#pager") , positionFixed: false})
+                   // })
         });
 
 //-----------------------------------NAVIGATE FORM------------------------------
@@ -152,7 +153,7 @@ ContactController = function(app) {with (app) {
         });
         
 //----------------------------------ALL CONTACT---------------------------------
-        app.get('#/contact-all', function(context) {
+        app.get('#/contact-all2', function(context) {
                 context .load("/api/Contact")
                         .then(function(json) {
                             context.trigger("contact-populate", [json['data'],{cache:false}]);
@@ -160,7 +161,7 @@ ContactController = function(app) {with (app) {
         });
 
 //------------------------------------COMPANY CONTACT---------------------------
-        app.get('#/contact-company', function(context) {
+        app.get('#/contact-company2', function(context) {
                 context .load("api/Contact/custom/company")
 			.then(function(json) {
                             context.trigger("contact-populate",[ json['data'],{cache:false}]);
@@ -168,16 +169,37 @@ ContactController = function(app) {with (app) {
         });
 
 //------------------------------------PERSON CONTACT----------------------------
-        app.get('#/contact-person', function(context) {
-                context .load("api/Contact/custom/person")
+        app.get(/#\/contact-(person|all|company)/, function(context, match) {
+			
+			var url = "/api/Contact";
+
+			if (match == 'company' || match == 'person') {
+				
+				url += "/custom/" + match;
+			}
+
+                context .load( url )
                         .then(function(json){
-                            context.trigger("contact-populate", [json['data'],{cache:false}]);
-                        });
+                            //context.trigger("contact-populate", json['data']);
+                            
+                            this.wait();
+                            context .jemplate('contact-list.html', { list : json['data'] }, "#main-content", this);
+				
+                        })
+                        .then(function(){
+
+                            context.trigger("Process");
+                             $("#MyTable").tablesorter()
+                             .tablesorterPager({container : $("#pager") , positionFixed: false})
+                       });
         });
 
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
+
+			context.save("Contact", form, callback);
+
                 //console.log(form);
 		alert("coming");
                 console.log(form);

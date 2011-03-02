@@ -1,6 +1,7 @@
 
 MainController = function(app) { with (app) {
 
+	app.use(utils);
 	app.profile = {
 		
 		id : 1,

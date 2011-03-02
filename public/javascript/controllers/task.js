@@ -1,7 +1,6 @@
 TaskController = function(app) { with (app) {
 			
 			app.use("JSON");
-			app.use(utils);
 		
 			/*
 			Sammy.RenderContext.prototype.renderTT = function() { 
@@ -26,14 +25,23 @@ TaskController = function(app) { with (app) {
 					this.wait();
 					//data['contacts'] = json['data'];
 
-					context.jemplate('task-add.html', { id : "new", contacts : json['data'] }, '#sidebar-content', this);
+					context.jemplate('task-menu.html', {}, '#section-menu', this);
 
 				}).then( function(json) {
 				
+					this.wait();
+					context.jemplate('task-add.html', { id : "new", contacts : json['data'] }, '#sidebar-content', this);
+				
+				}).then( function(json) {
+				
 					$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
+					$("#section-menu").find("a.task-add").click(function() {
+
+						$("#sidebar-content").toggle();
+						return false;
+					});
 				});
 
-				Jemplate.process('task-menu.html', {}, '#section-menu');
 
 			});
 
@@ -48,11 +56,7 @@ TaskController = function(app) { with (app) {
 				context.trigger("task-init");
 				
 				$("#sidebar-content").hide();
-				$("#section-menu").find("a.task-add").click(function() {
-
-					$("#sidebar-content").toggle();
-					return false;
-				});
+				
 	
 					
 			});
@@ -69,7 +73,8 @@ TaskController = function(app) { with (app) {
 					
 					context.load("/api/Task/" + id , {cache : false})
 					.then(function(json) {
-							
+						
+						json['data']['reset'] = "reset";
 						$("#sidebar-content").find("form").deserialize(json['data']);
 					});
 				});

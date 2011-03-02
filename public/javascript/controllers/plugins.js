@@ -12,7 +12,11 @@ var utils = function(app) {
 	  		$.extend(data, { profile : app.profile });
 
 			Jemplate.process(path, data, target);
-			rcontext.next();
+
+			if (typeof(rcontext) != 'undefined') {
+
+				rcontext.next();
+			}
 		},
 
 		save: function( table, json, callback) {
@@ -51,12 +55,7 @@ var utils = function(app) {
 					dataType : "json",
 					contentType: "application/json",
 					type : method,
-					success: function(json) {
-
-						alert("deleting private ryan");
-
-						callback.call();
-					}(context)
+					success: callback
 			});
 
 		}
