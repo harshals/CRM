@@ -26,7 +26,7 @@ ContactController = function(app) {with (app) {
                 var context = this;
 		$.ajax( {
                     url : "/api/Contact/" + id,
-                    dataType : "JSON",
+                    dataType : "json",
                     contentType: "application/json",
                     type : "DELETE",
                     data : {},
@@ -90,9 +90,6 @@ ContactController = function(app) {with (app) {
                 $("#contact-form")
                     .find("fieldset.step").not("#step1")
                     .hide();
-                $("#contact-form").find("input[name=is_human]")
-                    $("#contact-form").find("input[name=user_id]").parents("li").hide();
-                    $("#contact-form").find("input[name=company_id]").parents("li").hide();
                 $("#contact-form").find("a.nav-step").click(function(ev){
                     var stp = $(this).attr("id").replace("nav-",'');
                     $("#contact-form")
@@ -101,25 +98,6 @@ ContactController = function(app) {with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
-                $("#contact-form").find("select[name=is_human]").change(function(ev){
-                    var component=$(this).val();
-                    if (component=='1'){
-                        var us_id=data['data'].user_id;
-                        var cs_id=data['data'].company_id;
-                        $("#contact-form").find("input[name=user_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").attr("value",cs_id);
-                        $("#contact-form").find("input[name=user_id]").attr("value",us_id);
-
-                    }
-                    if (component=='0'){
-                        $("#contact-form").find("input[name=user_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").parents("li").show();
-                        $("#contact-form").find("input[name=company_id]").attr("value","000");
-                        $("#contact-form").find("input[name=user_id]").attr("value","000");
-
-                    }
-                }).change();
                 /*$(".form-steps").find("input[name=save]").click(function() {
                     $("#contact-form").find("div.box").show();
                 })*/

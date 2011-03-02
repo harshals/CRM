@@ -6,10 +6,10 @@
         "company_id" : "5",
         "_id" : "900BC8FA-39D0-11E0-8BC5-3209358F05B5",
         "name" : "CSI_Industries",
-        "email" : null,
+        "email" :"a@a.a",
         "business_city" : "Mumbai",
         "user_id" : "7",
-        "title" : " ",
+        "title" : "S/W Developer",
         "log" : null,
         "id" : 1
     }
