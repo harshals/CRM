@@ -17,13 +17,16 @@ TaskController = function(app) { with (app) {
 			bind("task-init", function(ev, data) {
 				
 				var context = this;
+				
+				//$.extend(data, {});
 
-				context.load("/api/Contact/custom/person")
+				context.load("/api/Contact/custom/person" )
 				.then(function(json) {
 					
 					this.wait();
+					//data['contacts'] = json['data'];
 
-					context.jemplate('task-add.html', { id: 'new', contacts : json['data'] }, '#sidebar-content', this);
+					context.jemplate('task-add.html', { id : "new", contacts : json['data'] }, '#sidebar-content', this);
 
 				}).then( function(json) {
 				
@@ -54,33 +57,23 @@ TaskController = function(app) { with (app) {
 					
 			});
 
-			bind("task-complete", function(ev, data) {
-				
-				var context = this;
-			
-				$.ajax( {
-					
-					url : "/api/Task/" + data["id"],
-					dataType : "JSON",
-					contentType: "application/json",
-					type : "POST",
-					data : this.json({ 'Task' : data }),
-					success: function(json) {
-
-						alert("Task marked completed");
-
-						$(".list :checked").parents("li").hide();
-						//context.log("
-					}(context)
-				});
-			});
-
 			bind("task-populate", function(ev, data) {
 				
 				var context = this;
 
 				Jemplate.process('task-list.html', { list: data }, '#main-content');
 				
+				$(".list .edit").click(function(ev) {
+					
+					var id = $(this).attr("id").replace("task_", '');
+					
+					context.load("/api/Task/" + id , {cache : false})
+					.then(function(json) {
+							
+						$("#sidebar-content").find("form").deserialize(json['data']);
+					});
+				});
+
 				$(".list :checkbox").click(function(ev) {
 					
 					var id = $(this).attr("name").replace("task_", '');

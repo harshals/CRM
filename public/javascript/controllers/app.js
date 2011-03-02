@@ -9,7 +9,7 @@ MainController = function(app) { with (app) {
 
 	app.get('#/home', function(context) {
 
-       	   context.render('views2/index.html').replace("#main-content");
+       	   context.render('views/index.html').replace("#main-content");
 	});
 
 	app.get('#/task', function(context) {

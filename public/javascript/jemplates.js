@@ -134,16 +134,19 @@ output += stash.get(['item', 0, 'task_status', 0]);
 output += '">\n					<span class="status " ></span>\n					<a href="#">';
 //line 6 "task-list.html"
 output += stash.get(['item', 0, 'name', 0]);
-output += '</a>\n					';
-//line 12 "task-list.html"
+output += '</a>\n					<span class="action" > \n						<a class="edit" id="task_';
+//line 8 "task-list.html"
+output += stash.get(['item', 0, 'id', 0]);
+output += '" >edit</a>\n					';
+//line 11 "task-list.html"
 if (!(stash.get(['item', 0, 'task_status', 0]) == 'Success')) {
-output += '\n					<span class="action" > \n						<a href="#" >edit</a>\n						<input type=checkbox name="task_';
+output += '\n						<input type=checkbox name="task_';
 //line 10 "task-list.html"
 output += stash.get(['item', 0, 'id', 0]);
-output += '" />\n					</span>\n					';
+output += '" />\n					';
 }
 
-output += '\n				</li>\n		';;
+output += '\n					</span>\n				</li>\n		';;
             retval = list.get_next();
             value = retval[0];
             done = retval[1];
