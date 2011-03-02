@@ -1,0 +1,11 @@
+
+<li class="task-<%= task_status %>">
+	<span class="status " ></span>
+	<a href="#"><%= description %></a>
+	<% if (task_status != 'Success') { %>
+	<span class="action" > 
+		<a href="#" >edit</a>
+		<input type=checkbox name="task_<%= id%>" />
+	</span>
+	<% } %>
+</li>
