@@ -102,7 +102,8 @@ Jemplate.templateMap['company-id.html'] = function(context) {
     var output = '';
 
     try {
-//line 5 "company-id.html"
+output += 'var i=0';
+//line 6 "company-id.html"
 
 // FOREACH 
 (function() {
@@ -119,17 +120,17 @@ Jemplate.templateMap['company-id.html'] = function(context) {
             stash.data['contact'] = value;
 output += '\n<option value="';
 //line 2 "company-id.html"
-output += stash.get(['contact', 0, 'company_id', 0]);
-output += '", ';
+output += stash.get('contact');
+output += '" ';
 //line 2 "company-id.html"
-if (stash.get(['contact', 0, 'company_id', 0]) == stash.get('match')) {
+if (stash.get(['contact', 0, 'i', 0, 'company_id', 0]) == stash.get('match')) {
 output += ' selected ';
 }
 
 output += '>\n	';
 //line 3 "company-id.html"
-output += stash.get(['contact', 0, 'company_id', 0]);
-output += '\n</option>\n';;
+output += stash.get('contact');
+output += '\n</option>\ni=i+1;\n';;
             retval = list.get_next();
             value = retval[0];
             done = retval[1];
@@ -234,50 +235,50 @@ output += stash.get(['data', 0, 'title', 0]);
 output += '">\n            </li>\n            <li>\n                  <label name="company_id">Company ID</label>\n                        <select name="company_id">\n				';
 //line 144 "contact-details.html"
 output += context.process('company-id.html');
-output += '\n	                </select>\n            </li>\n           \n            <li>\n                 <label>Department</label>\n                 <input type="text" name="department" value=';
-//line 150 "contact-details.html"
+output += '\n	                </select>\n            </li>\n            <li>\n                 <label>Department</label>\n                 <input type="text" name="department" value="';
+//line 149 "contact-details.html"
 output += stash.get(['data', 0, 'department', 0]);
 output += '"/>\n            </li>\n            <li>\n                   <label>Country</label>\n                   <input type="text" name="business_country" value="';
-//line 154 "contact-details.html"
+//line 153 "contact-details.html"
 output += stash.get(['data', 0, 'bussiness_country', 0]);
 output += '"/>\n            </li>\n             <li>\n                   <label>State</label>\n                   <input type="text" name="business_state" value="';
-//line 158 "contact-details.html"
+//line 157 "contact-details.html"
 output += stash.get(['data', 0, 'bussiness_state', 0]);
 output += '"/>\n             </li>\n             <li>\n                   <label class="required">City</label>\n                   <input type="text" class="required" name="business_city" value="';
-//line 162 "contact-details.html"
+//line 161 "contact-details.html"
 output += stash.get(['data', 0, 'business_city', 0]);
 output += '" />\n             </li>\n             <li>\n                   <label>Office Address</label>\n             </li>\n             <li>\n                   <label>Street 1</label>\n                   <input type="text" name="business_street" value="';
-//line 169 "contact-details.html"
+//line 168 "contact-details.html"
 output += stash.get(['data', 0, 'business_street', 0]);
 output += '"/>\n             </li>\n             <li>\n                   <label>Street 2</label>\n                   <input type="text" name="business_street_2" value="';
-//line 173 "contact-details.html"
+//line 172 "contact-details.html"
 output += stash.get(['data', 0, 'business_street_2', 0]);
 output += '"/>\n             </li>\n             <li>\n                   <label>Street 3</label>\n                   <input type="text" name="business_street_3" value="';
-//line 177 "contact-details.html"
+//line 176 "contact-details.html"
 output += stash.get(['data', 0, 'business_street_3', 0]);
 output += '"/>\n             </li>\n             <li>\n                   <label>Postal Code</label>\n                   <input type="text" name="business_postal_code" value="';
-//line 181 "contact-details.html"
+//line 180 "contact-details.html"
 output += stash.get(['data', 0, 'business_postal_code', 0]);
 output += '"/>\n             </li>\n        </ul>\n    </fieldset>\n\n    <fieldset class="grid_17 blue box step" id="step4">\n        <legend>I m a legend</legend>\n        <h3>Company Details 2</h3>\n        <ul class="form tar">\n            <li>\n                <label class="required" for="webpage">Company\'s web page</label>\n                <input type="text" class="required" name="web_page" value="';
-//line 192 "contact-details.html"
+//line 191 "contact-details.html"
 output += stash.get(['data', 0, 'web_page', 0]);
 output += '"/>\n            </li>\n            <li>\n                 <label class="required">email-id</label>\n                 <input id="email" name="email" value="';
-//line 196 "contact-details.html"
+//line 195 "contact-details.html"
 output += stash.get(['data', 0, 'email', 0]);
 output += '" class="required email" />\n            </li>\n            <li>\n                 <label class="required">Landline No.</label>\n                 <input type="text" class="required" name="primary_phone" value="';
-//line 200 "contact-details.html"
+//line 199 "contact-details.html"
 output += stash.get(['data', 0, 'primary_phone', 0]);
 output += '">\n            </li>\n            <li>\n                <label>Alternate No</label>\n                <input type="text" name="business_phone_2" value="';
-//line 204 "contact-details.html"
+//line 203 "contact-details.html"
 output += stash.get(['data', 0, 'business_phone_2', 0]);
 output += '"/>\n             </li>\n            <li>\n                <label >Fax No.</label>\n                <input type="text" name="business_fax" value="';
-//line 208 "contact-details.html"
+//line 207 "contact-details.html"
 output += stash.get(['data', 0, 'business_fax', 0]);
 output += '"/>\n            </li>\n             <li>\n                   <label>Referred By</label>\n                   <select name="refferred" value="';
-//line 212 "contact-details.html"
+//line 211 "contact-details.html"
 output += stash.get('reff');
 output += '">\n                           <option value="email">email\n                           <option value="client">By Client\n                           <option value="other">Others\n                   </select>\n            </li>\n            <li>\n                <label >Billing Payment</label>\n                <select name="bill_pay" value="';
-//line 220 "contact-details.html"
+//line 219 "contact-details.html"
 output += stash.get('billpay');
 output += '" name=""billing_information>\n                    <option >mode Of Pay\n                    <option value="cash">Cash\n                    <option value="cheque">Cheque\n                   <option value="dd">D.D.\n                </select>\n            </li>\n        </ul>\n    </fieldset>\n</form>';
     }

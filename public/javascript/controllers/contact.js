@@ -90,13 +90,20 @@ ContactController = function(app) {with (app) {
 //----------------------------------CONTACT FORM BIND---------------------------
         bind('contact-form',function( ev, id){
                 var context  = this;
-                var data ;
-                context .load("/api/Contact/" + id )
+                var data;
+                context .load('api/Contact')
+                .then(function(companies){
+                    context.log(companies['data'])
+                    context .load('api/Contact'+id)
                         .then(function( json ) {
                             if (json['error']) {
                                 json = {"data":{}};
                             }
-                            context .jemplate('contact-detail.html', {list:json},{cache:false}, this)
+                            json['contacts'] = companies['data'];
+                            context.log(json);
+                            context .jemplate('contact-details.html', json,null,this)
+                            data=json;
+                        })
                                     .then(function(html) {
                                         $.facebox(html);
                                     })
@@ -116,7 +123,7 @@ ContactController = function(app) {with (app) {
                                             errorLabelContainer: "#MSGBOX ul",
                                             wrapper: "li"
                                         });
-                                        context.trigger("navigate-form",json);
+                                        context.trigger("navigate-form",data);
                                     });
                         });
         });

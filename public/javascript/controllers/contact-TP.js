@@ -53,16 +53,12 @@ ContactController = function(app) {with (app) {
                     context .load('api/Single.json')
                         .then(function(json){
                             context .jemplate('Expand.html', json['data'],null,this)
-                                    
                             })
-                            
                             .then(function(content){
                                         $.facebox( content );
                                     })
                         })
                 });
-
-
 //-----------------------------------NAVIGATE FORM------------------------------
         bind("navigate-form", function(ev, data){
                 $("#contact-form")
@@ -77,39 +73,48 @@ ContactController = function(app) {with (app) {
                         .find("fieldset#" + stp).show();
                 });
         });
-
 //----------------------------------CONTACT FORM BIND---------------------------
         bind('contact-form',function( ev, id){
                 var context  = this;
-                var data ;
-                context .load('api/Single.json')
+                //var data1 ;
+                var js;
+                context .load('api/Contacts.json')
+                .then(function(companies){
+                    context.log(companies['data'])
+                    context .load('api/Single.json')
                         .then(function( json ) {
+                            var data1;
                             if (json['error']) {
                                 json = {"data":{}};
                             }
-                            context .jemplate('contact-detail.html', {list:json},{cache:false},this)
-                                    .then(function(html) {
-                                        $.facebox(html);
-                                    })
-                                    .then( function(html) {
-                                        $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                                        $("#contact-form").validate({
-                                            messages: {
-                                                    name: "Enter Name",
-                                                    title: "Enter Profession Title",
-                                                    is_human: "Fill It",
-                                                    primary_phone: "Enter No.",
-                                                    email: "Enter email id ",
-                                                    business_city: "Enter Bussiness city",
-                                                    web_page: "Enter web page"
-                                            },
-                                            errorContainer: "#MSGBOX",
-                                            errorLabelContainer: "#MSGBOX ul",
-                                            wrapper: "li"
-                                        });
-                                        context.trigger("navigate-form",json);
-                                    });
+                            //data1['contact'] = json['data'];
+                            json['contacts'] = companies['data'];
+                            context.log(json);
+                            context .jemplate('contact-details.html', json,null,this)
+                            js=json;
+                        })
+                        .then(function(html) {
+                            $.facebox(html);
+                        })
+                        .then( function(html) {
+                            $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                            $("#contact-form").validate({
+                                messages: {
+                                    name: "Enter Name",
+                                    title: "Enter Profession Title",
+                                    is_human: "Fill It",
+                                    primary_phone: "Enter No.",
+                                    email: "Enter email id ",
+                                    business_city: "Enter Bussiness city",
+                                    web_page: "Enter web page"
+                                },
+                                errorContainer: "#MSGBOX",
+                                errorLabelContainer: "#MSGBOX ul",
+                                wrapper: "li"
+                            });
+                            context.trigger("navigate-form",js);
                         });
+                })
         });
 
 //==================================AFTER LOADING===============================

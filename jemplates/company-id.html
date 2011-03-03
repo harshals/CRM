@@ -1,5 +1,6 @@
-[% FOREACH contact IN contacts %]
-<option value="[% contact.company_id %]", [% IF contact.company_id == match %] selected [% END %]>
-	[% contact.company_id %]
+var i=0[% FOREACH contact IN contacts %]
+<option value="[%contact%]" [% IF contact.i.company_id == match %] selected [% END %]>
+	[%contact%]
 </option>
+i=i+1;
 [% END %]
