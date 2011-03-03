@@ -11,11 +11,19 @@ var utils = function(app) {
 	  		
 	  		$.extend(data, { profile : app.profile });
 
-			Jemplate.process(path, data, target);
+                        var html = '';
+
+                        if (target){
+
+                            html = Jemplate.process(path, data, target);
+                        }else {
+
+                            html = Jemplate.process(path,data);
+                        }
 
 			if (typeof(rcontext) != 'undefined') {
 
-				rcontext.next();
+				rcontext.next(html);
 			}
 		},
 
