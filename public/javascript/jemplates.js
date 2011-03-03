@@ -461,28 +461,6 @@ output += 'Hello world';
     return output;
 }
 
-Jemplate.templateMap['login-form.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<form action="" method="POST" class="" id="LoginForm">\n     <fieldset class="grid_15 yellow box  ">\n         <div id="MSGBOX" class="box negative notice">\n               <ul>\n               </ul>\n         </div>\n	 <ul class="form tar">\n	   <li>\n                <label class="required">User Id</label>\n                <input type="text" class="required" value="';
-//line 10 "login-form.html"
-output += stash.get(['data', 0, 'user_id', 0]);
-output += '" name="userid" id="userid" />\n           </li>\n           <li>\n                <label class="required">Password</label>\n                <input type="password" class="required" value="';
-//line 14 "login-form.html"
-output += stash.get(['data', 0, 'password', 0]);
-output += '"  name="password" id="password" />\n           </li>\n        </ul>\n        <p class="form-steps form right">\n               <input type="submit" value="Sign in" id="sign_in" class="button " />\n               <input type=reset value="Reset" name="reset" class="button" />\n        </p>\n    </fieldset>\n</form>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['task-add.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;

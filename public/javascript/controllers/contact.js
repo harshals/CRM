@@ -4,18 +4,31 @@ ContactController = function(app) {with (app) {
         app.use("JSON");
 //===================================BEFORE LOADING=============================
         app.before(/^#\/contact-/, function(context) {
+                
                 context.log("inside contact");
+                
                 $("#main-content").html('');
+                
                 $("#sidebar-content").html('');
+                
                 $("#content-extra").html('');
+                
                 context .jemplate('Pager.html', {}, '#sidebar-content');
-		context .jemplate('contact-menu.html', {}, '#section-menu', this)
-                        .then(function(contact_html) {
-                            $("#section-menu").find("a.contact-add").click(function() {
-                                context.trigger("contact-form", "new");
-                                return false;
-                            });
-                        })
+				
+				context.load("null.html")
+
+                .then(function(html) {
+					
+					this.wait();
+					context .jemplate('contact-menu.html', {}, '#section-menu', this)
+                
+                }).then(function(contact_html) {
+                
+                	$("#section-menu").find("a.contact-add").click(function() {
+                    	context.trigger("contact-form", "new");
+                        return false;
+                    });
+               })
         });
 //====================================BIND FUNCTION=============================
 
@@ -42,16 +55,21 @@ ContactController = function(app) {with (app) {
 
 //......................................EXPAND..................................
                 $("#MyTable").find("a.expand").click(function() {
+
                     var id = $(this).attr("id").replace("row_",'');
-                    context .load("/api/Contact/"+id)
-                        .then(function(json){
-                            context .jemplate('Expand.html', {list:json},{cache:false}, this)
-                                    .then(function(content){
-                                        $.facebox( content );
-                                    })
-                            })
-                        })
-                });
+                
+                	context .load("/api/Contact/"+id)
+                    
+                    .then(function(json){
+                    
+                    	context .jemplate('Expand.html', json['data'], null, this)
+                    })
+                    
+                    .then(function(content){
+         	            $.facebox( content );
+                    })
+               })
+        });
 
 
 //-----------------------------------NAVIGATE FORM------------------------------
@@ -110,20 +128,36 @@ ContactController = function(app) {with (app) {
         
 //------------------------------------LOADING CONTACTS--------------------------
         app.get(/#\/contact-(person|all|company)/, function(context, match) {
-                var url = "/api/Contact";
-                if (match == 'company' || match == 'person') {
-                    url += "/custom/" + match;
-		}
-                context .load( url )
-                        .then(function(json){
-                            this.wait();
-                            context .jemplate('contact-list.html', { list : json['data'] }, "#main-content", this);
-                        })
-                        .then(function(){
-                            context.trigger("Process");
-                             $("#MyTable").tablesorter()
-                                          .tablesorterPager({container : $("#pager") , positionFixed: false})
-                       });
+            
+            var url = "/api/Contact";
+            
+            var map  = {
+				
+				"person" : "person",
+				"company" : "company",
+				"all" : ""
+            };
+              
+          	context.load("null.html")
+		  	.then(function(html) {
+				
+				this.wait();
+                context .jemplate('contact-list.html', { 
+                	
+                	list : context.look_for("Contact", map[match])
+                
+                }, "#main-content", this);
+
+			}).then(function(html) {
+
+                context.trigger("Process");
+
+                $("#MyTable").tablesorter()
+                
+                .tablesorterPager({container : $("#pager") , positionFixed: false})
+
+			});
+               
         });
 
 //----------------------------------------POST----------------------------------
