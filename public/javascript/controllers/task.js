@@ -2,35 +2,23 @@ TaskController = function(app) { with (app) {
 			
 			app.use("JSON");
 		
-			/*
-			Sammy.RenderContext.prototype.renderTT = function() { 
-  				var args = $.makeArray(arguments); 
-  				// iterate over args making sure to return `this`; 
-
-				Jemplate.process(args[0], args[1]);
-				return this;
-			}; 
-			
-			*/
-
 			bind("task-init", function(ev, data) {
 				
 				var context = this;
 				
 				//$.extend(data, {});
 
-				context.load("/api/Contact/custom/person" )
-				.then(function(json) {
+				context.load("/null.html" )
+				.then(function(html) {
 					
 					this.wait();
-					//data['contacts'] = json['data'];
 
 					context.jemplate('task-menu.html', {}, '#section-menu', this);
 
 				}).then( function(json) {
 				
 					this.wait();
-					context.jemplate('task-add.html', { id : "new", contacts : json['data'] }, '#sidebar-content', this);
+					context.jemplate('task-add.html', { id : "new", contacts : context.look_for("Contact","person") }, '#sidebar-content', this);
 				
 				}).then( function(json) {
 				
@@ -56,8 +44,6 @@ TaskController = function(app) { with (app) {
 				context.trigger("task-init");
 				
 				$("#sidebar-content").hide();
-				
-	
 					
 			});
 
@@ -71,12 +57,8 @@ TaskController = function(app) { with (app) {
 					
 					var id = $(this).attr("id").replace("task_", '');
 					
-					context.load("/api/Task/" + id , {cache : false})
-					.then(function(json) {
-						
-						json['data']['reset'] = "reset";
-						$("#sidebar-content").find("form").deserialize(json['data']);
-					});
+					$("#sidebar-content").find("form").deserialize(context.fetch("Task", id));
+					$("#sidebar-content").show();
 				});
 
 				$(".list :checkbox").click(function(ev) {
@@ -97,36 +79,22 @@ TaskController = function(app) { with (app) {
 				
 				context.redirect("#/task-pending");
 			});
-			app.get('#/task-pending', function(context) {
+			app.get(/#\/task-(all|pending|completed|overdue)/, function(context, match) {
 				
-				context.load("/api/Task/custom/incomplete_tasks", {cache: false} )
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
+				var map = {
+					
+					pending : "incomplete_tasks",
+					completed : "completed_tasks",
+					overdue : "overdue_tasks",
+					all	: ""
+				};
+					
+				context.trigger("task-populate", context.look_for("Task", map[match]));
 			});
-			app.get('#/task-completed', function(context) {
-						
-				context.load("/api/Task/custom/completed_tasks", {cache:false})
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
-			});
-			app.get('#/task-all', function(context) {
-						
-				context.load("/api/Task")
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
-			});
-
+			
 			app.post("#/task-add", function(context) {
 				
 				var form = context.params;
-				
-				
 
 				var callback = function(json) {
 					

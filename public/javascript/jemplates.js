@@ -255,7 +255,7 @@ output += '</a>\n					<span class="action" > \n						<a class="edit" id="task_';
 output += stash.get(['item', 0, 'id', 0]);
 output += '" >edit</a>\n					';
 //line 11 "task-list.html"
-if (!(stash.get(['item', 0, 'task_status', 0]) == 'Success')) {
+if (!(stash.get(['item', 0, 'task_status', 0]) == 'Completed')) {
 output += '\n						<input type=checkbox name="task_';
 //line 10 "task-list.html"
 output += stash.get(['item', 0, 'id', 0]);
