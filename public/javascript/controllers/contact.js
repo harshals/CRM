@@ -8,8 +8,13 @@ ContactController = function(app) {with (app) {
                 $("#main-content").html('');
                 $("#sidebar-content").html('');
                 $("#content-extra").html('');
-                context .jemplate('Pager.html', {}, '#sidebar-content');
-		context .jemplate('contact-menu.html', {}, '#section-menu', this)
+                context.render("null.html")
+                .then(function(html){
+
+                    this.wait();
+                    context .jemplate('Pager.html', {}, '#sidebar-content');
+                    context .jemplate('contact-menu.html', {}, '#section-menu',this)
+                })
                         .then(function(contact_html) {
                             $("#section-menu").find("a.contact-add").click(function() {
                                 context.trigger("contact-form", "new");
@@ -45,15 +50,13 @@ ContactController = function(app) {with (app) {
                     var id = $(this).attr("id").replace("row_",'');
                     context .load("/api/Contact/"+id)
                         .then(function(json){
-                            context .jemplate('Expand.html', {list:json},{cache:false}, this)
-                                    .then(function(content){
+                            context .jemplate('Expand.html', json['data'],null,this)
+                            })
+                            .then(function(content){
                                         $.facebox( content );
                                     })
-                            })
                         })
                 });
-
-
 //-----------------------------------NAVIGATE FORM------------------------------
         bind("navigate-form", function(ev, data){
                 $("#contact-form")
@@ -67,18 +70,24 @@ ContactController = function(app) {with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
-        });
-        
+        });        
 //----------------------------------CONTACT FORM BIND---------------------------
         bind('contact-form',function( ev, id){
                 var context  = this;
-                var data ;
-                context .load("/api/Contact/" + id )
+                var data;
+                context .load('api/Contact')
+                .then(function(companies){
+                    context.log(companies['data'])
+                    context .load('api/Contact'+id)
                         .then(function( json ) {
                             if (json['error']) {
                                 json = {"data":{}};
                             }
-                            context .jemplate('contact-detail.html', {list:json},{cache:false}, this)
+                            json['contacts'] = companies['data'];
+                            context.log(json);
+                            context .jemplate('contact-details.html', json,null,this)
+                            data=json;
+                        })
                                     .then(function(html) {
                                         $.facebox(html);
                                     })
@@ -98,7 +107,7 @@ ContactController = function(app) {with (app) {
                                             errorLabelContainer: "#MSGBOX ul",
                                             wrapper: "li"
                                         });
-                                        context.trigger("navigate-form",json);
+                                        context.trigger("navigate-form",data);
                                     });
                         });
         });
