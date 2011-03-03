@@ -8,40 +8,17 @@ ContactController = function(app) {with (app) {
                 $("#main-content").html('');
                 $("#sidebar-content").html('');
                 $("#content-extra").html('');
-
-				context.jemplate('contact-menu.html', {}, '#section-menu');
-
-				context.jemplate('Pager.html', {}, '#sidebar-content');
-
-                //context .render('views/contact-menu.html')
-                //        .replace("#section-menu")
-                //context .render('views/Pager.html')
-                //        .replace("#sidebar-content")
-                //        .then(function(contact_html) {
-                                $("#section-menu").find("a.contact-add").click(function() {
-                                    context.trigger("contact-form", "new");
-                                    return false;
-                                });
-                  //      })
+                context .jemplate('Pager.html', {}, '#sidebar-content');
+		context .jemplate('contact-menu.html', {}, '#section-menu', this)
+                        .then(function(contact_html) {
+                            $("#section-menu").find("a.contact-add").click(function() {
+                                context.trigger("contact-form", "new");
+                                return false;
+                            });
+                        })
         });
 //====================================BIND FUNCTION=============================
 
-//----------------------------------CONTACT DELETE BIND-------------------------
-        bind("contact-delete", function(ev, id) {
-
-                var context = this;
-				
-				var callback = function(json) {
-        				
-        				context.log(json);
-                        //alert("Contact " + json['data']['name'] + " has been deleted");
-                        $("#row_" + json['data']['id']).parents("tr:first").hide();
-                    }
-
-                context.remove("Contact", id, callback) ;
-
-	});
-        
 //-----------------------------------PROCESS BIND-------------------------------
         bind('Process',function(){
                 var context=this
@@ -49,42 +26,33 @@ ContactController = function(app) {with (app) {
 //......................................EDIT....................................
                 $("#MyTable").find("span.edit").click(function(ev) {
                     var id = $(this).attr("id").replace("row_",'');
-                    //alert(id);
                     context.trigger("contact-form", id);
                 });
 
 //.....................................DELETE...................................
                 $("#MyTable").find("span.delete").click(function() {
-                    context.trigger("contact-delete", $(this).attr("id").replace("row_",''));
-                    //alert(id);
+                    var id= $(this).attr("id").replace("row_",'');
+                    var context = this;
+                    var callback = function(json) {
+                        context.log(json);
+                        $("#row_" + json['data']['id']).parents("tr:first").hide();
+                    }
+                    context.remove("Contact", id, callback) ;
                 });
 
 //......................................EXPAND..................................
                 $("#MyTable").find("a.expand").click(function() {
                     var id = $(this).attr("id").replace("row_",'');
-                    //alert(id);
-                    $.getJSON("api/Contacts.json",function(json){
-                        //console.log(json);
-                        context .render('views/Expand.html',[{"id":id,"data":json['data']},{cache:false}])
-                                .then(function(content){
-                                    $.facebox( content );
-                                })
+                    context .load("/api/Contact/"+id)
+                        .then(function(json){
+                            context .jemplate('Expand.html', {list:json},{cache:false}, this)
+                                    .then(function(content){
+                                        $.facebox( content );
+                                    })
+                            })
                         })
                 });
-        });
 
-//--------------------------------CONTACE POPULATE BIND-------------------------
-        bind("contact-populate", function(ev, data) {
-                var context = this;
-
-                context .jemplate('contact-list.html', {}, "#main-content");
-				
-                //.then(function(){
-                 //   context.trigger("Process");
-                   // $("#MyTable").tablesorter()
-                   // .tablesorterPager({container : $("#pager") , positionFixed: false})
-                   // })
-        });
 
 //-----------------------------------NAVIGATE FORM------------------------------
         bind("navigate-form", function(ev, data){
@@ -99,28 +67,18 @@ ContactController = function(app) {with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
-                /*$(".form-steps").find("input[name=save]").click(function() {
-                    $("#contact-form").find("div.box").show();
-                })*/
         });
         
 //----------------------------------CONTACT FORM BIND---------------------------
         bind('contact-form',function( ev, id){
                 var context  = this;
                 var data ;
-                /*if (id ){
-                    console.log(id);
-                    $.getJSON("/api/Contact/" + id, function(json){
-                        data = json;
-                    })
-                };*/
                 context .load("/api/Contact/" + id )
                         .then(function( json ) {
                             if (json['error']) {
                                 json = {"data":{}};
                             }
-                            context .render("views/contact-details.html", [json,{cache:false}])
-                            context .render("views/contact-details.html", json )
+                            context .jemplate('contact-detail.html', {list:json},{cache:false}, this)
                                     .then(function(html) {
                                         $.facebox(html);
                                     })
@@ -130,9 +88,7 @@ ContactController = function(app) {with (app) {
                                             messages: {
                                                     name: "Enter Name",
                                                     title: "Enter Profession Title",
-                                                    company_id: "Enter Company Id",
                                                     is_human: "Fill It",
-                                                    user_id: "Enter User Id",
                                                     primary_phone: "Enter No.",
                                                     email: "Enter email id ",
                                                     business_city: "Enter Bussiness city",
@@ -152,77 +108,35 @@ ContactController = function(app) {with (app) {
                 context.redirect("#/contact-all");
         });
         
-//----------------------------------ALL CONTACT---------------------------------
-        app.get('#/contact-all2', function(context) {
-                context .load("/api/Contact")
-                        .then(function(json) {
-                            context.trigger("contact-populate", [json['data'],{cache:false}]);
-                        });
-        });
-
-//------------------------------------COMPANY CONTACT---------------------------
-        app.get('#/contact-company2', function(context) {
-                context .load("api/Contact/custom/company")
-			.then(function(json) {
-                            context.trigger("contact-populate",[ json['data'],{cache:false}]);
-                        });
-        });
-
-//------------------------------------PERSON CONTACT----------------------------
+//------------------------------------LOADING CONTACTS--------------------------
         app.get(/#\/contact-(person|all|company)/, function(context, match) {
-			
-			var url = "/api/Contact";
-
-			if (match == 'company' || match == 'person') {
-				
-				url += "/custom/" + match;
-			}
-
+                var url = "/api/Contact";
+                if (match == 'company' || match == 'person') {
+                    url += "/custom/" + match;
+		}
                 context .load( url )
                         .then(function(json){
-                            //context.trigger("contact-populate", json['data']);
-                            
                             this.wait();
                             context .jemplate('contact-list.html', { list : json['data'] }, "#main-content", this);
-				
                         })
                         .then(function(){
-
                             context.trigger("Process");
                              $("#MyTable").tablesorter()
-                             .tablesorterPager({container : $("#pager") , positionFixed: false})
+                                          .tablesorterPager({container : $("#pager") , positionFixed: false})
                        });
         });
 
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
-
-			context.save("Contact", form, callback);
-
-                //console.log(form);
 		alert("coming");
                 console.log(form);
-                var url, method;
-                if(form['id']==""){
-                    url = "/api/Contact";
-                    method="PUT";
-                }else {
-                    url = "/api/Contact/" + form['id'];
-                    method="POST";
+                var callback= function(json) {
+                    context.log(json);
+                    $("#save").trigger('close.facebox');
+                    context.redirect("#/contact-all");
                 }
-                $.ajax( {
-                    url : url,
-                    dataType : "JSON",
-                    contentType: "application/json",
-                    type : method,
-                    data : this.json({"Contact" : form}),
-                    success: function(json) {
-                        context.log(json);
-                        $("#save").trigger('close.facebox');
-                        context.redirect("#/contact-all");
-                    }
-                });
+                context.save("Contact", form, callback);
         });
 
 }}

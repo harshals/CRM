@@ -11,9 +11,8 @@
         <a  class="nav-step" id="nav-step4">Company Details :-2</a>
    </p>
    <p class="form-steps form right">
-        <input type="submit" value="[%Save%]" name="save" id="save" class="button " />
-       <input type=reset value="[%Reset%]" name="reset" class="button" />
-       <input type=button value="[%pdf%]" id="pdf" class="button" />
+        <input type="submit" value="Save" name="save" id="save" class="button " />
+       <input type=reset value="Reset" name="reset" class="button" />
        <span id="link"></span>
    </p>
    
@@ -25,9 +24,9 @@
                 <li>
                         <label>Initial</label>
                         <select name="suffix initials">
-                            <option value="[%mr%]">Mr.
-                            <option value="[%mrs%]">Mrs.
-                            <option value="[%ms%]">Ms.
+                            <option value="mr">Mr.
+                            <option value="mrs">Mrs.
+                            <option value="ms">Ms.
                         </select>
                 </li>
                 <li>
@@ -38,8 +37,8 @@
                 </li>
                 <li class="vii">
                         <label>Select Gender</label>
-                        <input type="radio" name="gender" value="[%Male%]"/><label>Male</label>
-                        <input type="radio" name="gender" value="[%Female%]"/><label>Female</label>
+                        <input type="radio" name="gender" value="Male"/><label>Male</label>
+                        <input type="radio" name="gender" value="Female"/><label>Female</label>
                 </li>
                 <li>
                         <label>Birth-Date</label>
@@ -124,14 +123,14 @@
                 <label>Company/Employee</label>
                 [% IF data.is_human == '0' %]
                         <select name="is_human" class="required">
-                            <option value="[%0%]">Company
-                            <option value="[%1%]">Employee
+                            <option value="0">Company
+                            <option value="1">Employee
                         </select>
                 [%END%]
                 [% IF data.is_human == '1' %]
                         <select name="is_human" class="required">
-                            <option value="[%1%]">Employee
-                            <option value="[%0%]">Company
+                            <option value="1">Employee
+                            <option value="0">Company
                         </select>
                 [%END%]
             </li>
@@ -140,8 +139,10 @@
                   <input type="text" class="required" name="title" value="[%data.title%]">
             </li>
             <li>
-                  <label>Company ID</label>
-                  <input type="text" name="company_id" value="[%data.company_id%]">
+                  <label name="company_id">Company ID</label>
+                        <select name="company_id">
+				[% PROCESS "company-id.html" %]
+	                </select>
             </li>
            
             <li>
@@ -209,18 +210,18 @@
              <li>
                    <label>Referred By</label>
                    <select name="refferred" value="[%reff%]">
-                           <option value="[%email%]">email
-                           <option value="[%client%]">By Client
-                           <option value="[%other%]">Others
+                           <option value="email">email
+                           <option value="client">By Client
+                           <option value="other">Others
                    </select>
             </li>
             <li>
                 <label >Billing Payment</label>
                 <select name="bill_pay" value="[%billpay%]" name=""billing_information>
                     <option >mode Of Pay
-                    <option value="[%cash%]">Cash
-                    <option value="[%cheque%]">Cheque
-                   <option value="[%dd%]">D.D.
+                    <option value="cash">Cash
+                    <option value="cheque">Cheque
+                   <option value="dd">D.D.
                 </select>
             </li>
         </ul>
