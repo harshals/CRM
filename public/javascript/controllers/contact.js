@@ -91,26 +91,29 @@ ContactController = function(app) {with (app) {
         bind('contact-form',function( ev, id){
                 var context  = this;
                 var data;
-                context .load('api/Contact')
-                .then(function(companies){
-                    context.log(companies['data'])
-                    context .load('api/Contact'+id)
-                        .then(function( json ) {
-                            if (json['error']) {
-                                json = {"data":{}};
-                            }
-                            json['contacts'] = companies['data'];
-                            context.log(json);
-                            context .jemplate('contact-details.html', json,null,this)
-                            data=json;
-                        })
-                                    .then(function(html) {
-                                        $.facebox(html);
-                                    })
-                                    .then( function(html) {
-                                        $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                                        $("#contact-form").validate({
-                                            messages: {
+
+                context .load('null.html')
+                
+                .then(function(html){
+
+                    context .jemplate('contact-details.html',{
+                    	
+                    	data : context.fetch("Contact", id),
+                    	contacts : context.look_for("Contact", "company")
+
+                    } ,null,this);
+               	})
+                .then(function( html ) {
+
+                     $.facebox(html);
+                })
+                .then( function(html) {
+
+                      $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+
+                      $("#contact-form").validate({
+
+											messages: {
                                                     name: "Enter Name",
                                                     title: "Enter Profession Title",
                                                     is_human: "Fill It",
@@ -122,10 +125,9 @@ ContactController = function(app) {with (app) {
                                             errorContainer: "#MSGBOX",
                                             errorLabelContainer: "#MSGBOX ul",
                                             wrapper: "li"
-                                        });
-                                        context.trigger("navigate-form",data);
-                                    });
-                        });
+                      });
+                      context.trigger("navigate-form",data);
+               });
         });
 
 //==================================AFTER LOADING===============================

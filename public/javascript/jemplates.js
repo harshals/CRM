@@ -234,7 +234,7 @@ output += '\n            </li>\n            <li>\n                  <label class
 output += stash.get(['data', 0, 'title', 0]);
 output += '">\n            </li>\n            <li>\n                  <label name="company_id">Company ID</label>\n                        <select name="company_id">\n				';
 //line 144 "contact-details.html"
-output += context.process('company-id.html');
+output += context.process('contact-select.html');
 output += '\n	                </select>\n            </li>\n            <li>\n                 <label>Department</label>\n                 <input type="text" name="department" value="';
 //line 149 "contact-details.html"
 output += stash.get(['data', 0, 'department', 0]);
@@ -280,7 +280,7 @@ output += stash.get('reff');
 output += '">\n                           <option value="email">email\n                           <option value="client">By Client\n                           <option value="other">Others\n                   </select>\n            </li>\n            <li>\n                <label >Billing Payment</label>\n                <select name="bill_pay" value="';
 //line 219 "contact-details.html"
 output += stash.get('billpay');
-output += '" name=""billing_information>\n                    <option >mode Of Pay\n                    <option value="cash">Cash\n                    <option value="cheque">Cheque\n                   <option value="dd">D.D.\n                </select>\n            </li>\n        </ul>\n    </fieldset>\n</form>';
+output += '" name=""billing_information>\n                    <option >mode Of Pay\n                    <option value="cash">Cash\n                    <option value="cheque">Cheque\n                   <option value="dd">D.D.\n                </select>\n            </li>\n        </ul>\n    </fieldset>\n</form>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
