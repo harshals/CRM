@@ -122,15 +122,19 @@ var utils = function(app) {
 			var method = "DELETE";
 			var context = this;
 			
-			$.ajax( {
-					
-					url : url,
-					dataType : "json",
-					contentType: "application/json",
-					type : method,
-					success: callback
-			});
+			if (confirm("Are you sure ?")) {
 
+
+				$.ajax( {
+						
+						url : url,
+						dataType : "json",
+						contentType: "application/json",
+						type : method,
+						success: callback
+				});
+
+			}
 		}
   	});
 
