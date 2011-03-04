@@ -1,10 +1,16 @@
 
 MainController = function(app) { with (app) {
 
+	app.use(utils);
+	app.profile = {
+		
+		id : 1,
+		name : 'Harshal Shah'
+	};
 
 	app.get('#/home', function(context) {
 
-       	   context.render('views2/index.html').replace("#main-content");
+       	   context.render(' Heloo World').replace("#main-content");
 	});
 
 	app.get('#/task', function(context) {

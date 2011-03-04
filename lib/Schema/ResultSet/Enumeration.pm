@@ -1,7 +1,7 @@
 #
 #===============================================================================
 #
-#         FILE:  App.pm
+#         FILE:  Enumeration.pm
 #
 #  DESCRIPTION:  
 #
@@ -11,35 +11,28 @@
 #       AUTHOR:  Harshal Shah (Hs), <harshal.shah@gmail.com>
 #      COMPANY:  MK Software
 #      VERSION:  1.0
-#      CREATED:  02/14/2011 15:29:55 IST
+#      CREATED:  02/12/2011 12:01:54 IST
 #     REVISION:  ---
 #===============================================================================
 
-package App;
 use strict;
 use warnings;
 
-use Dancer qw(:syntax);
+package Schema::ResultSet::Enumeration;
+use Moose;
+use namespace::clean -except => 'meta';
+extends qw/DBICx::Hybrid::ResultSet::Enumeration/;
+use Carp;
 
-load_app 'Dancer::App::CRM';
+=head2 resultset->updated_on($days) 
 
-before sub {
-	
-	## some app specific code here
-	
-	debug "me too";
-};
+finds a record updated in last # of $days
 
-get '/' => sub {
-	
-	template 'index';
-};
+=cut
 
-get '/debug' => sub {
-	
-	return { data =>    vars->{serialize_options}   };
-};
+
+
+
+__PACKAGE__->meta->make_immutable(inline_constructor => 0 );
 
 1;
-
-

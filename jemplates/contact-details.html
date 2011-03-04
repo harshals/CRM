@@ -1,7 +1,6 @@
 <form method="POST" name="" action="#/contact-add" id=contact-form>
     <div id="MSGBOX" class="box negative notice">
     <ul></ul>
-            
  </div>
         <h1><font color="red" allign="center">Personal Information Form</font></h1>
   <p class="form-steps form">
@@ -11,18 +10,13 @@
         <a  class="nav-step" id="nav-step3">Company Details :-1</a>|
         <a  class="nav-step" id="nav-step4">Company Details :-2</a>
    </p>
-
    <p class="form-steps form right">
         <input type="submit" value="Save" name="save" id="save" class="button " />
-        <input type=reset value="Reset" name="reset" class="button" />
+       <input type=reset value="Reset" name="reset" class="button" />
+       <span id="link"></span>
    </p>
    
-   <!--<% if  ( data.id != '') { %>
-            <input type=hidden value="<%= data.id %>" name="id" />
-   <%}%>
-   <% if  ( data.id == '') { %>
-            <input type=hidden value="new" name="id" />
-   <%}%>-->
+   <input type=hidden value="[%data.id%]" name="id" />
         <fieldset class="grid_17 blue box step" id="step1">
             <legend>I m a legend</legend>
             <h3>Personal Details :-1</h3>
@@ -37,9 +31,9 @@
                 </li>
                 <li>
                         <label>Enter Name :- </label>
-                        <input type="text"  name="first_name" value="<%=data.first_name%>" />
-                        <input type="text"  name="middle_name" value="<%=data.middle_name%>" />
-                        <input type="text" name="last_name" value="<%=data.last_name%>" />
+                        <input type="text"  name="first_name" value="[%data.first_name%]" />
+                        <input type="text"  name="middle_name" value="[%data.middle_name%]" />
+                        <input type="text" name="last_name" value="[%data.last_name%]" />
                 </li>
                 <li class="vii">
                         <label>Select Gender</label>
@@ -48,40 +42,40 @@
                 </li>
                 <li>
                         <label>Birth-Date</label>
-                        <input type="text" name="birthday" value="<%=data.birthday%>" class="datepicker"/>
+                        <input type="text" name="birthday" value="[%data.birthday%]" class="datepicker"/>
                 </li>
                 <li>
                         <label>Language</label>
-                        <input type="text"  name="language" value="<%=data.language%>">
+                        <input type="text"  name="language" value="[%data.language%]">
                 </li>
                 <li>
                         <label>Country</label>
-                        <input type="text" name="home_country" value="<%=data.home_country%>">
+                        <input type="text" name="home_country" value="[%data.home_country%]">
                 </li>
                 <li>
                         <label>State</label>
-                        <input type="text" name="home_state" value="<%=data.home_state%>">
+                        <input type="text" name="home_state" value="[%data.home_state%]">
                 </li>
                 <li>
                         <label>City</label>
-                        <input type="text" name="home_city" value="<%=data.home_city%>">
+                        <input type="text" name="home_city" value="[%data.home_city%]">
                 </li>
                 
                 <li>
                          <label>Street</label>
-                         <input type="text" name="home_street" value="<%=data.home_street%>"/>
+                         <input type="text" name="home_street" value="[%data.home_street%]"/>
                 </li>
                 <li>
                          <label>Street 2</label>
-                         <input type="text" name="home_street_2" value="<%=data.home_street_2%>"/>
+                         <input type="text" name="home_street_2" value="[%data.home_street_2%]"/>
                 </li>
                 <li>
                          <label>Street 3</label>
-                         <input type="text" name="home_street_3" value="<%=data.home_street_3%>"/>
+                         <input type="text" name="home_street_3" value="[%data.home_street_3%]"/>
                 </li>
                 <li>
                          <label>Postal Code</label>
-                         <input type="text" name="home_postal_code" value="<%=data.home_postal_code%>"/>
+                         <input type="text" name="home_postal_code" value="[%data.home_postal_code%]"/>
                </li>
            </ul>
     </fieldset>
@@ -92,27 +86,27 @@
         <ul class="form tar">
             <li>
                       <label>email-id</label>
-                      <input type="text" value="<%=data.email_address%>" name="email_address">
+                      <input type="text" value="[%data.email_address%]" name="email_address">
             </li>
             <li>
                       <label>Alternate email-id</label>
-                      <input type="text" value="<%=data.email_address_2%>" name="email_address_2">
+                      <input type="text" value="[%data.email_address_2%]" name="email_address_2">
             </li>
             <li>
                       <label>Landline No.</label>
-                      <input type="text" name="home_phone" value="<%=data.home_phone%>"/>
+                      <input type="text" name="home_phone" value="[%data.home_phone%]"/>
             </li>
             <li>
                        <label>Alternate No</label>
-                       <input type="text" name="home_phone_2" value="<%=data.home_phone_2%>"/>
+                       <input type="text" name="home_phone_2" value="[%data.home_phone_2%]"/>
             </li>
             <li>
                        <label>Mobile No.</label>
-                       <input type="text" name="mobile_phone" value="<%=data.moblie_phone%>"/>
+                       <input type="text" name="mobile_phone" value="[%data.moblie_phone%]"/>
             </li>
              <li>
                        <label >Fax No.</label>
-                       <input type="text" name="home_fax" value="<%=data.home_fax%>"/>
+                       <input type="text" name="home_fax" value="[%data.home_fax%]"/>
             </li>
         </ul>
     </fieldset>
@@ -123,65 +117,67 @@
         <ul class="form tar">
             <li>
                   <label class="required">Company's Name</label>
-                  <input type="text" name="name" class="required" value="<%=data.name%>">
+                  <input type="text" name="name" class="required" value="[%data.name%]">
             </li>
             <li>
                 <label>Company/Employee</label>
-                <% if  ( data.is_human != '1') { %>
+                [% IF data.is_human == '0' %]
                         <select name="is_human" class="required">
-                            <option value="0">Company</option>
-                            <option value="1">Employee</option>
+                            <option value="0">Company
+                            <option value="1">Employee
                         </select>
-                <%}%>
-                <% if  ( data.is_human == '1') { %>
+                [%END%]
+                [% IF data.is_human == '1' %]
                         <select name="is_human" class="required">
-                            <option value="1">Employee</option>
-                            <option value="0">Company</option>
+                            <option value="1">Employee
+                            <option value="0">Company
                         </select>
-                <%}%>
+                [%END%]
             </li>
             <li>
                   <label class="required">Your Profession</label>
-                  <input type="text" class="required" name="title" value="<%=data.title%>">
+                  <input type="text" class="required" name="title" value="[%data.title%]">
             </li>
             <li>
-                  <label>Company ID</label>
-                  <input type="text" name="company_id" value="<%=data.company_id%>">
+                  <label name="company_id">Company ID</label>
+                        <select name="company_id">
+				[% PROCESS "contact-select.html" %]
+	                </select>
             </li>
             <li>
                  <label>Department</label>
-                 <input type="text" name="department" value="<%=data.department%>"/>
+                 <input type="text" name="department" value="[% data.department %]"/>
             </li>
             <li>
                    <label>Country</label>
-                   <input type="text" name="business_country" value="<%=data.bussiness_country%>"/>
+                   <input type="text" name="business_country" value="[%data.bussiness_country%]"/>
             </li>
              <li>
                    <label>State</label>
-                   <input type="text" name="business_state" value="<%=data.bussiness_state%>"/>
+                   <input type="text" name="business_state" value="[%data.bussiness_state%]"/>
              </li>
              <li>
                    <label class="required">City</label>
-                   <input type="text" class="required" name="business_city" value="<%=data.business_city%>" />
+                   <input type="text" class="required" name="business_city" value="[%data.business_city%]" />
              </li>
              <li>
                    <label>Office Address</label>
              </li>
              <li>
                    <label>Street 1</label>
-                   <input type="text" name="business_street" value="<%=data.business_street%>"/>
+                   <input type="text" name="business_street" value="[%data.business_street%]"/>
              </li>
              <li>
                    <label>Street 2</label>
-                   <input type="text" name="business_street_2" value="<%=data.business_street_2%>"/>
+                   <input type="text" name="business_street_2" value="[%data.business_street_2%]"/>
              </li>
              <li>
                    <label>Street 3</label>
-                   <input type="text" name="business_street_3" value="<%=data.business_street_3%>"/>
+                   <input type="text" name="business_street_3" value="[%data.business_street_3%]"/>
              </li>
              <li>
                    <label>Postal Code</label>
-                   <input type="text" name="business_postal_code" value="<%=data.business_postal_code%>"/>
+                   <input type="text" name="business_postal_code" value="[%data.business_postal_code%]"/>
              </li>
         </ul>
     </fieldset>
@@ -192,27 +188,27 @@
         <ul class="form tar">
             <li>
                 <label class="required" for="webpage">Company's web page</label>
-                <input type="text" class="required" name="web_page" value="<%=data.web_page%>"/>
+                <input type="text" class="required" name="web_page" value="[%data.web_page%]"/>
             </li>
             <li>
                  <label class="required">email-id</label>
-                 <input id="email" name="email" value="<%=data.email%>" class="required email" />
+                 <input id="email" name="email" value="[%data.email%]" class="required email" />
             </li>
             <li>
                  <label class="required">Landline No.</label>
-                 <input type="text" class="required" name="primary_phone" value="<%=data.primary_phone%>">
+                 <input type="text" class="required" name="primary_phone" value="[%data.primary_phone%]">
             </li>
             <li>
                 <label>Alternate No</label>
-                <input type="text" name="business_phone_2" value="<%=data.business_phone_2%>"/>
+                <input type="text" name="business_phone_2" value="[%data.business_phone_2%]"/>
              </li>
             <li>
                 <label >Fax No.</label>
-                <input type="text" name="business_fax" value="<%=data.business_fax%>"/>
+                <input type="text" name="business_fax" value="[%data.business_fax%]"/>
             </li>
              <li>
                    <label>Referred By</label>
-                   <select name="refferred" value="reff">
+                   <select name="refferred" value="[%reff%]">
                            <option value="email">email
                            <option value="client">By Client
                            <option value="other">Others
@@ -220,7 +216,7 @@
             </li>
             <li>
                 <label >Billing Payment</label>
-                <select name="bill_pay" value="billpay" name=""billing_information>
+                <select name="bill_pay" value="[%billpay%]" name=""billing_information>
                     <option >mode Of Pay
                     <option value="cash">Cash
                     <option value="cheque">Cheque

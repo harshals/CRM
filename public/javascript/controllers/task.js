@@ -2,29 +2,34 @@ TaskController = function(app) { with (app) {
 			
 			app.use("JSON");
 		
-			/*
-			Sammy.RenderContext.prototype.renderTT = function() { 
-  				var args = $.makeArray(arguments); 
-  				// iterate over args making sure to return `this`; 
-
-				Jemplate.process(args[0], args[1]);
-				return this;
-			}; 
-			
-			*/
-
 			bind("task-init", function(ev, data) {
 				
 				var context = this;
+				
+				//$.extend(data, {});
 
-				context.load("/api/Contact", function(json) {
+				context.load("/null.html" )
+				.then(function(html) {
+					
+					this.wait();
 
-					//Jemplate.process('task-add.html', { }, '#sidebar-content');
-					Jemplate.process('task-add.html', { contacts : json['data'] }, '#sidebar-content');
+					context.jemplate('task-menu.html', {}, '#section-menu', this);
+
+				}).then( function(json) {
+				
+					this.wait();
+					context.jemplate('task-add.html', { id : "new", contacts : context.look_for("Contact","person") }, '#sidebar-content', this);
+				
+				}).then( function(json) {
+				
+					$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
+					$("#section-menu").find("a.task-add").click(function() {
+
+						$("#sidebar-content").toggle();
+						return false;
+					});
 				});
 
-				
-				Jemplate.process('task-menu.html', {}, '#section-menu');
 
 			});
 
@@ -39,35 +44,7 @@ TaskController = function(app) { with (app) {
 				context.trigger("task-init");
 				
 				$("#sidebar-content").hide();
-				$("#sidebar-content" ).find("input.datepicker").datepicker( { altFormat: 'yy-mm-dd' , dateFormat : 'dd-mm-yy'});
-				$("#section-menu").find("a.task-add").click(function() {
-
-					$("#sidebar-content").toggle();
-					return false;
-				});
-	
 					
-			});
-
-			bind("task-complete", function(ev, data) {
-				
-				var context = this;
-			
-				$.ajax( {
-					
-					url : "/api/Task/" + data["id"],
-					dataType : "JSON",
-					contentType: "application/json",
-					type : "POST",
-					data : this.json({ 'Task' : data }),
-					success: function(json) {
-
-						alert("Task marked completed");
-
-						$(".list :checked").parents("li").hide();
-						//context.log("
-					}(context)
-				});
 			});
 
 			bind("task-populate", function(ev, data) {
@@ -76,11 +53,23 @@ TaskController = function(app) { with (app) {
 
 				Jemplate.process('task-list.html', { list: data }, '#main-content');
 				
+				$(".list .edit").click(function(ev) {
+					
+					var id = $(this).attr("id").replace("task_", '');
+					
+					$("#sidebar-content").find("form").deserialize(context.fetch("Task", id));
+					$("#sidebar-content").show();
+				});
+
 				$(".list :checkbox").click(function(ev) {
 					
 					var id = $(this).attr("name").replace("task_", '');
 					
-					context.trigger("task-complete",  { "id": id, "task_status" : "Success"} );
+					context.save("Task", { "id": id, "task_status" : "Success"}, function() {
+						
+						$(".list :checked").parents("li").hide();
+
+					});
 					
 				});
 
@@ -90,41 +79,35 @@ TaskController = function(app) { with (app) {
 				
 				context.redirect("#/task-pending");
 			});
-			app.get('#/task-pending', function(context) {
+			app.get(/#\/task-(all|pending|completed|overdue)/, function(context, match) {
 				
-				context.load("/api/Task/custom/incomplete_tasks", {cache: false} )
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
+				var map = {
+					
+					pending : "incomplete_tasks",
+					completed : "completed_tasks",
+					overdue : "overdue_tasks",
+					all	: ""
+				};
+					
+				context.trigger("task-populate", context.look_for("Task", map[match]));
 			});
-			app.get('#/task-completed', function(context) {
-						
-				context.load("/api/Task/custom/completed_tasks", {cache:false})
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
-			});
-			app.get('#/task-all', function(context) {
-						
-				context.load("/api/Task")
-				.then(function(json) {
-					context.trigger("task-populate", json['data']);
-				});
-
-			});
-
+			
 			app.post("#/task-add", function(context) {
 				
 				var form = context.params;
-				alert("coming");
-				$.put("192.168.2.4:5000/api/Task" , form, function(onSuccess) {
 
-					context.redirect("#/task-pending");
-				});
+				var callback = function(json) {
+					
+					if (json.data.id && json.data.id != 'new') {
+						
+						alert("Saved New object");
+					}
+				};
 
-				
+				context.save("Task", form, callback);
+
+				context.redirect("#/task-pending");
+
 			});
 
 	}};

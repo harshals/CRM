@@ -5,8 +5,10 @@
 					<span class="status " ></span>
 					<a href="#">[% item.name %]</a>
 					<span class="action" > 
-						<a href="#" >edit</a>
+						<a class="edit" id="task_[% item.id %]" >edit</a>
+					[% UNLESS item.task_status == 'Completed' %]
 						<input type=checkbox name="task_[% item.id %]" />
+					[% END %]
 					</span>
 				</li>
 		[% END %]

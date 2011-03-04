@@ -1,0 +1,50 @@
+
+        <h1>SAMPLE OF PDF_HTML</h1>
+        <form id="FORM">
+        <input type = "button" id = "CLICK" value = "Genrate PDF" />
+        <span id = "LINK"></span>
+        <br/>
+        <textarea type="hidden" id ="DATA" name="data" class = "box">
+            var doc = new pdf();
+
+            doc.drawLine(10,10,190,10,1.2,"dashed");
+            doc.drawLine(10,10,10,140,1.2,"dashed");
+            doc.drawLine(70,10,70,140,1.2,"dashed");
+            doc.drawLine(190,10,190,140,1.2,"dashed");
+            doc.setFontSize(20);
+            doc.text(20, 20,"ID");
+            doc.text(20, 30,"NAME");
+            doc.text(20, 40,"Title");
+            doc.text(20, 50,"Web Page");
+            doc.text(20, 60,"Primary Phone");
+            doc.text(20, 60,"Primary Phone");
+            doc.text(20, 70,"Is Human");
+            doc.text(20, 80,"Company Id");
+            doc.text(20, 90,"Secondary Id");
+            doc.text(20, 100,"Email");
+            doc.text(20, 110,"Business City");
+            doc.text(20, 120,"User Id");
+            doc.text(20, 130,"Log");
+
+            doc.setFontSize(14);
+            doc.text(70, 20,"<%=data.id%>","ITALIC");
+            doc.text(70, 30,"<%=data.name%>");
+            doc.text(70, 40,"<%=data.title%>");
+            doc.text(70, 50,"<%=data.web_page%>");
+            doc.text(70, 60,"<%=data.primary_phone%>");
+            doc.text(70, 70,"<%=data.is_human%>");
+            doc.text(70, 80,"<%=data.company_id%>");
+            doc.text(70, 90,"<%=data._id%>");
+            doc.text(70, 100,"<%=data.email%>");
+            doc.text(70, 110,"<%=data.business_city%>");
+            doc.text(70, 120,"<%=data.user_id%>");
+            doc.text(70, 130,"<%=data.log%>");
+            doc.drawLine(10,140,190,140,1.2,"dashed");
+
+            doc.addPage();
+            doc.addImage("flower2b","JPG",10,10,160,160);
+            var fileName = "testFile"+new Date().getSeconds()+".pdf";
+            var pdfAsDataURI = doc.output('datauri', {"fileName":fileName});
+            $('#LINK').html('<a href = "'+pdfAsDataURI+'">'+fileName+'</a> <span class = "helper">right click and save file as pdf</span');
+        </textarea>
+    </form>
