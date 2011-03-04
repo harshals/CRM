@@ -2,20 +2,20 @@ ContactController = function(app) {with (app) {
 
         app.use("Template" , 'html');
         app.use("JSON");
+
 //===================================BEFORE LOADING=============================
         app.before(/^#\/contact-/, function(context) {
                 context.log("inside contact");
                 $("#main-content").html('');
                 $("#sidebar-content").html('');
                 $("#content-extra").html('');
-                context.render("null.html")
-                .then(function(html){
-
-                    this.wait();
-                    context .jemplate('Pager.html', {}, '#sidebar-content');
-                    context .jemplate('contact-menu.html', {}, '#section-menu',this)
-                })
-                .then(function(contact_html) {
+                context .jemplate('Pager.html', {}, '#sidebar-content');
+		context .load("null.html")
+                        .then(function(html) {
+                            this.wait();
+                            context .jemplate('contact-menu.html', {}, '#section-menu', this)
+                        })
+                        .then(function(contact_html) {
                             $("#section-menu").find("a.contact-add").click(function() {
                                 context.trigger("contact-form", "new");
                                 return false;
@@ -31,20 +31,18 @@ ContactController = function(app) {with (app) {
 //......................................EDIT....................................
                 $("#MyTable").find("span.edit").click(function(ev) {
                     var id = $(this).attr("id").replace("row_",'');
-                    context.trigger("contact-form", id);
+                    if(confirm('Are you sure')) {
+                        context.trigger("contact-form", id);
+                    }
                 });
 
 //.....................................DELETE...................................
                 $("#MyTable").find("span.delete").click(function() {
                     var id= $(this).attr("id").replace("row_",'');
-                    alert(id);
+			if(confirm('Are you sure')) {
+                        	$("#row_" +id).parents("tr:first").hide();
+			}
                     var context = this;
-                    /*var callback = function(json) {
-                        context.log(json);
-                        $("#row_" + json['data']['id']).parents("tr:first").hide();
-                    }
-                    context.remove("Contact", id, callback) ;*/
-                    $("#row_" +id).parents("tr:first").hide();
                 });
 
 //......................................EXPAND..................................
@@ -112,7 +110,7 @@ ContactController = function(app) {with (app) {
                                 errorLabelContainer: "#MSGBOX ul",
                                 wrapper: "li"
                             });
-                            context.trigger("navigate-form",js);
+                            context.trigger("navigate-form");
                         });
                 })
         });
@@ -124,10 +122,6 @@ ContactController = function(app) {with (app) {
 
 //------------------------------------LOADING CONTACTS--------------------------
         app.get(/#\/contact-(person|all|company)/, function(context, match) {
-                /*var url = "/api/Contact";
-                  if (match == 'company' || match == 'person') {
-                      url += "/custom/" + match;
-		  }*/
                 context .load("api/Contacts.json")
                         .then(function(json){
                             this.wait();
@@ -143,14 +137,8 @@ ContactController = function(app) {with (app) {
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
-		alert("coming");
-                console.log(form);
-                var callback= function(json) {
-                    context.log(json);
                     $("#save").trigger('close.facebox');
                     context.redirect("#/contact-all");
-                }
-                context.save("Contact", form, callback);
         });
 
 }}

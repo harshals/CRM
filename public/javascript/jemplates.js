@@ -380,7 +380,7 @@ Jemplate.templateMap['contact-menu.html'] = function(context) {
     var output = '';
 
     try {
-output += '\n\n        <p>Actions</p>\n\n        <ul>\n          <li><a id="create" href="#/contact-all">All Contacts</a></li>\n\n          <li><a id="create" href="#/contact-company">Company</a></li>\n\n          <li><a id="create" href="#/contact-person">Person</a></li>\n\n          <li><a id="create" href="#" class="contact-add">Add New Contacts</a></li>\n\n        </ul>\n\n\n\n';
+output += '\n\n        <p>Actions</p>\n\n        <ul>\n          <li><a id="create" href="#/contact-all">All Contacts</a></li>\n\n          <li><a id="create" href="#/contact-company">Company</a></li>\n\n          <li><a id="create" href="#/contact-person">Person</a></li>\n\n          <li><a id="create" href="#" class="contact-add">Add New Contact</a></li>\n\n        </ul>\n\n\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
