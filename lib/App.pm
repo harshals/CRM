@@ -26,6 +26,8 @@ load_app 'Dancer::App::CRM';
 before sub {
 	
 	## some app specific code here
+	
+	debug "me too";
 };
 
 get '/' => sub {

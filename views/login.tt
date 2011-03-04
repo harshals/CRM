@@ -43,7 +43,35 @@
 
 
       $(function() {
-	  
+	  		
+
+	  		var options = {
+
+	  		};
+
+ 		  	$("form[name=login]").submit(function() {
+				
+				var data = {
+					username : $(this).find("input[name=username]").val();
+					password : $(this).find("input[name=password]").val();
+				};
+
+				$.ajax( {
+					url : "/login",
+					type : "POST",
+					dataType : "json",
+					data : data,
+					async:false
+					success: function(json) {
+						
+						console.log(json);
+					}
+				});
+			
+				return false;
+ 		  	});
+
+
  		  $("form[name=login]").validate({
 
 			rules: {
@@ -63,7 +91,6 @@
 			},
 			errorContainer: "#message_box",
 			errorLabelContainer: "#message_box ul",
-			wrapper: "li"
 			})
 					
 		// begin here
@@ -104,14 +131,7 @@
         
         <h2>Login</h2>
 
-        <div class="notice negative grid_17 box " id="message_box">
-        	<ul>
-        	<% IF request.params.failed %>
-          	<% END %>
-			</ul>
-        </div>
-
-		<form action="/login" method="POST" class="" name="login" >
+        		<form action="/login" method="POST" class="" name="login" >
            <fieldset class="grid_17 yellow box  ">
 			   <legend>This is a legend</legend>
 			   <ul class="form big tar fat">
