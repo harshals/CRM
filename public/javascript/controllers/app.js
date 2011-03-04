@@ -10,7 +10,7 @@ MainController = function(app) { with (app) {
 
 	app.get('#/home', function(context) {
 
-       	   context.render('views/index.html').replace("#main-content");
+       	   context.render(' Heloo World').replace("#main-content");
 	});
 
 	app.get('#/task', function(context) {

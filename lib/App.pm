@@ -24,7 +24,8 @@ use Dancer qw(:syntax);
 load_app 'Dancer::App::CRM';
 
 before sub {
-
+	
+	## some app specific code here
 };
 
 get '/' => sub {

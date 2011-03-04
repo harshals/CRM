@@ -15,7 +15,7 @@ set plugins => {
             dsn =>  "dbi:SQLite:dbname=var/small.db",
             schema_class => 'Schema'
         },
-    }
+    },
     
 };
 
@@ -30,6 +30,7 @@ set 'log' => 'debug';
 
 set 'traces' => 1;
 
+set "template" => "simple";
 
 my $app = sub {
     my $env = shift;
