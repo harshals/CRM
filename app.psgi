@@ -16,6 +16,14 @@ set plugins => {
             schema_class => 'Schema'
         },
     },
+	Email => {
+        ssl => 1,
+        driver => 'smtp',
+        host => 'smtp.gmail.com',
+        port => 465,
+        user => 'harshal.shah@gmail.com',
+        pass => '*****'
+	}
     
 };
 
