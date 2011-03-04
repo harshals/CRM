@@ -40,29 +40,34 @@
 
 	
 	$(document).ready(function() {
-       //   $("#submit").click(function(){
+            var json={};
                 $("#LoginForm").validate({
+                        rules: {
+                            username: {
+                                required:true
+                            },
+                            password: {
+                                required: true,
+				minlength: 4,
+                                maxlength:15
+			    }
+                        },
+                        messages: {
+                            username: "Enter User Id ",
+                            password: "Enter Password with 4 char"
+                        }
+                })
 
-                                          rules: {
-                                               username: {
-                                                   required:true
-                                                  
-                                               },
-                                              password: {
-				                    required: true,
-				                    minlength: 4,
-                                                    maxlength:15
-			                       }
-                                          },
-                                            messages: {
-                                                    username: "Enter User Id ",
-                                                    password: "Enter Password with 4 char"
-                                                    }
-                                        })
-         // })
-        
-                           
-                                     
+                $("#LoginForm").submit(function() {
+                    var user=$("#LoginForm").find("input[name=username]").val();
+                    alert(user);
+                    var pass=$("#LoginForm").find("input[name=password]").val();
+                    alert(pass);
+                    var json={"username":user, "password":pass}
+                    var OBJ=JSON.stringify(json)
+                    alert(OBJ);
+                    return false;
+        });
  });
 	
   </script>
@@ -98,7 +103,7 @@
           </div> -->
         
     
-    <form action="/login" method="POST" class="" id="LoginForm">
+    <form action="login.html" method="POST" class="" id="LoginForm">
     
         <fieldset class="grid_17 yellow box  ">
             <legend>This is a legend</legend>
