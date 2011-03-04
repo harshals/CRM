@@ -3,7 +3,7 @@ use Dancer;
 use Plack::Builder;
 load_app 'App';
 
-setting('skip_authentication', 1);
+setting('skip_authentication', 0);
 
 set plugins => {
     DBIC => {
@@ -21,6 +21,7 @@ set plugins => {
 
 setting("serializer", "JSON");
 
+set session => 'PSGI';
 set apphandler => 'PSGI';
 set logger => 'file';
 
@@ -50,12 +51,12 @@ builder {
 			panels => [qw/Memory Response Timer Environment Dancer::Settings Dancer::Logger Parameters Dancer::Version Session DBIC::QueryLog/];
 		enable "SimpleLogger";
 		# enable ConsoleLogger;
-		enable "Plack::Middleware::Static",
-          	   path => qr{^/?(images|javascript|css|views)/}, root => './public/';
- 		enable "Plack::Middleware::ServerStatus::Lite",
-          	   path => '/status',
-          	   allow => [ '127.0.0.1', '192.168.0.0/16' ],
-          	   scoreboard => '/tmp';
+		enable "Plack::Middleware::Static::Minifier",
+          	   path => qr{^/?(images|javascript|css)/}, root => './public/';
+ 		#enable "Plack::Middleware::ServerStatus::Lite",
+        #  	   path => '/status',
+        #  	   allow => [ '127.0.0.1', '192.168.0.0/16' ],
+        #  	   scoreboard => '/tmp';
 		$app;
 	},
 }

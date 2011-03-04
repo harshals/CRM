@@ -1,0 +1,88 @@
+[294] debug @1.066142> [hit #1]me too in (eval 108) l. 1
+[294] debug @0.001592> [hit #3]me too in (eval 108) l. 1
+[375] debug @0.001098> [hit #1]P :  in (eval 108) l. 1
+[399] debug @0.001159> [hit #1]P : $VAR1 = {}; in (eval 108) l. 1
+[399] debug @0.001654> [hit #3]P : $VAR1 = {
+          'crap' => '1'
+        }; in (eval 108) l. 1
+[439] debug @0.001406> [hit #1]P : $VAR1 = {
+          'crap' => '1'
+        }; in (eval 108) l. 1
+[439] debug @0.001281> [hit #3]P : $VAR1 = {
+          'password' => 'crap',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[471] debug @0.001360> [hit #1]P : $VAR1 = {
+          'password' => 'crap',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[477] debug @0.001381> [hit #1]P : $VAR1 = {
+          'password' => 'crap',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[477] debug @0.001404> [hit #2]P : $VAR1 = {
+          'failed' => '1'
+        }; in (eval 108) l. 1
+[477] debug @0.001581> [hit #4]P : $VAR1 = {
+          'password' => 'foobar',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[477] debug @0.001482> [hit #5]P : $VAR1 = {
+          'failed' => '1'
+        }; in (eval 108) l. 1
+[477] debug @0.001426> [hit #6]P : $VAR1 = {}; in (eval 108) l. 1
+[477] debug @0.001358> [hit #7]P : $VAR1 = {
+          'password' => 'foobar',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[477] debug @0.001517> [hit #8]P : $VAR1 = {
+          'failed' => '1'
+        }; in (eval 108) l. 1
+[571] debug @0.001450> [hit #1]P : $VAR1 = {
+          'password' => 'foobar',
+          'username' => 'admin'
+        }; in (eval 108) l. 1
+[571] debug @0.001552> [hit #2]P : $VAR1 = {
+          'failed' => '1'
+        }; in (eval 108) l. 1
+[571] debug @0.001374> [hit #3]P : $VAR1 = {
+          'password' => '12345',
+          'username' => 'Adam@csindustries.com'
+        }; in (eval 108) l. 1
+[571] debug @0.007457> [hit #3]my user data  in (eval 108) l. 1
+[611] debug @0.001443> [hit #1]P : $VAR1 = {
+          'password' => '12345',
+          'username' => 'Adam@csindustries.com'
+        }; in (eval 108) l. 1
+[611] debug @0.287113> [hit #1]my user data Master::Result::User in (eval 108) l. 1
+[620] debug @0.001389> [hit #1]P : $VAR1 = {
+          'password' => '12345',
+          'username' => 'Adam@csindustries.com'
+        }; in (eval 108) l. 1
+[620] debug @0.001331> [hit #3]P : $VAR1 = {}; in (eval 108) l. 1
+[1228] debug @0.001528> [hit #1]P : $VAR1 = {
+          'failed' => '1'
+        }; in (eval 112) l. 1
+[1228] debug @0.001745> [hit #2]P : $VAR1 = {
+          'password' => '12345',
+          'username' => 'Adam@csindustries.com'
+        }; in (eval 112) l. 1
+[1228] debug @0.131981> [hit #3]me too in (eval 112) l. 1
+[1228] debug @0.002428> [hit #4]me too in (eval 112) l. 1
+[1228] debug @0.001958> [hit #5]me too in (eval 112) l. 1
+[1228] debug @0.002224> [hit #6]me too in (eval 112) l. 1
+[1228] debug @0.001743> [hit #8]P : $VAR1 = {}; in (eval 112) l. 1
+[1424] debug @0.353170> [hit #1]me too in (eval 112) l. 1
+[1434] debug @0.354834> [hit #1]me too in (eval 112) l. 1
+[1434] debug @0.355556> [hit #1]P : $VAR1 = {}; in (eval 112) l. 1
+[1434] debug @0.002037> [hit #3]P : $VAR1 = {
+          'password' => '12345',
+          'username' => 'Adam@csindustries.com'
+        }; in (eval 112) l. 1
+[1434] debug @0.002298> [hit #4]me too in (eval 112) l. 1
+[1434] debug @0.002967> [hit #5]me too in (eval 112) l. 1
+[1434] debug @0.002926> [hit #6]me too in (eval 112) l. 1
+[1434] debug @0.003092> [hit #8]me too in (eval 112) l. 1
+[1434] debug @0.003429> [hit #11]me too in (eval 112) l. 1
+[1434] debug @0.003047> [hit #13]me too in (eval 112) l. 1
+[1434] debug @0.001910> [hit #14]P : $VAR1 = {}; in (eval 112) l. 1

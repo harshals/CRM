@@ -27,7 +27,6 @@ before sub {
 	
 	## some app specific code here
 	
-	debug "me too";
 };
 
 get '/' => sub {

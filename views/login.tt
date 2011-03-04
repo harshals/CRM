@@ -48,7 +48,7 @@
 	  		var options = {
 
 	  		};
-
+/*
  		  	$("form[name=login]").submit(function() {
 				
 				var data = {
@@ -70,7 +70,7 @@
 			
 				return false;
  		  	});
-
+*/
 
  		  $("form[name=login]").validate({
 
