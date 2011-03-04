@@ -1,22 +1,148 @@
-<form action="" method="POST" class="" id="LoginForm">
-     <fieldset class="grid_15 yellow box  ">
-         <div id="MSGBOX" class="box negative notice">
-               <ul>
-               </ul>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org" />
+
+  <title>App Name</title>
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=iso-8859-1" />
+  <meta name="description" content="App Name app" />
+  <meta name="keywords" content="App Name" />
+  <!-- <link rel="stylesheet" href="css/reset.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="css/text.css" type="text/css" />-->
+ 
+  <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
+  
+  <link rel="stylesheet/less" href="css/main.css" type="text/css"> 
+  <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css"> 
+  <link rel="stylesheet" href="css/facebox.css" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+  <script src="javascript/less.js" type="text/javascript"></script>
+
+      	<script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="javascript/jquery.form.js"></script>
+        <script type="text/javascript" src="javascript/jquery.validate.js"></script>
+        <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+
+ <!--       <script type="text/javascript" src="javascript/controllers/contact-TP.js"></script> -->
+
+  <!-- <script type="text/javascript" src="javascript/firebug-lite-debug.js"></script> -->
+
+    <script type="text/javascript">
+	
+	
+	
+	
+	/* Handle all routes starting with #/form- */
+
+	
+	;(function($) {
+
+
+      $(function() {
+	  
+		
+		// begin here
+	
+      });
+
+    })(jQuery);
+	
+  </script>
+</head>
+
+<body>
+  <div class="container_24" id="content">
+    <!-- header -->
+    <div class="grid_17">
+      <div id="logo">
+        <h1><a href="#">App Name</a></h1>
+
+        <span class="right">sub name or slogan</span>
+      </div>
+    </div>
+
+    <div class="grid_6">
          </div>
-	 <ul class="form tar">
-	   <li>
-                <label class="required">User Id</label>
-                <input type="text" class="required" value="" name="userid" id="userid" />
-           </li>
-           <li>
-                <label class="required">Password</label>
-                <input type="password" class="required" value=""  name="password" id="password" />
-           </li>
-        </ul>
-        <p class="form-steps form right">
-               <input type="submit" value="Sign in" id="sign_in" class="button " />
-               <input type=reset value="Reset" name="reset" class="button" />
-        </p>
-    </fieldset>
-</form>
+	<!-- header -->
+    <div class="clear"></div><!-- sidebar form container -->
+    <!-- menu -->
+      <div  class="grid_24" id="main-menu">
+       	   
+
+    </div>
+	<!-- menu -->
+    <div class="clear"></div>
+	<!-- main content -->
+    <div class="grid_18 main push_4" id="main-content">
+	
+    
+        
+        <h2>Login</h2>
+
+        <div class="notice negative grid_17 box ">
+          <p>Please use a valid email address </p>
+          <p>Username pasword is not valid. Kindly <a href="#/register">Register</a> here</p>
+        </div>
+
+		<form action="/login" method="POST" class="" >
+           <fieldset class="grid_17 yellow box  ">
+			   <legend>This is a legend</legend>
+			   <ul class="form big tar fat">
+				   <li class="required">
+						<label>Username</label>
+						<input type="text"  name="username"/>
+				   <li class="required h">
+						<label>Password</label><input type="text" /><br>
+						<a class="leftNote offset1 small">Forgot password ?</a>
+						<a class="leftNote  small">Register ?</a>
+					</li>
+				   <li class="tar"><label></label><input type="submit" value="submit" class="button tar"/> <input type="reset" value="reset" class="button tar"/></li>
+				</ul>
+			   </fieldset>
+					
+		
+        </form>
+      
+    
+
+	</div><!-- main content -->
+	<!-- grid_6 right sidebar -->
+	<div class="grid_6 main right "  ></div><!-- grid_6 right sidebar -->
+		
+	<div class="clear"></div>
+	<!-- further content -->
+	<div class="grid_24" id="content-extra" ></div>
+    
+	<!-- further content -->
+	<!-- footer -->
+	<div class="grid_24" id="footer">
+		<div class="grid_17 left">
+		
+          <p>&copy; Copyright <a hrf="http://www.mksoftware.in/">MK Software</a> </p>
+		  <p>          Created by <a href=
+          "http://www.mksoftware.in/harshalshah">Harshal Shah</a></p>
+			
+		</div>
+		<div class="grid_6 right">
+		
+          <h4>RSS Feed</h4>
+
+          <ul>
+            <li><a href=
+            "http://www.mksoftware.in/rss">Feed me</a></li>
+
+            <li><a href="http://www.github.com/harshals">
+           My Projects</a></li>
+          </ul>
+        		</div>
+       
+      	</div>
+	<!-- footer -->
+    
+  </div><!-- container_24 -->
+</body>
+</html>
