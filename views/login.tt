@@ -44,7 +44,28 @@
 
       $(function() {
 	  
-		
+ 		  $("form[name=login]").validate({
+
+			rules: {
+			username: {
+			required:true
+
+			},
+			password: {
+			required: true,
+			minlength: 4,
+			maxlength:15
+			}
+			},
+			messages: {
+			username: "Enter User Id ",
+			password: "Enter Password with 4 char"
+			},
+			errorContainer: "#message_box",
+			errorLabelContainer: "#message_box ul",
+			wrapper: "li"
+			})
+					
 		// begin here
 	
       });
@@ -83,13 +104,14 @@
         
         <h2>Login</h2>
 
-        <div class="notice negative grid_17 box ">
+        <div class="notice negative grid_17 box " id="message_box">
+        	<ul>
         	<% IF request.params.failed %>
-          		<p>Username / pasword is not valid. Kindly try again</p>
           	<% END %>
+			</ul>
         </div>
 
-		<form action="/login" method="POST" class="" >
+		<form action="/login" method="POST" class="" name="login" >
            <fieldset class="grid_17 yellow box  ">
 			   <legend>This is a legend</legend>
 			   <ul class="form big tar fat">
@@ -97,7 +119,7 @@
 						<label>Username</label>
 						<input type="text"  name="username"/>
 				   <li class="required h">
-						<label>Password</label><input type="text" /><br>
+						<label>Password</label><input type="password" name="password"/><br>
 						<a class="leftNote offset1 small">Forgot password ?</a>
 						<a class="leftNote  small">Register ?</a>
 					</li>
