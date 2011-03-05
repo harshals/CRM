@@ -229,7 +229,7 @@ if (stash.get(['data', 0, 'is_human', 0]) == '1') {
 output += '\n                        <select name="is_human" class="required">\n                            <option value="1">Employee\n                            <option value="0">Company\n                        </select>\n                ';
 }
 
-output += '\n            </li>\n            <li>\n                  <label class="required">Your Profession</label>\n                  <input type="text" class="required" name="title" value="';
+output += '\n            </li>\n            <li>\n                  <label class="required">Your Profession</label>\n                  <input message="ENTER YOUR PROFESSION"type="text" class="required" name="title" value="';
 //line 139 "contact-details.html"
 output += stash.get(['data', 0, 'title', 0]);
 output += '">\n            </li>\n            <li>\n                  <label name="company_id">Company ID</label>\n                        <select name="company_id">\n				';

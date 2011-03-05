@@ -31,9 +31,9 @@ ContactController = function(app) {with (app) {
 //......................................EDIT....................................
                 $("#MyTable").find("span.edit").click(function(ev) {
                     var id = $(this).attr("id").replace("row_",'');
-                    if(confirm('Are you sure')) {
+                    
                         context.trigger("contact-form", id);
-                    }
+                    
                 });
 
 //.....................................DELETE...................................
@@ -70,6 +70,7 @@ ContactController = function(app) {with (app) {
                     $("#contact-form")
                         .find("fieldset#" + stp).show();
                 });
+                
         });
 //----------------------------------CONTACT FORM BIND---------------------------
         bind('contact-form',function( ev, id){
@@ -78,7 +79,6 @@ ContactController = function(app) {with (app) {
                 var js;
                 context .load('api/Contacts.json')
                 .then(function(companies){
-                    context.log(companies['data'])
                     context .load('api/Single.json')
                         .then(function( json ) {
                             var data1;
@@ -87,7 +87,6 @@ ContactController = function(app) {with (app) {
                             }
                             //data1['contact'] = json['data'];
                             json['contacts'] = companies['data'];
-                            context.log(json);
                             context .jemplate('contact-details.html', json,null,this)
                             js=json;
                         })
@@ -97,7 +96,8 @@ ContactController = function(app) {with (app) {
                         .then( function(html) {
                             $("#contact-form" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
                             $("#contact-form").validate({
-                                messages: {
+                                messages:app["config"]["data"]["Contact"]["validation_messages"],
+                                /*messages: {
                                     name: "Enter Name",
                                     title: "Enter Profession Title",
                                     is_human: "Fill It",
@@ -105,7 +105,7 @@ ContactController = function(app) {with (app) {
                                     email: "Enter email id ",
                                     business_city: "Enter Bussiness city",
                                     web_page: "Enter web page"
-                                },
+                                },*/
                                 errorContainer: "#MSGBOX",
                                 errorLabelContainer: "#MSGBOX ul",
                                 wrapper: "li"
@@ -124,21 +124,28 @@ ContactController = function(app) {with (app) {
         app.get(/#\/contact-(person|all|company)/, function(context, match) {
                 context .load("api/Contacts.json")
                         .then(function(json){
+                            alert(json)
                             this.wait();
                             context .jemplate('contact-list.html', { list : json['data'] }, "#main-content",this);
+                            var OBJ=JSON.stringify(json)
+                            alert(OBJ);
+                            context.log(OBJ)
                         })
                         .then(function(){
                             context.trigger("Process");
                              $("#MyTable").tablesorter()
                                           .tablesorterPager({container : $("#pager") , positionFixed: false})
+
                        });
         });
 
 //----------------------------------------POST----------------------------------
         app.post("#/contact-add", function(context) {
                 var form = context.params.toHash();
+                if(confirm('Are you sure')) {
                     $("#save").trigger('close.facebox');
                     context.redirect("#/contact-all");
+                }
         });
 
 }}
