@@ -7,10 +7,14 @@ MainController = function(app) { with (app) {
 		id : 1,
 		name : 'Harshal Shah'
 	};
+        app.config={};
+        $.getJSON("config.json",function(json){
+            $.extend(app.config,json);
+        });
 
 	app.get('#/home', function(context) {
-
-       	   context.render(' Heloo World').replace("#main-content");
+                           
+       	    context.render('views/index.html').replace("#main-content");
 	});
 
 	app.get('#/task', function(context) {
@@ -23,5 +27,6 @@ MainController = function(app) { with (app) {
 
         	context.render('views/contact-menu.html').replace("#section-menu");
         	context.redirect("#/contact-all");
+                
 	});
 }};

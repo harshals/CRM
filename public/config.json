@@ -1,0 +1,21 @@
+{
+    "data" : {
+
+        "Contact" : {
+
+            "validation_rules" : { },
+            "validation_messages" : {
+                                    "name": "Enter Name",
+                                    "title": "Enter Profession Title",
+                                    "is_human": "Fill It",
+                                    "primary_phone": "Enter No.",
+                                    "email": "Enter email id ",
+                                    "business_city": "Enter Bussiness city",
+                                    "web_page": "Enter web page"
+            }
+
+
+        }
+    }
+
+}
