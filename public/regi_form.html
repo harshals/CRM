@@ -83,7 +83,8 @@
       </head>
       <body>
     <form action="login.html" method="POST" class="" id="regi_form">
-        <font size="12" color="red" align="center">
+        <fieldset class=" box  ">
+        <font  color="red" align="center">
              <b>Registration Form</b>
         </font>
         <ul class="form big tar fat">
@@ -123,14 +124,14 @@
                 <input type="text" class="required" name="answer" value=""/>
             </li>
             <li>
-                <img src="public/images/veri.jpg" width="150" height="50">
+                <img src="images/veri.jpg" width="150" height="50" />
             </li>
-            <li>
+             <li>
                 <input type="text" class="required" name="verify" value=""/>
             </li>
             <li>
                 <font color="grey">
-                    <label>Letters are not case-sensitivity</label>
+                    Letters are not case-sensitivity
                 </font>
             </li>
             <li>
@@ -145,14 +146,19 @@
                 <label>Terms & Condition</label>
                 <textarea rows="4" cols="40">
 
-                </textarea><br>
-                <input type="checkbox" name="terms">
-                <label>I agree with all terms & condition</label>
+                </textarea>
             </li>
-            <li class="tar">
-                <input type="submit" value="Create my account" id="create" class="button tar">
+            <li>
+               <input type="checkbox" name="terms" value="selected" checked/>
+               I agree with all terms & condition
             </li>
+            
+            <p class="form-steps form left">
+                <input type="submit" value="Create my account" id="account" class="button" />
+            </p>
+            
         </ul>
+        </fieldset>
     </form>
 
       </body>
