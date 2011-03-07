@@ -25,8 +25,6 @@
             <script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="javascript/jquery.form.js"></script>
             <script type="text/javascript" src="javascript/jquery.validate.js"></script>
-            <script type="text/javascript" src="javascript/jcap.js"></script>
-            <script type="text/javascript" src="javascript/md5.js"></script>
             <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
 
      <!--       <script type="text/javascript" src="javascript/controllers/contact-TP.js"></script> -->
@@ -90,6 +88,7 @@
                    }
                   else{
                      if(pass==re_pass){
+                     alert("Thank you for Registration")
                      return true
                      }
                      else{
@@ -99,17 +98,16 @@
                  }
                  
              })
-               
             })
  </script>
       </head>
       <body>
-    <form action="login.html" method="POST" class="" id="regi_form" onsubmit="return jcap();">
-        <fieldset class="blue box  ">
+    <form action="login.html" method="POST" class="" id="regi_form">
+        <fieldset class=" box  ">
         <font  color="red" align="center">
              <b>Registration Form</b>
         </font>
-        <ul class="form big tar">
+        <ul class="form big tar fat">
             <li>
                 <label>Name</label>
                 <input type="text"  name="name" value=""/>
@@ -130,9 +128,9 @@
                 <label>Retype Password</label>
                 <input type="password"  name="re_password" value="" id="re_password"/>
             </li>
-            <li >
+            <li>
                  <label>Security Question</label>
-                 <select name="secret" class="required">
+                 <select name="secret">
                      <option value="">Choose Question</option>
                      <option value="friend">What is the name of your best friend</option>
                      <option value="phoneno">What is your phone No.</option>
@@ -146,15 +144,16 @@
                 <input type="text"  name="answer" value=""/>
             </li>
             <li>
-                <script type="text/javascript">sjcap();</script>
+                <img src="images/veri.jpg" width="150" height="50" />
             </li>
-              <!--<li>
-                <label>Type Code Shown</label>
+             <li>
                 <input type="text"  name="verify" value=""/>
+            </li>
+            <li>
                 <font color="grey">
                     Letters are not case-sensitivity
                 </font>
-            </li> -->
+            </li>
             <li>
                 <label>Recovery email</label>
                 <input type="text" class="required email" name="recovery" value=""/>
@@ -182,12 +181,12 @@ CONDITION :-
                 </textarea>
             </li>
             <li>
-               <input type="checkbox" name="terms" value="selected" checked  style="float:none;margin-left:150px"/>
+               <input type="checkbox" name="terms" value="selected" checked/>
                I agree with all terms & condition
             </li>
             
             <p class="form-steps form left">
-                <input type="submit" value="Create my account" id="account" class="button" style="float:none;margin-left:150px" />
+                <input type="submit" value="Create my account" id="account" class="button" />
             </p>
             
         </ul>

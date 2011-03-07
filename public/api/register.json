@@ -1,0 +1,70 @@
+{
+    "data" : {
+
+        "Contact" : {
+            "validation_rules" : {
+                  "name":{
+                       required:true
+                    },
+		  "surname":{
+                       required:true
+                    },
+		  "user":{
+                       required:true
+                    },
+                   "password":{
+                       required:true,
+                       minlength:4,
+                       maxlength:15
+                    },
+                   "verify":{
+                     required:true,
+                    }
+{
+    "data" : {
+        "Contact" : {
+            "validation_rules" : {
+                "name": {
+                    "required": "true" 
+                },
+                "surname": {
+                    "required": "true" 
+                },
+                "user": {
+                    "required": "true" 
+                },
+                "password": {
+                    "required": "true",
+                    "minlength": "4",
+                    "maxlength": "15" 
+                },
+                "verify": {
+                    "required": "true" 
+                },
+                "answer": {
+                    "required": "true" 
+                },
+                "recovery": {
+                    "required": "true" 
+                },
+                "location": {
+                    "required": "true" 
+                },
+                "terms": {
+                    "required": "true" 
+                } 
+            },
+            "validation_messages" : {
+                "name": "Enter Name",
+                "surname": "Enter Sur Name",
+                "user": "Enter user name",
+                "password": "enter password with atleast 4 charactor",
+                "re_password": "your retype password is incorrect",
+                "answer": "Enter answer of the above question",
+                "recovery": "Enter alternative email",
+                "location": "Enter your location",
+                "terms": "check your checkbox" 
+            } 
+        } 
+    }
+}
