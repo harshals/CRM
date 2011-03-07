@@ -19,6 +19,7 @@
         <script type="text/javascript" src="javascript/jquery.form.js"></script>
         <script type="text/javascript" src="javascript/jquery.validate.js"></script>
         <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+        
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -35,22 +36,22 @@
 			    }
                         },
                         messages: {
-                            username: "Enter User Id ",
+                            user: "Enter User Id ",
                             password: "Enter Password with 4 char"
                         }
                 });
 
                 $("#LoginForm").submit(function() {
-                    var user=$("#LoginForm").find("input[name=username]").val();
-                    alert(user);
+                    var user=$("#LoginForm").find("input[name=user]").val();
+                    //alert(user);
                     var pass=$("#LoginForm").find("input[name=password]").val();
-                    alert(pass);
+                   // alert(pass);
                     var json={"username":user, "password":pass}
                     var OBJ=JSON.stringify(json)
-                    alert(OBJ);
+                   // alert(OBJ);
                 });
 
-                $("")
+             
 
             });
         </script>
@@ -79,7 +80,7 @@
             <!-- main content -->
             <div class="grid_18 main push_4" id="main-content">
                 <h2>Login</h2>
-                <form action="index.html" method="POST" class="" id="LoginForm">
+                <form action="index.html" method="POST" class="" id="LoginForm" >
                     <fieldset class="grid_17 yellow box  ">
                         <legend>This is a legend</legend>
                         <ul class="form big tar fat" >
