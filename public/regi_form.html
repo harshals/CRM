@@ -78,8 +78,28 @@
                         terms: "check your checkbox"
                     }
                })
+
+               $("#regi_form").submit(function() {
+                   var pass=$("#regi_form").find("input[name=password]").val();
+                   var re_pass=$("#regi_form").find("input[name=re_password]").val();
+                   if(pass=='' & re_pass=='')
+                   {
+                       alert("please Enter Your Password")
+                   }
+                  else{
+                     if(pass==re_pass){
+                     alert("Thank you for Registration")
+                     return true
+                     }
+                     else{
+                     alert("please check your password");
+                     return false;
+                     }
+                 }
+                 
+             })
             })
-        </script>
+ </script>
       </head>
       <body>
     <form action="login.html" method="POST" class="" id="regi_form">
@@ -90,23 +110,23 @@
         <ul class="form big tar fat">
             <li>
                 <label>Name</label>
-                <input type="text" class="required" name="name" value=""/>
+                <input type="text"  name="name" value=""/>
             </li>
             <li>
                 <label>Sur Name</label>
-                <input type="text" class="required" name="surname" value=""/>
+                <input type="text" name="surname" value=""/>
             </li>
             <li>
                 <label>Login Name</label>
-                <input type="text" class="required" name="user" value=""/>
+                <input type="text"  name="user" value=""/>
             </li>
             <li>
                 <label>Password</label>
-                <input type="password" class="required password" name="password" value=""/>
+                <input type="password"  name="password" value="" id="password"/>
             </li>
             <li>
                 <label>Retype Password</label>
-                <input type="password" class="required pwcheck" name="re_password" value=""/>
+                <input type="password"  name="re_password" value="" id="re_password"/>
             </li>
             <li>
                  <label>Security Question</label>
@@ -121,13 +141,13 @@
             </li>
             <li>
                 <label>Answer</label>
-                <input type="text" class="required" name="answer" value=""/>
+                <input type="text"  name="answer" value=""/>
             </li>
             <li>
                 <img src="images/veri.jpg" width="150" height="50" />
             </li>
              <li>
-                <input type="text" class="required" name="verify" value=""/>
+                <input type="text"  name="verify" value=""/>
             </li>
             <li>
                 <font color="grey">
@@ -140,7 +160,7 @@
             </li>
             <li>
                 <label>Location</label>
-                <input type="text" class="required" name="location" value=""/>
+                <input type="text"  name="location" value=""/>
             </li>
             <li>
                 <label>Terms & Condition</label>
