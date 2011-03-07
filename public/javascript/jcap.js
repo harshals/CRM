@@ -85,9 +85,9 @@ cword =
  "821f03288846297c2cf43c34766a38f7", "faec47e96bfb066b7c4b8c502dc3f649", "78b6367af86e03f19809449e2c365ff5",
  "015f28b9df1bdd36427dd976fb73b29d", "755f85c2723bb39381c7379a604160d8"];
 
-document.write("<p>Word Verification<img src=\"" + decodeURIComponent(imgdir) + imgid + ".jpg\" width=\"290\" height=\"80\" alt=\"\"><\/p>");
-document.write("<p><input style='margin-left:125px' type=\"text\" id=\"" + jfldid + "\" name=\"" + jfldid + "\" class=\"" + jfldcls + "\" size=\"" +  jfldsz + "\"><\/p>");
-document.write("<font color='grey'>Letters are not case sensitivity<\/font>")
+document.write("<p><b>Word Verification</b>:Type the characters you see in the picture below.</p><img style='float:none;margin-left:125px'src=\"" + decodeURIComponent(imgdir) + imgid + ".jpg\" width=\"290\" height=\"80\" alt=\"\">");
+document.write("<p><input style='margin-left:125px' type=\"text\" id=\"" + jfldid + "\" name=\"" + jfldid + "\" class=\"" + jfldcls + "\" size=\"" +  jfldsz + "\"></p>");
+document.write("<p><font color='grey'>Letters are not case sensitivity<\/font><\/p>")
 }
 
 function jcap(){
