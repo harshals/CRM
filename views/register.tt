@@ -57,10 +57,10 @@
                         messages : {
                             last_name: "Enter Name",
                             username: "Enter user name",
-                            password: "enter password",
-                            answer: "Enter answer of the above question",
-                            question_id:"select Question",
-                            terms: "check your checkbox"
+                            password: "Enter password",
+                            answer: "Enter answer",
+                            question_id:"Select Question",
+                            terms: "Check your checkbox"
                         }
                    })
 
