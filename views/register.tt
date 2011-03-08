@@ -49,13 +49,17 @@
                             },
                             terms: {
                                 required: true
+                            },
+                           question_id: {
+                                required: true
                             }
                         },
                         messages : {
                             last_name: "Enter Name",
                             username: "Enter user name",
-                            password: "enter password with atleast 4 charactor",
+                            password: "enter password",
                             answer: "Enter answer of the above question",
+                            question_id:"select Question",
                             terms: "check your checkbox"
                         }
                    })
