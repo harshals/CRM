@@ -122,6 +122,10 @@
                             <input type="text"  name="answer" value=""/>
                      </li>
                      <li>
+                             <label>Company name</label>
+                             <input type="text"  name="company" value=""/>
+                     </li>
+                     <li>
                            <script type="text/javascript">sjcap();</script>
                      </li>
                      <li>
