@@ -16,11 +16,9 @@
 
       <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
 
-      <link rel="stylesheet/less" href="css/main.css" type="text/css">
-      <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css">
+		<link rel="stylesheet" href="css/style.css" type="text/css"> 
       <link rel="stylesheet" href="css/facebox.css" type="text/css" />
       <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
-      <script src="javascript/less.js" type="text/javascript"></script>
 
             <script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="javascript/jquery.form.js"></script>
@@ -104,10 +102,10 @@
  </script>
       </head>
       <body>
-    <form action="login.html" method="POST" class="" id="regi_form" onsubmit="return jcap();">
+    <form action="/register" method="POST" class="" id="regi_form" onsubmit="return jcap();">
         <fieldset class="blue box  ">
         <font  color="red" align="center">
-             <b>Registration Form</b>
+             <h2>Registration Form</h2>
         </font>
         <ul class="form big tar">
             <li>
