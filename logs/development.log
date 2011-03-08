@@ -86,3 +86,6 @@
 [1434] debug @0.003429> [hit #11]me too in (eval 112) l. 1
 [1434] debug @0.003047> [hit #13]me too in (eval 112) l. 1
 [1434] debug @0.001910> [hit #14]P : $VAR1 = {}; in (eval 112) l. 1
+[2096] debug @0.001657> [hit #1]cming here in (eval 87) l. 1
+[2109] debug @0.001754> [hit #1]cming here in (eval 87) l. 1
+[2115] debug @0.051479> [hit #1]cming here too in (eval 87) l. 1

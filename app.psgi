@@ -17,12 +17,13 @@ set plugins => {
         },
     },
 	Email => {
+		debug => 1,
         ssl => 1,
         driver => 'smtp',
         host => 'smtp.gmail.com',
         port => 465,
         user => 'harshal.shah@gmail.com',
-        pass => '*****'
+        pass => 'FooBar1979'
 	}
     
 };
@@ -59,7 +60,7 @@ builder {
 			panels => [qw/Memory Response Timer Environment Dancer::Settings Dancer::Logger Parameters Dancer::Version Session DBIC::QueryLog/];
 		enable "SimpleLogger";
 		# enable ConsoleLogger;
-		enable "Plack::Middleware::Static::Minifier",
+		enable "Plack::Middleware::Static",
           	   path => qr{^/?(images|javascript|css)/}, root => './public/';
  		#enable "Plack::Middleware::ServerStatus::Lite",
         #  	   path => '/status',

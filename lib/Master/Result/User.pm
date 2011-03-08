@@ -37,7 +37,7 @@ sub extra_columns {
     
     my $self = shift;
 
-    return qw/notes/;
+    return qw/notes question_id answer/;
 };
 
 sub my_relations {
