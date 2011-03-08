@@ -49,14 +49,18 @@
                             },
                             terms: {
                                 required: true
+                            },
+                           question_id: {
+                                required: true
                             }
                         },
                         messages : {
                             last_name: "Enter Name",
                             username: "Enter user name",
-                            password: "enter password with atleast 4 charactor",
-                            answer: "Enter answer of the above question",
-                            terms: "check your checkbox"
+                            password: "Enter password",
+                            answer: "Enter answer",
+                            question_id:"Select Question",
+                            terms: "Check your checkbox"
                         }
                    })
 
@@ -130,21 +134,29 @@
                      </li>
                      <li>
                           <label class="required">Terms & Condition</label>
-                          <textarea rows="2" cols="40" >
-TERMS :-
- Please read these Terms of Use carefully as they govern your
- use of the IFRS Foundation Website.By accessing this Website
- or any of its contents you agree to be bound by the following
- provisions.Definitions of terms used are set out at the end of this document.
-
-CONDITION :-
- Any goods returned to the IFRS Foundation must be in good resalable condition;
- if not you will be charged for them.If for any reason your goods arrive in a
- damaged or otherwise unsatisfactory condition the IFRS Foundation will replace them.
- Please contact the IFRS Foundation Publications Department using the Order Enquiry Form
- to arrange the return of the defective products and dispatch of replacements.
-  Please do not return defective goods to the IFRS Foundation until requested to do so.
-                        </textarea>
+                          <textarea rows="2" cols="40" style="font-size:1.3em">
+One of the conditions for all uses is that you cannot mess around with our marks.
+Only we get to do that. Do not remove, distort or alter any element Brand Feature.
+That includes modifying trademark, for example, through hyphenation, combination or abbreviation
+Do not display our Brand Feature as the most prominent element on your web page.
+Do not display our Brand Feature in any manner that implies a relationship or
+affiliation with, sponsorship, or endorsement by our company, or that can be reasonably
+interpreted to suggest editorial content has been authored by, or represents the views or opinions of our company.
+Do not display a our company Brand Feature on any web site that contains or displays adult content,
+promotes gambling, involves the sale of tobacco or alcohol to persons under twenty-one years of age,or otherwise violates applicable law.
+Do not display a our company Brand Feature in a manner that is in our company sole opinion misleading,obscene or otherwise objectionable to our company.
+Do not display a our company Brand Feature on a site that violates any law or regulation.
+Do not frame or mirror any our company page (including the page that appears in response to a click on the our company logo or our company search box).
+Do not incorporate our company Brand Features into your own product name,service names, trademarks, logos, or company names.
+Do not copy or imitate our company trade dress, including the look and feel of our company web design properties
+or our company brand packaging, distinctive color combination with our company
+Do not adopt marks, logos, slogans, or designs that are confusingly similar to our Brand Features.
+Do not register our company trademarks as second-level domain names.
+Do not use our company trademarks in a way that suggests a common, descriptive, or generic meaning.
+Trademark rights vary from country to country.
+Some countries have severe criminal and civil penalties for improper use of the registration symbol.
+Therefore, do not use the registration symbol (®) in countries where the mark has not been registered.
+                        </textarea </font>>
                     </li>
                     <li>
                         <input type="checkbox" name="terms" value="selected" checked  style="float:none;margin-left:150px"/>
