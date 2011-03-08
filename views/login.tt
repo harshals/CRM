@@ -42,9 +42,7 @@
 	
 	;(function($) {
 
-             $("#error").hide();
-                         $("#error1").hide();
-                         $("#recaptcha").hide();
+             
       $(function() {
 	  		
 
@@ -157,15 +155,7 @@
 				   <li class="required" id="PASS">
                                         <label>Password</label><input type="password" value="" class="required" name="password"/>
                                    </li>
-                                   <li id="error">
-                                        <font color="red" style="margin-left:125px"> Enter correct user name & password </font>
-                                   </li>
-                                   <li id="error1">
-                                        <font color="red" style="margin-left:125px">Enter the correct username &  password and then type the characters</font>
-                                   </li>
-                                   <li id="recaptcha">
-                                        <script type="text/javascript">sjcap();</script>
-                                   </li>
+                                   
                                    <li>
                                         <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
                                         <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
