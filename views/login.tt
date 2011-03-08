@@ -24,6 +24,9 @@
     <script type="text/javascript" src="javascript/jquery.form.js"></script>
     <script type="text/javascript" src="javascript/jquery.validate.js"></script>
     <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jcap.js"></script>
+    <script type="text/javascript" src="javascript/md5.js"></script>
+   <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 
  <!--       <script type="text/javascript" src="javascript/controllers/contact-TP.js"></script> -->
 
