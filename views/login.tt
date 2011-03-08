@@ -69,17 +69,7 @@
 						
 						console.log(json);
 					}
-                                       error:function(){
-                                         $("#error").show();
-                                         clickCount =($.cookie("clickCount"),clickCount);
-                                         clickCount++;
-                                         if (clickCount >= 3) {
-                                            $("#error").hide();
-                                            $("#error1").show();
-                                            $("#recaptcha").show();
-                                                return jcap();
-                                         }
-                                       }
+                                       
                               });
 			
 				return false;
@@ -155,7 +145,6 @@
 				   <li class="required" id="PASS">
                                         <label>Password</label><input type="password" value="" class="required" name="password"/>
                                    </li>
-                                   
                                    <li>
                                         <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
                                         <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
