@@ -24,6 +24,9 @@
     <script type="text/javascript" src="javascript/jquery.form.js"></script>
     <script type="text/javascript" src="javascript/jquery.validate.js"></script>
     <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jcap.js"></script>
+    <script type="text/javascript" src="javascript/md5.js"></script>
+   <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 
  <!--       <script type="text/javascript" src="javascript/controllers/contact-TP.js"></script> -->
 
@@ -39,7 +42,7 @@
 	
 	;(function($) {
 
-
+             
       $(function() {
 	  		
 
@@ -47,6 +50,8 @@
 
 	  		};
 /*
+                         
+                         var   clickCount=0;
  		  	$("form[name=login]").submit(function() {
 				
 				var data = {
@@ -64,7 +69,8 @@
 						
 						console.log(json);
 					}
-				});
+                                       
+                              });
 			
 				return false;
  		  	});
@@ -136,11 +142,13 @@
 				   <li class="required">
 						<label>Username</label>
 						<input type="text"  name="username"/>
-				   <li class="required h">
-						<label>Password</label><input type="password" name="password"/><br>
-						<a class="leftNote offset1 small" href="/forgot_password">Forgot password ?</a>
-						<a class="leftNote small" href="/register">Register ?</a>
-					</li>
+				   <li class="required" id="PASS">
+                                        <label>Password</label><input type="password" value="" class="required" name="password"/>
+                                   </li>
+                                   <li>
+                                        <a class="leftNote offset1 small" href="/forget_password">Forgot password ?</a>
+                                        <a class="leftNote  small" id="Register" href="/register">Register ?</a>
+                                   </li>
 				   <li class="tar"><label></label><input type="submit" value="submit" class="button tar"/> <input type="reset" value="reset" class="button tar"/></li>
 				</ul>
 			   </fieldset>
