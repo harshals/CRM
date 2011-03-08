@@ -93,7 +93,7 @@
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
             <form action="login.html" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
-                <fieldset class="grid_18 blue box  ">
+                <fieldset class="grid_15 blue box  ">
                     <ul class="form  tar">
                         <li class="required fat">
                             <label>First Name</label>
