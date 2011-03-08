@@ -47,6 +47,10 @@
 
 	  		};
 /*
+                         $("#error").hide();
+                         $("#error1").hide();
+                         $("#recaptcha").hide();
+                         var   clickCount=0;
  		  	$("form[name=login]").submit(function() {
 				
 				var data = {
@@ -64,7 +68,18 @@
 						
 						console.log(json);
 					}
-				});
+                                       error:function(){
+                                         $("#error").show();
+                                         clickCount =($.cookie("clickCount"),clickCount);
+                                         clickCount++;
+                                         if (clickCount >= 3) {
+                                            $("#error").hide();
+                                            $("#error1").show();
+                                            $("#recaptcha").show();
+                                                return jcap();
+                                         }
+                                       }
+                              });
 			
 				return false;
  		  	});
@@ -136,11 +151,22 @@
 				   <li class="required">
 						<label>Username</label>
 						<input type="text"  name="username"/>
-				   <li class="required h">
-						<label>Password</label><input type="password" name="password"/><br>
-						<a class="leftNote offset1 small" href="/forgot_password">Forgot password ?</a>
-						<a class="leftNote small" href="/register">Register ?</a>
-					</li>
+				   <li class="required" id="PASS">
+                                        <label>Password</label><input type="password" value="" class="required" name="password"/>
+                                   </li>
+                                   <li id="error">
+                                        <font color="red" style="margin-left:125px"> Enter correct user name & password </font>
+                                   </li>
+                                   <li id="error1">
+                                        <font color="red" style="margin-left:125px">Enter the correct username &  password and then type the characters</font>
+                                   </li>
+                                   <li id="recaptcha">
+                                        <script type="text/javascript">sjcap();</script>
+                                   </li>
+                                   <li>
+                                        <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
+                                        <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
+                                   </li>
 				   <li class="tar"><label></label><input type="submit" value="submit" class="button tar"/> <input type="reset" value="reset" class="button tar"/></li>
 				</ul>
 			   </fieldset>
