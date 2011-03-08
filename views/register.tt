@@ -24,20 +24,24 @@
 
             <script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="javascript/jquery.form.js"></script>
-            <script type="text/javascript" src="javascript/jquery.validate.js"></script>
             <script type="text/javascript" src="javascript/jcap.js"></script>
             <script type="text/javascript" src="javascript/md5.js"></script>
             <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="javascript/jquery.validate.js"></script>
             <script type="text/javascript">
                 $(document).ready(function() {
      //--------------------------------registar form --------------------------
                  $("#regi_form").validate({
                        rules : {
+                           first_name: {
+                                required: true
+                            },
                             last_name: {
                                 required: true
                             },
-                            username: {
-                               required: true
+                            email: {
+                               required: true,
+                               email: true
                             },
                             password: {
                                 required: true,
@@ -49,19 +53,17 @@
                             },
                             terms: {
                                 required: true
-                            },
-                           question_id: {
-                                required: true
                             }
                         },
                         messages : {
-                            last_name: "Enter Name",
-                            username: "Enter user name",
-                            password: "Enter password",
-                            answer: "Enter answer",
-                            question_id:"Select Question",
-                            terms: "Check your checkbox"
-                        }
+                            first_name:"Enter Name",
+                            last_name: "Enter SurName",
+                            email: "Enter email id",
+                            password: "Enter password with atleast 4 charactor",
+                            answer: "Enter answer of the question",
+                            terms: "check your checkbox"
+                        },
+                        errorClass:"small"
                    })
 
                    $("#regi_form").submit(function() {
@@ -90,28 +92,31 @@
           <div class="container_24" id="content">
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
-            <form action="/register" method="POST" class="" id="regi_form" onsubmit="return jcap();">
-                <fieldset class="blue box  ">
-                    <ul class="form big tar">
-                        <li>
-                            <label class="required">Name</label>
-                            <input type="text"  name="first_name" value="first name"/>
-                            <input type="text" name="last_name" value="surname"/>
+            <form action="login.html" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
+                <fieldset class="grid_18 blue box  ">
+                    <ul class="form  tar">
+                        <li class="required fat">
+                            <label>First Name</label>
+                            <input type="text"  name="first_name"  value=""/>
                         </li>
-                        <li>
-                             <label class="required">Login Name</label>
-                             <input type="text"  name="username" value=""/>
+                        <li class="required fat">
+                            <label >Last Name</label>
+                            <input type="text" name="last_name" value=""/>
                         </li>
-                        <li>
-                             <label class="required">Password</label>
+                        <li class="required fat">
+                             <label >Email id</label>
+                             <input type="text"  name="email" value=""/>
+                        </li>
+                        <li class="required fat">
+                             <label >Password</label>
                              <input type="password"  name="password" value="" id="password"/>
                        </li>
-                        <li>
-                             <label class="required">Retype Password</label>
+                        <li class="required fat">
+                             <label >Retype Password</label>
                              <input type="password"  name="re_password" value="" id="re_password"/>
                        </li>
-                       <li>
-                            <label class="required">Security Question</label>
+                       <li class="required fat">
+                            <label >Security Question</label>
                             <select name="question_id" class="required">
                                 <option value="">Choose Question</option>
                                 <option value="q1" >What is the name of your best friend</option>
@@ -121,19 +126,19 @@
                                 <option value="q5">What is your lucky number</option>
                             </select>
                       </li>
-                      <li>
-                            <label class="required">Answer</label>
+                      <li class="required fat">
+                            <label >Answer</label>
                             <input type="text"  name="answer" value=""/>
                      </li>
-                     <li>
+                     <li class="fat">
                              <label>Company name</label>
                              <input type="text"  name="company" value=""/>
                      </li>
                      <li>
                            <script type="text/javascript">sjcap();</script>
                      </li>
-                     <li>
-                          <label class="required">Terms & Condition</label>
+                     <li class="required">
+                          <label >Terms & Condition</label>
                           <textarea rows="2" cols="40" style="font-size:1.3em">
 One of the conditions for all uses is that you cannot mess around with our marks.
 Only we get to do that. Do not remove, distort or alter any element Brand Feature.
@@ -156,7 +161,7 @@ Do not use our company trademarks in a way that suggests a common, descriptive, 
 Trademark rights vary from country to country.
 Some countries have severe criminal and civil penalties for improper use of the registration symbol.
 Therefore, do not use the registration symbol (®) in countries where the mark has not been registered.
-                        </textarea </font>>
+                        </textarea>
                     </li>
                     <li>
                         <input type="checkbox" name="terms" value="selected" checked  style="float:none;margin-left:150px"/>
