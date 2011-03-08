@@ -87,7 +87,7 @@ cword =
 
 document.write("<img style='float:none;margin-left:125px'src=\"" + decodeURIComponent(imgdir) + imgid + ".jpg\" width=\"200\" height=\"40\" alt=\"\">");
 document.write("<p><input style='margin-left:125px' type=\"text\" id=\"" + jfldid + "\" name=\"" + jfldid + "\" class=\"" + jfldcls + "\" size=\"" +  jfldsz + "\"><\/p>");
-document.write("<p><font color='grey'>Letters are not case sensitivity<\/font><\/p>")
+document.write("<br><p><font color='grey'style='margin-left:140px'>Letters are not case sensitivity<\/font><\/p>")
 }
 
 function jcap(){
