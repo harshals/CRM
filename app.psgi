@@ -23,7 +23,7 @@ set plugins => {
         host => 'smtp.gmail.com',
         port => 465,
         user => 'harshal.shah@gmail.com',
-        pass => '***'
+        pass => 'FooBar1979'
 	}
     
 };
