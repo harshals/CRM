@@ -42,7 +42,9 @@
 	
 	;(function($) {
 
-
+             $("#error").hide();
+                         $("#error1").hide();
+                         $("#recaptcha").hide();
       $(function() {
 	  		
 
@@ -50,9 +52,7 @@
 
 	  		};
 /*
-                         $("#error").hide();
-                         $("#error1").hide();
-                         $("#recaptcha").hide();
+                         
                          var   clickCount=0;
  		  	$("form[name=login]").submit(function() {
 				
