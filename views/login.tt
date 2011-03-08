@@ -146,8 +146,8 @@
                                         <label>Password</label><input type="password" value="" class="required" name="password"/>
                                    </li>
                                    <li>
-                                        <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
-                                        <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
+                                        <a class="leftNote offset1 small" href="/forget_password">Forgot password ?</a>
+                                        <a class="leftNote  small" id="Register" href="/register">Register ?</a>
                                    </li>
 				   <li class="tar"><label></label><input type="submit" value="submit" class="button tar"/> <input type="reset" value="reset" class="button tar"/></li>
 				</ul>
