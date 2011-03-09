@@ -50,9 +50,6 @@
                             },
                             answer: {
                                 required: true
-                            },
-                            terms: {
-                                required: true
                             }
                         },
                         messages : {
@@ -60,8 +57,7 @@
                             last_name: "Enter SurName",
                             email: "Enter email id",
                             password: "Enter password with atleast 4 charactor",
-                            answer: "Enter answer of the question",
-                            terms: "check your checkbox"
+                            answer: "Enter answer of the question"
                         },
                         errorClass:"small"
                    })
@@ -92,7 +88,7 @@
           <div class="container_24" id="content">
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
-            <form action="login.html" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
+            <form action="/register" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
                 <fieldset class="grid_15 blue box  ">
                     <ul class="form  tar">
                         <li class="required fat">
@@ -163,9 +159,10 @@ Some countries have severe criminal and civil penalties for improper use of the 
 Therefore, do not use the registration symbol (®) in countries where the mark has not been registered.
                         </textarea>
                     </li>
-                    <li>
-                        <input type="checkbox" name="terms" value="selected" checked  style="float:none;margin-left:150px"/>
-                            I agree with all terms & condition
+                    <li style="margin-left:140px;font-size:1em;color:navy">
+                         By clicking on 'I accept' below you are agreeing<br>
+                         to the Terms of Service above and both the Program<br>
+                         Policy and the Privacy Policy.
                     </li>
                     <p class="form-steps form left">
                         <input type="submit" value="Create my account" id="account" class="button" style="float:none;margin-left:150px" />
