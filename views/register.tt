@@ -50,6 +50,12 @@
                             },
                             answer: {
                                 required: true
+                            },
+                            verify: {
+                                required: true
+                            },
+                            question_id:{
+                              required:true
                             }
                         },
                         messages : {
@@ -57,7 +63,9 @@
                             last_name: "Enter SurName",
                             email: "Enter email id",
                             password: "Enter password with atleast 4 charactor",
-                            answer: "Enter answer of the question"
+                            answer: "Enter answer of the question",
+                            verify:"Check your checkbox",
+                            question_id:"Select your question"
                         },
                         errorClass:"small"
                    })
@@ -78,7 +86,7 @@
                          return false;
                          }
                      }
-
+                   return jcap();
                  })
 
                 })
@@ -88,7 +96,7 @@
           <div class="container_24" id="content">
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
-            <form action="/register" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
+            <form action="/register" method="POST" class="" id="regi_form">
                 <fieldset class="grid_15 blue box  ">
                     <ul class="form  tar">
                         <li class="required fat">
@@ -159,13 +167,12 @@ Some countries have severe criminal and civil penalties for improper use of the 
 Therefore, do not use the registration symbol (®) in countries where the mark has not been registered.
                         </textarea>
                     </li>
-                    <li style="margin-left:140px;font-size:1em;color:navy">
-                         By clicking on 'I accept' below you are agreeing<br>
-                         to the Terms of Service above and both the Program<br>
-                         Policy and the Privacy Policy.
+                    <li class="required" style="margin-left:160px">
+                      <input type="checkbox" name="verify" checked/>
+                      I accept all Terms & Condition
                     </li>
                     <p class="form-steps form left">
-                        <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:150px" />
+                        <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
                     </p>
 
                 </ul>
