@@ -104,7 +104,7 @@
                                 return true;
                             }
                             else {
-                                var html='<script type="text/javascript">sjcap();</script>';
+                                var html='<script type="text/javascript">'sjcap();'</script>';
                                 $("#reCaptcha").append(html);
                                 return false;
                             }
@@ -113,7 +113,6 @@
                     $("#Login_Form").submit(function() {
                         return jcap();
                     })
-		})
 		// begin here
 	
       });
