@@ -134,7 +134,9 @@
     
         
         <h2>Login2</h2>
-
+		<div id="message_box" class="box negative notice">
+    			<ul><li> <% message %></li></ul>
+		</div>
         		<form action="/login" method="POST" class="" name="login" >
            <fieldset class="grid_17 yellow box  ">
 			   <legend>This is a legend</legend>
