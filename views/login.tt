@@ -16,7 +16,7 @@
  
   <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
   
-		<link rel="stylesheet" href="css/style.css" type="text/css"> 
+  <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/facebox.css" type="text/css" />
   <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
 
@@ -95,7 +95,24 @@
 			},
 			errorContainer: "#message_box",
 			errorLabelContainer: "#message_box ul",
-			})
+                        submitHandler : function(form) {
+                            var attempt = $.cookie("login_attempt") || "0";
+                            attempt = attempt.parseInt();
+                            //attempt++;
+                            if (attempt < 4 ) {
+                                //$(form).submit();
+                                return true;
+                            }
+                            else {
+                                var html='<script type="text/javascript">sjcap();</script>';
+                                $("#reCaptcha").append(html);
+                                return false;
+                            }
+                        }
+                    })
+                    $("#Login_Form").submit(function() {
+                        return jcap();
+                    })
 					
 		// begin here
 	
@@ -137,7 +154,7 @@
 		<div id="message_box" class="box negative notice grid_15">
     			<ul><li> <% message %></li></ul>
 		</div>
-        		<form action="/login" method="POST" class="" name="login" >
+        		<form action="/login" method="POST" class="" name="login" id="Login_Form">
            <fieldset class="grid_15 yellow box  ">
 			   <legend>This is a legend</legend>
 			   <ul class="form big tar fat">
@@ -146,6 +163,8 @@
 						<input type="text"  name="username"/>
 				   <li class="required" id="PASS">
                                         <label>Password</label><input type="password" value="" class="required" name="password"/>
+                                   </li>
+                                   <li id=reCaptcha>
                                    </li>
                                    <li>
                                         <a class="leftNote offset1 small" href="/forgot_password">Forgot password ?</a>
