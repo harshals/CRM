@@ -113,7 +113,7 @@
                     $("#Login_Form").submit(function() {
                         return jcap();
                     })
-					
+		})
 		// begin here
 	
       });
