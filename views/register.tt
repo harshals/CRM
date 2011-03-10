@@ -170,11 +170,8 @@ Therefore, do not use the registration symbol (®) in countries where the mark ha
                     <li class="required" style="margin-left:160px">
                       <input type="checkbox" name="verify" checked/>
                       I accept all Terms & Condition
-                    </li>
-                    <p class="form-steps form left">
-                        <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
-                    </p>
-
+                    </li><br>
+                    <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
                 </ul>
         </fieldset>
    </form>
