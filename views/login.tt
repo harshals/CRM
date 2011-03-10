@@ -95,8 +95,26 @@
 			},
 			errorContainer: "#message_box",
 			errorLabelContainer: "#message_box ul",
-			})
+			submitHandler : function(form) {
+				
+				var attempt = $.cookie("login_attempt") || "0";
+				
+				attempt = attemp.parseInt();
+				
+				attempt++;
+				
+				if (attempt < 4 )  {
+					$(form).submit();
+				}else {
 					
+					$.cookie("login_attempt", attempt);
+					//do word verfication here
+					attempt = 0;
+
+					return false;
+				}
+			}
+		})
 		// begin here
 	
       });
