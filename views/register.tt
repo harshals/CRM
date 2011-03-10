@@ -46,9 +46,9 @@
                                 minlength: 4,
                                 maxlength: 15
                             },
-                            re_password :{
+                            re_password {
 								equalTo: '#password'
-                            },
+                            }
                             answer: {
                                 required: true
                             },
@@ -135,7 +135,7 @@
                        </li>
                        <li class="required fat">
                             <label >Security Question</label>
-                            <select name="question_id" class="">
+                            <select name="question_id" class="required">
                                 <option value="">Choose Question</option>
                                 <option value="q1" >What is the name of your best friend</option>
                                 <option value="q2" >What is your phone No.</option>

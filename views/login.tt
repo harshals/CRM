@@ -13,10 +13,10 @@
   <meta name="keywords" content="App Name" />
   <!-- <link rel="stylesheet" href="css/reset.css" type="text/css" /> -->
   <!-- <link rel="stylesheet" href="css/text.css" type="text/css" />-->
- 
+
   <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
-  
-		<link rel="stylesheet" href="css/style.css" type="text/css"> 
+
+		<link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/facebox.css" type="text/css" />
   <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
 
@@ -33,27 +33,27 @@
   <!-- <script type="text/javascript" src="javascript/firebug-lite-debug.js"></script> -->
 
     <script type="text/javascript">
-	
-	
-	
-	
+
+
+
+
 	/* Handle all routes starting with #/form- */
 
-	
+
 	;(function($) {
 
-             
+
       $(function() {
-	  		
+
 
 	  		var options = {
 
 	  		};
 /*
-                         
+
                          var   clickCount=0;
  		  	$("form[name=login]").submit(function() {
-				
+
 				var data = {
 					username : $(this).find("input[name=username]").val();
 					password : $(this).find("input[name=password]").val();
@@ -66,12 +66,12 @@
 					data : data,
 					async:false
 					success: function(json) {
-						
+
 						console.log(json);
 					}
-                                       
+
                               });
-			
+
 				return false;
  		  	});
 */
@@ -96,17 +96,17 @@
 			errorContainer: "#message_box",
 			errorLabelContainer: "#message_box ul",
 			submitHandler : function(form) {
-				
+
 				var attempt = $.cookie("login_attempt") || "0";
-				
+
 				attempt = attemp.parseInt();
-				
+
 				attempt++;
-				
+
 				if (attempt < 4 )  {
 					$(form).submit();
 				}else {
-					
+
 					$.cookie("login_attempt", attempt);
 					//do word verfication here
 					attempt = 0;
@@ -116,11 +116,11 @@
 			}
 		})
 		// begin here
-	
+
       });
 
     })(jQuery);
-	
+
   </script>
 </head>
 
@@ -141,16 +141,16 @@
     <div class="clear"></div><!-- sidebar form container -->
     <!-- menu -->
       <div  class="grid_24" id="main-menu">
-       	   
+
 
     </div>
 	<!-- menu -->
     <div class="clear"></div>
 	<!-- main content -->
     <div class="grid_18 main push_4" id="main-content">
-	
-    
-        
+
+
+
         <h2>Login2</h2>
 		<div id="message_box" class="box negative notice grid_15">
     			<ul><li> <% message %></li></ul>
@@ -172,32 +172,32 @@
 				   <li class="tar"><label></label><input type="submit" value="submit" class="button tar"/> <input type="reset" value="reset" class="button tar"/></li>
 				</ul>
 			   </fieldset>
-					
-		
+
+
         </form>
-      
-    
+
+
 
 	</div><!-- main content -->
 	<!-- grid_6 right sidebar -->
 	<div class="grid_6 main right "  ></div><!-- grid_6 right sidebar -->
-		
+
 	<div class="clear"></div>
 	<!-- further content -->
 	<div class="grid_24" id="content-extra" ></div>
-    
+
 	<!-- further content -->
 	<!-- footer -->
 	<div class="grid_24" id="footer">
 		<div class="grid_17 left">
-		
+
           <p>&copy; Copyright <a hrf="http://www.mksoftware.in/">MK Software</a> </p>
 		  <p>          Created by <a href=
           "http://www.mksoftware.in/harshalshah">Harshal Shah</a></p>
-			
+
 		</div>
 		<div class="grid_6 right">
-		
+
           <h4>RSS Feed</h4>
 
           <ul>
@@ -208,10 +208,10 @@
            My Projects</a></li>
           </ul>
         		</div>
-       
+
       	</div>
 	<!-- footer -->
-    
+
   </div><!-- container_24 -->
 </body>
 </html>
