@@ -89,3 +89,15 @@
 [2096] debug @0.001657> [hit #1]cming here in (eval 87) l. 1
 [2109] debug @0.001754> [hit #1]cming here in (eval 87) l. 1
 [2115] debug @0.051479> [hit #1]cming here too in (eval 87) l. 1
+[3459] debug @0.012990> [hit #38]crap me in (eval 86) l. 1
+[3459] debug @0.072438> [hit #38]$VAR1 = bless( {
+                 'settings' => {
+                                 'driver' => 'sendmail'
+                               }
+               }, 'Emailesque' ); in (eval 86) l. 1
+[3459] debug @0.009881> [hit #55]crap me in (eval 86) l. 1
+[3459] debug @0.024357> [hit #55]$VAR1 = bless( {
+                 'settings' => {
+                                 'driver' => 'sendmail'
+                               }
+               }, 'Emailesque' ); in (eval 86) l. 1

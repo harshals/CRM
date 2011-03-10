@@ -28,7 +28,10 @@ set plugins => {
     
 };
 
+
 setting("serializer", "JSON");
+
+set app_id => 1;
 
 set session => 'PSGI';
 set apphandler => 'PSGI';

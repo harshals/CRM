@@ -16,11 +16,9 @@
 
       <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
 
-      <link rel="stylesheet/less" href="css/main.css" type="text/css">
-      <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css">
+      <link rel="stylesheet" href="css/style.css" type="text/css" />
       <link rel="stylesheet" href="css/facebox.css" type="text/css" />
       <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
-      <script src="javascript/less.js" type="text/javascript"></script>
 
             <script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="javascript/jquery.form.js"></script>
@@ -48,10 +46,10 @@
                                 minlength: 4,
                                 maxlength: 15
                             },
+                            re_password {
+								equalTo: '#password'
+                            }
                             answer: {
-                                required: true
-                            },
-                            verify: {
                                 required: true
                             },
                             question_id:{
@@ -64,20 +62,29 @@
                             email: "Enter email id",
                             password: "Enter password with atleast 4 charactor",
                             answer: "Enter answer of the question",
-                            verify:"Check your checkbox",
                             question_id:"Select your question"
                         },
                         errorClass:"small"
                    })
 
-                   $("#regi_form").submit(function() {
-                       var pass=$("#regi_form").find("input[name=password]").val();
-                       var re_pass=$("#regi_form").find("input[name=re_password]").val();
-                       if(pass=='' & re_pass=='')
-                       {
-                           alert("please Enter Your Password")
-                       }
-                      else{
+                 $("#regi_form").submit(function() {
+						 
+						 var verify = $("#regi_form").find("input[name=verify]").attr("checked");
+						
+						 if(!verify) {
+
+							 alert("Please accept our terms and conditions");
+							 return false;
+						 }
+
+
+                       	 var password =$("#regi_form").find("input[name=password]").val();
+                       	 var re_pass=$("#regi_form").find("input[name=re_password]").val();
+                       	 if(pass=='' & re_pass=='')
+                       	 {
+                         alert("please Enter Your Password")
+                       	 }
+                      	 else{
                          if(pass==re_pass){
                          return true
                          }
@@ -85,8 +92,10 @@
                          alert("please check your password");
                          return false;
                          }
-                     }
-                   return jcap();
+                     	 }
+
+                   		 return jcap();
+						 
                  })
 
                 })
@@ -97,7 +106,7 @@
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
 				 <div id="message_box" class="box negative notice grid_15">
-    			<ul><li> <% message %></li></ul>
+    			<ul><li><% message %></li></ul>
  				</div>
      
 
@@ -173,7 +182,7 @@ Therefore, do not use the registration symbol (®) in countries where the mark ha
                         </textarea>
                     </li>
                     <li class="required" style="margin-left:160px">
-                      <input type="checkbox" name="verify" checked/>
+                      <input type="checkbox" name="verify" value=yes />
                       I accept all Terms & Condition
                     </li><br>
                     <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
