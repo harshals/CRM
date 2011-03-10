@@ -1,0 +1,13 @@
+
+plugins:
+    Email:
+        ssl: 1
+        driver: smtp
+        host: smtp.gmail.com
+        port: 465
+        user: info@adhril.com
+        pass: Add1234
+
+app_id: 1
+
+register_message_subject: Welcome to Adhril.com
