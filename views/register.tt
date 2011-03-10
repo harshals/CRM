@@ -96,7 +96,7 @@
           <div class="container_24" id="content">
             <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
-				 <div id="message_box" class="box negative notice">
+				 <div id="message_box" class="box negative notice grid_15">
     			<ul><li> <% message %></li></ul>
  				</div>
      
