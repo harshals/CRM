@@ -46,11 +46,12 @@
       $(function() {
         $("#reCaptcha").hide();
 
-        var attempt = $.cookie("login_attempt");
+        var attempt = "<% login_attempt %>";
 
-        attempt = attempt.parseInt();
+        attempt = (typeof(attempt) != 'undefined' ) ? parseInt(attempt) : 0 ;
 
         //attempt++;
+		console.log(attempt);
 
         if (attempt > 3 ) {
 
@@ -77,9 +78,15 @@
                 errorContainer: "#message_box",
                 errorLabelContainer: "#message_box ul",
                 submitHandler : function(form) {
+			
+					var attempt = $.cookie("login_attempt") ;
+					console.log(attempt);
+			        attempt = (typeof(attempt) != 'undefined' ) ? parseInt(attempt) : 0 ;
 
-                    
-                    return (attempt > 3 ) ? jcap() : true;
+		
+					alert("this is " +attempt + " attempt");
+                    return true;
+                    //return (attempt > 3 ) ? jcap() : true;
                 }
             })
 
