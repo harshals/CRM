@@ -29,7 +29,6 @@
                     $("#reCaptcha").hide();
 
                     var attempt = "<% login_attempt %>";
-                    alert(<% login_attempt %>);
                     attempt = (typeof(attempt) != 'undefined' ) ? parseInt(attempt) : 0 ;
                     console.log(attempt);
 
