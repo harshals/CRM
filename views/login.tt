@@ -77,8 +77,8 @@
                 errorLabelContainer: "#message_box ul",
                 submitHandler : function(form) {
 		               alert("this is " +attempt + " attempt");
-                               //return true;
-                    //return (attempt > 3 ) ? jcap() : true;
+                               return true;
+                    return (attempt > 3 ) ? jcap() : true;
                 }
             })
 
