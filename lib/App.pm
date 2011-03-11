@@ -30,7 +30,9 @@ before sub {
 };
 
 get '/' => sub {
-	
+		
+	set_cookie 'profile_id' => session('profile_id');
+		
 	template 'index';
 };
 
