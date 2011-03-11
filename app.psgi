@@ -16,15 +16,7 @@ set plugins => {
             schema_class => 'Schema'
         },
     },
-	Email => {
-		debug => 1,
-        ssl => 1,
-        driver => 'smtp',
-        host => 'smtp.gmail.com',
-        port => 465,
-        user => 'harshal.shah@gmail.com',
-        pass => 'FooBar1979'
-	}
+	
     
 };
 

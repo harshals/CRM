@@ -101,3 +101,159 @@
                                  'driver' => 'sendmail'
                                }
                }, 'Emailesque' ); in (eval 86) l. 1
+[4359] debug @0.009082> [hit #4]crap me in (eval 86) l. 1
+[4359] debug @0.080570> [hit #4]$VAR1 = bless( {
+                 'settings' => {
+                                 'driver' => 'sendmail'
+                               }
+               }, 'Emailesque' ); in (eval 86) l. 1
+[4380] debug @0.410515> [hit #1]crap me in (eval 86) l. 1
+[4380] debug @0.460542> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'driver' => 'sendmail'
+                               }
+               }, 'Emailesque' ); in (eval 86) l. 1
+[4390] debug @0.412118> [hit #1]crap me in (eval 86) l. 1
+[4429] debug @0.010210> [hit #4]crap me in (eval 86) l. 1
+[4737] debug @0.003302> [hit #4]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'FooBar1979',
+                                 'ssl' => '1',
+                                 'user' => 'harshal.shah@gmail.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4748] debug @0.002278> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'FooBar1979',
+                                 'ssl' => '1',
+                                 'user' => 'harshal.shah@gmail.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4748] debug @0.002586> [hit #2]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'FooBar1979',
+                                 'ssl' => '1',
+                                 'user' => 'harshal.shah@gmail.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4748] debug @0.002572> [hit #3]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'FooBar1979',
+                                 'ssl' => '1',
+                                 'user' => 'harshal.shah@gmail.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4765] debug @0.002265> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4869] debug @0.115675> [hit #7]crap me in (eval 113) l. 1
+[4891] debug @0.012202> [hit #3]crap me in (eval 113) l. 1
+[4947] debug @0.414007> [hit #1]crap me in (eval 113) l. 1
+[4951] debug @0.011482> [hit #3]crap me in (eval 113) l. 1
+[4951] debug @0.080212> [hit #3]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[4978] debug @0.480040> [hit #1]crap me in (eval 113) l. 1
+[4978] debug @0.530014> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5002] debug @0.423066> [hit #1]crap me in (eval 113) l. 1
+[5002] debug @0.478378> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5015] debug @0.413412> [hit #1]crap me in (eval 113) l. 1
+[5015] debug @0.470715> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5049] debug @0.414234> [hit #1]crap me in (eval 113) l. 1
+[5049] debug @0.485433> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5076] debug @0.497841> [hit #1]crap me in (eval 113) l. 1
+[5080] debug @0.419279> [hit #1]crap me in (eval 113) l. 1
+[5080] debug @0.470061> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5120] debug @0.419804> [hit #1]crap me in (eval 113) l. 1
+[5120] debug @0.484096> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
+[5155] debug @0.421420> [hit #1]crap me in (eval 113) l. 1
+[5155] debug @0.495448> [hit #1]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 113) l. 1
