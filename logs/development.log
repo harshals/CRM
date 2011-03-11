@@ -257,3 +257,15 @@
                                  'driver' => 'smtp'
                                }
                }, 'Emailesque' ); in (eval 113) l. 1
+[7847] debug @0.517791> [hit #1]coming here in (eval 114) l. 1
+[7847] debug @0.008220> [hit #88]crap me in (eval 114) l. 1
+[7847] debug @0.036410> [hit #88]$VAR1 = bless( {
+                 'settings' => {
+                                 'pass' => 'Add1234',
+                                 'ssl' => '1',
+                                 'user' => 'info@adhril.com',
+                                 'port' => '465',
+                                 'host' => 'smtp.gmail.com',
+                                 'driver' => 'smtp'
+                               }
+               }, 'Emailesque' ); in (eval 114) l. 1
