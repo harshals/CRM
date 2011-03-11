@@ -117,7 +117,7 @@
                             </li>
                             <li class="tar">
                                 <label></label>
-                                <input type="submit" value="submit" class="button tar"/>
+                                <input type="submit" value="submit" id="submit" class="button tar"/>
                                 <input type="reset" value="reset" class="button tar"/>
                             </li>
                         </ul>
