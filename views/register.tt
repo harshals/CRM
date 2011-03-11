@@ -11,11 +11,6 @@
       "text/html; charset=iso-8859-1" />
       <meta name="description" content="App Name app" />
       <meta name="keywords" content="App Name" />
-      <!-- <link rel="stylesheet" href="css/reset.css" type="text/css" /> -->
-      <!-- <link rel="stylesheet" href="css/text.css" type="text/css" />-->
-
-      <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
-
       <link rel="stylesheet" href="css/style.css" type="text/css" />
       <link rel="stylesheet" href="css/facebox.css" type="text/css" />
       <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
@@ -28,136 +23,113 @@
             <script type="text/javascript" src="javascript/jquery.validate.js"></script>
             <script type="text/javascript">
                 $(document).ready(function() {
-     //--------------------------------registar form --------------------------
-                 $("#regi_form").validate({
-                       rules : {
-                           first_name: {
-                                required: true
+//--------------------------------registar form validation------------------------------
+                     $("#regi_form").validate({
+                           rules : {
+                               first_name: {
+                                    required: true
+                                },
+                                last_name: {
+                                    required: true
+                                },
+                                email: {
+                                   required: true,
+                                   email: true
+                                },
+                                password: {
+                                    required: true,
+                                    minlength: 4,
+                                    maxlength: 15
+                                },
+                                re_password: {
+                                    equalTo: '#password'
+                                },
+                                answer: {
+                                    required: true
+                                },
+                                question_id:{
+                                  required:true
+                                }
                             },
-                            last_name: {
-                                required: true
+                            messages : {
+                                first_name:"Enter Name",
+                                last_name: "Enter SurName",
+                                email: "Enter email id",
+                                password: "Enter password with atleast 4 charactor",
+                                answer: "Enter answer of the question",
+                                question_id:"Select your question"
                             },
-                            email: {
-                               required: true,
-                               email: true
-                            },
-                            password: {
-                                required: true,
-                                minlength: 4,
-                                maxlength: 15
-                            },
-                            re_password {
-								equalTo: '#password'
+                            errorClass:"small"
+                       })
+//------------------------------Form submittion--------------------------------
+                     $("#regi_form").submit(function() {
+                            var verify = $("#regi_form").find("input[name=verify]").attr("checked");
+                            if(!verify) {
+                                alert("Please accept our terms and conditions");
+                                return false;
                             }
-                            answer: {
-                                required: true
-                            },
-                            question_id:{
-                              required:true
-                            }
-                        },
-                        messages : {
-                            first_name:"Enter Name",
-                            last_name: "Enter SurName",
-                            email: "Enter email id",
-                            password: "Enter password with atleast 4 charactor",
-                            answer: "Enter answer of the question",
-                            question_id:"Select your question"
-                        },
-                        errorClass:"small"
-                   })
-
-                 $("#regi_form").submit(function() {
-						 
-						 var verify = $("#regi_form").find("input[name=verify]").attr("checked");
-						
-						 if(!verify) {
-
-							 alert("Please accept our terms and conditions");
-							 return false;
-						 }
-
-
-                       	 var password =$("#regi_form").find("input[name=password]").val();
-                       	 var re_pass=$("#regi_form").find("input[name=re_password]").val();
-                       	 if(pass=='' & re_pass=='')
-                       	 {
-                         alert("please Enter Your Password")
-                       	 }
-                      	 else{
-                         if(pass==re_pass){
-                         return true
-                         }
-                         else{
-                         alert("please check your password");
-                         return false;
-                         }
-                     	 }
-
-                   		 return jcap();
-						 
-                 })
-
+                                return jcap();
+                     })
                 })
- </script>
-      </head>
-      <body>
+           </script>
+       </head>
+       <body>
           <div class="container_24" id="content">
-            <div class="grid_18 main push_4" id="main-content">
+          <div class="grid_18 main push_4" id="main-content">
                  <h2>Registration Form</h2>
-				 <div id="message_box" class="box negative notice grid_15">
-    			<ul><li><% message %></li></ul>
- 				</div>
-     
-
-            <form action="/register" method="POST" class="" id="regi_form"  onsubmit="return jcap();">
-                <fieldset class="grid_15 blue box  ">
-                    <ul class="form  tar">
-                        <li class="required fat">
-                            <label>First Name</label>
-                            <input type="text"  name="first_name"  value=""/>
-                        </li>
-                        <li class="required fat">
-                            <label >Last Name</label>
-                            <input type="text" name="last_name" value=""/>
-                        </li>
-                        <li class="required fat">
-                             <label >Email id</label>
-                             <input type="text"  name="email" value=""/>
-                        </li>
-                        <li class="required fat">
-                             <label >Password</label>
-                             <input type="password"  name="password" value="" id="password"/>
-                       </li>
-                        <li class="required fat">
-                             <label >Retype Password</label>
-                             <input type="password"  name="re_password" value="" id="re_password"/>
-                       </li>
-                       <li class="required fat">
-                            <label >Security Question</label>
-                            <select name="question_id" class="required">
-                                <option value="">Choose Question</option>
-                                <option value="q1" >What is the name of your best friend</option>
-                                <option value="q2" >What is your phone No.</option>
-                                <option value="q3" >What is your vehicle Registration No.</option>
-                                <option value="q4">What is your favorite Food</option>
-                                <option value="q5">What is your lucky number</option>
-                            </select>
-                      </li>
-                      <li class="required fat">
-                            <label >Answer</label>
-                            <input type="text"  name="answer" value=""/>
-                     </li>
-                     <li class="fat">
-                             <label>Company name</label>
-                             <input type="text"  name="company" value=""/>
-                     </li>
-                     <li>
-                           <script type="text/javascript">sjcap();</script>
-                     </li>
-                     <li class="required">
-                          <label >Terms & Condition</label>
-                          <textarea rows="2" cols="40" style="font-size:1.3em">
+	  <div id="message_box" class="box negative notice grid_15">
+    	          <ul>
+                     <li><% message %></li>
+                  </ul>
+ 	  </div>
+                <form action="/register" method="POST" class="" id="regi_form" >
+                    <fieldset class="grid_15 blue box  ">
+                        <ul class="form  tar">
+                            <li class="required fat">
+                                <label>First Name</label>
+                                <input type="text"  name="first_name"  value=""/>
+                            </li>
+                            <li class="required fat">
+                                <label >Last Name</label>
+                                <input type="text" name="last_name" value=""/>
+                            </li>
+                            <li class="required fat">
+                                 <label >Email id</label>
+                                 <input type="text"  name="email" value=""/>
+                            </li>
+                            <li class="required fat">
+                                 <label >Password</label>
+                                 <input type="password"  name="password" value="" id="password"/>
+                            </li>
+                            <li class="required fat">
+                                 <label >Retype Password</label>
+                                 <input type="password"  name="re_password" value="" id="re_password"/>
+                            </li>
+                            <li class="required fat">
+                                 <label >Security Question</label>
+                                 <select name="question_id" class="required">
+                                    <option value="">Choose Question</option>
+                                    <option value="q1" >What is the name of your best friend</option>
+                                    <option value="q2" >What is your phone No.</option>
+                                    <option value="q3" >What is your vehicle Registration No.</option>
+                                    <option value="q4">What is your favorite Food</option>
+                                    <option value="q5">What is your lucky number</option>
+                                </select>
+                            </li>
+                            <li class="required fat">
+                                 <label >Answer</label>
+                                 <input type="text"  name="answer" value=""/>
+                            </li>
+                            <li class="fat">
+                                 <label>Company name</label>
+                                 <input type="text"  name="company" value=""/>
+                            </li>
+                            <li>
+                                 <script type="text/javascript">sjcap();</script>
+                            </li>
+                            <li class="required">
+                                 <label >Terms & Condition</label>
+                                 <textarea rows="2" cols="40" style="font-size:1.3em">
 One of the conditions for all uses is that you cannot mess around with our marks.
 Only we get to do that. Do not remove, distort or alter any element Brand Feature.
 That includes modifying trademark, for example, through hyphenation, combination or abbreviation
@@ -179,18 +151,18 @@ Do not use our company trademarks in a way that suggests a common, descriptive, 
 Trademark rights vary from country to country.
 Some countries have severe criminal and civil penalties for improper use of the registration symbol.
 Therefore, do not use the registration symbol (®) in countries where the mark has not been registered.
-                        </textarea>
-                    </li>
-                    <li class="required" style="margin-left:160px">
-                      <input type="checkbox" name="verify" value=yes />
-                      I accept all Terms & Condition
-                    </li><br>
-                    <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
-                </ul>
-        </fieldset>
-   </form>
+                                 </textarea>
+                        </li>
+                        <li class="required" style="margin-left:160px">
+                                 <input type="checkbox" name="verify" value=yes />
+                                    I accept all Terms & Condition
+                        </li><br>
+                                 <input type="submit" value="I accept,Create my account" id="account" class="button" style="float:none;margin-left:180px" />
+                  </ul>
+             </fieldset>
+           </form>
       </div>
              <!-- main content -->
-</div>
+      </div>
 </body>
 </html>    
