@@ -31,14 +31,23 @@ before sub {
 
 get '/' => sub {
 		
-	set_cookie 'profile_id' => session('profile_id');
-		
 	template 'index';
 };
 
 get '/debug' => sub {
 	
 	return { data =>    vars->{serialize_options}   };
+};
+
+get '/pdf/:path' => sub {
+
+	send_error({error => 'No PDF dir defined ' }) unless -d config->{'pdf_dir'};
+
+	my $pdf = config->{'pdf_dir'} . "/" . params->{'path'};
+	
+	debug "coming here";
+	send_error({error => 'No PDF template defined' }) unless -f $pdf;
+
 };
 
 1;
