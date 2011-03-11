@@ -101,9 +101,13 @@
                             var attempt = $.cookie("login_attempt");
                             attempt = attempt.parseInt();
                             //attempt++;
-                            if (attempt > 4 ) {
+                            if (attempt < 4 ) {
+                                $(form).submit();
+                                //return true;
+                            }
+                            else {
                                 $("#reCaptcha").show();
-                                //return false;
+                                return false;
                             }
                         }
                     })
