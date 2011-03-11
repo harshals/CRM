@@ -45,75 +45,44 @@
              
       $(function() {
         $("#reCaptcha").hide();
+
+        var attempt = $.cookie("login_attempt");
+
+        attempt = attempt.parseInt();
+
+        //attempt++;
+
+        if (attempt > 3 ) {
+
+            $("#reCaptcha").show();
+        }
 	  		
+        $("form[name=login]").validate({
 
-	  		var options = {
+                rules: {
+                username: {
+                required:true
 
-	  		};
-/*
-                         
-                         var   clickCount=0;
- 		  	$("form[name=login]").submit(function() {
-				
-				var data = {
-					username : $(this).find("input[name=username]").val();
-					password : $(this).find("input[name=password]").val();
-				};
+                },
+                password: {
+                required: true,
+                minlength: 4,
+                maxlength:15
+                }
+                },
+                messages: {
+                username: "Enter User Id ",
+                password: "Enter Password with 4 char"
+                },
+                errorContainer: "#message_box",
+                errorLabelContainer: "#message_box ul",
+                submitHandler : function(form) {
 
-				$.ajax( {
-					url : "/login",
-					type : "POST",
-					dataType : "json",
-					data : data,
-					async:false
-					success: function(json) {
-						
-						console.log(json);
-					}
-                                       
-                              });
-			
-				return false;
- 		  	});
-*/
+                    
+                    return (attempt > 3 ) ? jcap() : true;
+                }
+            })
 
-
- 		  $("form[name=login]").validate({
-
-			rules: {
-			username: {
-			required:true
-
-			},
-			password: {
-			required: true,
-			minlength: 4,
-			maxlength:15
-			}
-			},
-			messages: {
-			username: "Enter User Id ",
-			password: "Enter Password with 4 char"
-			},
-			errorContainer: "#message_box",
-			errorLabelContainer: "#message_box ul",
-                        submitHandler : function(form) {
-                            var attempt = $.cookie("login_attempt");
-                            attempt = attempt.parseInt();
-                            //attempt++;
-                            if (attempt < 4 ) {
-                                $(form).submit();
-                                //return true;
-                            }
-                            else {
-                                $("#reCaptcha").show();
-                                return false;
-                            }
-                        }
-                    })
-                    $("#Login_Form").submit(function() {
-                        return jcap();
-                    })
 		// begin here
 	
       });
