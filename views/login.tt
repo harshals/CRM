@@ -32,7 +32,7 @@
                     attempt = (typeof(attempt) != 'undefined' ) ? parseInt(attempt) : 0 ;
                     console.log(attempt);
 
-                    if (attempt > 3 ) {
+                    if (attempt > 2) {
                         $("#reCaptcha").show();
                         $("#submit").click(function(){
                             return jcap();

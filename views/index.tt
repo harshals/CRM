@@ -151,8 +151,7 @@
     <!-- menu -->
       <div  class="grid_24" id="main-menu">
         <ul >
-          <li class="" ><a href="#/home"  name=
-          "current">Home</a></li>
+          <li class="" ><a href="#/home"  name= "current">Home</a></li>
 
         		  
 		  <li><a href="#/task">Tasks</a></li>
@@ -161,7 +160,7 @@
 		  
 		  <li class="right"> <a href="/logout" id="logout">Logout</a></li>
 	
-			<li class="right"> <a href="#/profile" id="profile">John Simth</a></li>
+			<li class="right"> <a href="#/profile" id="profile"><% name %></a></li>
         </ul>
 	   
 

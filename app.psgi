@@ -36,7 +36,7 @@ set 'log' => 'debug';
 
 set 'traces' => 1;
 
-set "template" => "simple";
+set "template" => "template_toolkit";
 
 my $app = sub {
     my $env = shift;
