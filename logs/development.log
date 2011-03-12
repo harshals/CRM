@@ -1,271 +1,65 @@
-[294] debug @1.066142> [hit #1]me too in (eval 108) l. 1
-[294] debug @0.001592> [hit #3]me too in (eval 108) l. 1
-[375] debug @0.001098> [hit #1]P :  in (eval 108) l. 1
-[399] debug @0.001159> [hit #1]P : $VAR1 = {}; in (eval 108) l. 1
-[399] debug @0.001654> [hit #3]P : $VAR1 = {
-          'crap' => '1'
-        }; in (eval 108) l. 1
-[439] debug @0.001406> [hit #1]P : $VAR1 = {
-          'crap' => '1'
-        }; in (eval 108) l. 1
-[439] debug @0.001281> [hit #3]P : $VAR1 = {
-          'password' => 'crap',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[471] debug @0.001360> [hit #1]P : $VAR1 = {
-          'password' => 'crap',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[477] debug @0.001381> [hit #1]P : $VAR1 = {
-          'password' => 'crap',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[477] debug @0.001404> [hit #2]P : $VAR1 = {
-          'failed' => '1'
-        }; in (eval 108) l. 1
-[477] debug @0.001581> [hit #4]P : $VAR1 = {
-          'password' => 'foobar',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[477] debug @0.001482> [hit #5]P : $VAR1 = {
-          'failed' => '1'
-        }; in (eval 108) l. 1
-[477] debug @0.001426> [hit #6]P : $VAR1 = {}; in (eval 108) l. 1
-[477] debug @0.001358> [hit #7]P : $VAR1 = {
-          'password' => 'foobar',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[477] debug @0.001517> [hit #8]P : $VAR1 = {
-          'failed' => '1'
-        }; in (eval 108) l. 1
-[571] debug @0.001450> [hit #1]P : $VAR1 = {
-          'password' => 'foobar',
-          'username' => 'admin'
-        }; in (eval 108) l. 1
-[571] debug @0.001552> [hit #2]P : $VAR1 = {
-          'failed' => '1'
-        }; in (eval 108) l. 1
-[571] debug @0.001374> [hit #3]P : $VAR1 = {
-          'password' => '12345',
-          'username' => 'Adam@csindustries.com'
-        }; in (eval 108) l. 1
-[571] debug @0.007457> [hit #3]my user data  in (eval 108) l. 1
-[611] debug @0.001443> [hit #1]P : $VAR1 = {
-          'password' => '12345',
-          'username' => 'Adam@csindustries.com'
-        }; in (eval 108) l. 1
-[611] debug @0.287113> [hit #1]my user data Master::Result::User in (eval 108) l. 1
-[620] debug @0.001389> [hit #1]P : $VAR1 = {
-          'password' => '12345',
-          'username' => 'Adam@csindustries.com'
-        }; in (eval 108) l. 1
-[620] debug @0.001331> [hit #3]P : $VAR1 = {}; in (eval 108) l. 1
-[1228] debug @0.001528> [hit #1]P : $VAR1 = {
-          'failed' => '1'
-        }; in (eval 112) l. 1
-[1228] debug @0.001745> [hit #2]P : $VAR1 = {
-          'password' => '12345',
-          'username' => 'Adam@csindustries.com'
-        }; in (eval 112) l. 1
-[1228] debug @0.131981> [hit #3]me too in (eval 112) l. 1
-[1228] debug @0.002428> [hit #4]me too in (eval 112) l. 1
-[1228] debug @0.001958> [hit #5]me too in (eval 112) l. 1
-[1228] debug @0.002224> [hit #6]me too in (eval 112) l. 1
-[1228] debug @0.001743> [hit #8]P : $VAR1 = {}; in (eval 112) l. 1
-[1424] debug @0.353170> [hit #1]me too in (eval 112) l. 1
-[1434] debug @0.354834> [hit #1]me too in (eval 112) l. 1
-[1434] debug @0.355556> [hit #1]P : $VAR1 = {}; in (eval 112) l. 1
-[1434] debug @0.002037> [hit #3]P : $VAR1 = {
-          'password' => '12345',
-          'username' => 'Adam@csindustries.com'
-        }; in (eval 112) l. 1
-[1434] debug @0.002298> [hit #4]me too in (eval 112) l. 1
-[1434] debug @0.002967> [hit #5]me too in (eval 112) l. 1
-[1434] debug @0.002926> [hit #6]me too in (eval 112) l. 1
-[1434] debug @0.003092> [hit #8]me too in (eval 112) l. 1
-[1434] debug @0.003429> [hit #11]me too in (eval 112) l. 1
-[1434] debug @0.003047> [hit #13]me too in (eval 112) l. 1
-[1434] debug @0.001910> [hit #14]P : $VAR1 = {}; in (eval 112) l. 1
-[2096] debug @0.001657> [hit #1]cming here in (eval 87) l. 1
-[2109] debug @0.001754> [hit #1]cming here in (eval 87) l. 1
-[2115] debug @0.051479> [hit #1]cming here too in (eval 87) l. 1
-[3459] debug @0.012990> [hit #38]crap me in (eval 86) l. 1
-[3459] debug @0.072438> [hit #38]$VAR1 = bless( {
-                 'settings' => {
-                                 'driver' => 'sendmail'
-                               }
-               }, 'Emailesque' ); in (eval 86) l. 1
-[3459] debug @0.009881> [hit #55]crap me in (eval 86) l. 1
-[3459] debug @0.024357> [hit #55]$VAR1 = bless( {
-                 'settings' => {
-                                 'driver' => 'sendmail'
-                               }
-               }, 'Emailesque' ); in (eval 86) l. 1
-[4359] debug @0.009082> [hit #4]crap me in (eval 86) l. 1
-[4359] debug @0.080570> [hit #4]$VAR1 = bless( {
-                 'settings' => {
-                                 'driver' => 'sendmail'
-                               }
-               }, 'Emailesque' ); in (eval 86) l. 1
-[4380] debug @0.410515> [hit #1]crap me in (eval 86) l. 1
-[4380] debug @0.460542> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'driver' => 'sendmail'
-                               }
-               }, 'Emailesque' ); in (eval 86) l. 1
-[4390] debug @0.412118> [hit #1]crap me in (eval 86) l. 1
-[4429] debug @0.010210> [hit #4]crap me in (eval 86) l. 1
-[4737] debug @0.003302> [hit #4]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'FooBar1979',
-                                 'ssl' => '1',
-                                 'user' => 'harshal.shah@gmail.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4748] debug @0.002278> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'FooBar1979',
-                                 'ssl' => '1',
-                                 'user' => 'harshal.shah@gmail.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4748] debug @0.002586> [hit #2]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'FooBar1979',
-                                 'ssl' => '1',
-                                 'user' => 'harshal.shah@gmail.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4748] debug @0.002572> [hit #3]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'FooBar1979',
-                                 'ssl' => '1',
-                                 'user' => 'harshal.shah@gmail.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4765] debug @0.002265> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4869] debug @0.115675> [hit #7]crap me in (eval 113) l. 1
-[4891] debug @0.012202> [hit #3]crap me in (eval 113) l. 1
-[4947] debug @0.414007> [hit #1]crap me in (eval 113) l. 1
-[4951] debug @0.011482> [hit #3]crap me in (eval 113) l. 1
-[4951] debug @0.080212> [hit #3]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[4978] debug @0.480040> [hit #1]crap me in (eval 113) l. 1
-[4978] debug @0.530014> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5002] debug @0.423066> [hit #1]crap me in (eval 113) l. 1
-[5002] debug @0.478378> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5015] debug @0.413412> [hit #1]crap me in (eval 113) l. 1
-[5015] debug @0.470715> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5049] debug @0.414234> [hit #1]crap me in (eval 113) l. 1
-[5049] debug @0.485433> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5076] debug @0.497841> [hit #1]crap me in (eval 113) l. 1
-[5080] debug @0.419279> [hit #1]crap me in (eval 113) l. 1
-[5080] debug @0.470061> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5120] debug @0.419804> [hit #1]crap me in (eval 113) l. 1
-[5120] debug @0.484096> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[5155] debug @0.421420> [hit #1]crap me in (eval 113) l. 1
-[5155] debug @0.495448> [hit #1]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 113) l. 1
-[7847] debug @0.517791> [hit #1]coming here in (eval 114) l. 1
-[7847] debug @0.008220> [hit #88]crap me in (eval 114) l. 1
-[7847] debug @0.036410> [hit #88]$VAR1 = bless( {
-                 'settings' => {
-                                 'pass' => 'Add1234',
-                                 'ssl' => '1',
-                                 'user' => 'info@adhril.com',
-                                 'port' => '465',
-                                 'host' => 'smtp.gmail.com',
-                                 'driver' => 'smtp'
-                               }
-               }, 'Emailesque' ); in (eval 114) l. 1
+[5235] debug @0.013162> [hit #3]'/Users/harshal/Developments/Projects/CRM/views/views/pdf/temp.tt.tt' doesn't exist or not a regular file at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Template/TemplateToolkit.pm line 50
+	Dancer::Template::TemplateToolkit::render('Dancer::Template::TemplateToolkit=HASH(0x2134b50)', '/Users/harshal/Developments/Projects/CRM/views/views/pdf/temp...', 'HASH(0x2135100)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Template/Abstract.pm line 55
+	Dancer::Template::Abstract::apply_renderer('Dancer::Template::TemplateToolkit=HASH(0x2134b50)', 'views/pdf/temp.tt.tt', 'HASH(0x2135100)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Template/Abstract.pm line 133
+	Dancer::Template::Abstract::template('Dancer::Template::Abstract', 'views/pdf/temp.tt.tt', 'HASH(0x2135100)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer.pm line 150
+	Dancer::template('views/pdf/temp.tt.tt', 'HASH(0x2135100)') called at /Users/harshal/Developments/Projects/CRM/lib/App.pm line 55
+	eval {...} called at /Users/harshal/Developments/Projects/CRM/lib/App.pm line 54
+	App::__ANON__() called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Route.pm line 234
+	Dancer::Route::execute('Dancer::Route=HASH(0xb988a0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Route.pm line 155
+	Dancer::Route::run('Dancer::Route=HASH(0xb988a0)', 'Dancer::Request=HASH(0x21a08d0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Renderer.pm line 120
+	Dancer::Renderer::get_action_response() called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Renderer.pm line 23
+	Dancer::Renderer::render_action('Dancer::Renderer') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Handler.pm line 72
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer/Handler.pm line 71
+	Dancer::Handler::handle_request('Dancer::Handler', 'Dancer::Request=HASH(0x21a08d0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Dancer.pm line 310
+	Dancer::_start('Dancer', 'Dancer::Request=HASH(0x21a08d0)') called at app.psgi line 45
+	Plack::Sandbox::app_2epsgi::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Static.pm line 18
+	Plack::Middleware::Static::call('Plack::Middleware::Static=HASH(0xc5a5c0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/SimpleLogger.pm line 28
+	Plack::Middleware::SimpleLogger::call('Plack::Middleware::SimpleLogger=HASH(0xc5a670)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::DBIC::QueryLog=HASH(0xc633b0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Session=HASH(0xc638c0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Dancer::Version=HASH(0xc79fd0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Parameters=HASH(0xc79950)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Dancer::Logger=HASH(0xc79ac0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Dancer::Settings=HASH(0xc79bd0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Environment=HASH(0xc79ce0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Timer=HASH(0xb6f010)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Response=HASH(0xb6f120)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug/Base.pm line 23
+	Plack::Middleware::Debug::Base::call('Plack::Middleware::Debug::Memory=HASH(0xb6f230)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Debug.pm line 136
+	Plack::Middleware::Debug::call('Plack::Middleware::Debug=HASH(0xc5a7c0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Session.pm line 52
+	Plack::Middleware::Session::call('Plack::Middleware::Session=HASH(0xc5afd0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/App/URLMap.pm line 71
+	Plack::App::URLMap::call('Plack::App::URLMap=HASH(0xc15510)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/Lint.pm line 24
+	Plack::Middleware::Lint::call('Plack::Middleware::Lint=HASH(0xa70be0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/StackTrace.pm line 31
+	Plack::Middleware::StackTrace::__ANON__() called at /usr/local/lib/perl5/site_perl/5.12.1/Try/Tiny.pm line 71
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Try/Tiny.pm line 67
+	Try::Tiny::try('CODE(0x9bb390)', 'Try::Tiny::Catch=REF(0xc9d080)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/StackTrace.pm line 35
+	Plack::Middleware::StackTrace::call('Plack::Middleware::StackTrace=HASH(0xa4f700)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/AccessLog.pm line 21
+	Plack::Middleware::AccessLog::call('Plack::Middleware::AccessLog=HASH(0xc201f0)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Middleware/ContentLength.pm line 10
+	Plack::Middleware::ContentLength::call('Plack::Middleware::ContentLength=HASH(0xc4c770)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Component.pm line 39
+	Plack::Component::__ANON__('HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Util.pm line 159
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Util.pm line 159
+	Plack::Util::run_app('CODE(0xca5690)', 'HASH(0x213f2e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/HTTP/Server/PSGI.pm line 145
+	HTTP::Server::PSGI::handle_connection('HTTP::Server::PSGI=HASH(0xc40260)', 'HASH(0x213f2e0)', 'IO::Socket::INET=GLOB(0x213f210)', 'CODE(0xca5690)') called at /usr/local/lib/perl5/site_perl/5.12.1/HTTP/Server/PSGI.pm line 105
+	HTTP::Server::PSGI::accept_loop('HTTP::Server::PSGI=HASH(0xc40260)', 'CODE(0xc05220)') called at /usr/local/lib/perl5/site_perl/5.12.1/HTTP/Server/PSGI.pm line 59
+	HTTP::Server::PSGI::run('HTTP::Server::PSGI=HASH(0xc40260)', 'CODE(0xc05220)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Handler/HTTP/Server/PSGI.pm line 14
+	Plack::Handler::HTTP::Server::PSGI::run('Plack::Handler::Standalone=HASH(0xc40470)', 'CODE(0xc05220)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Loader.pm line 85
+	Plack::Loader::run('Plack::Loader=HASH(0x85acc0)', 'Plack::Handler::Standalone=HASH(0xc40470)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Runner.pm line 256
+	Plack::Runner::run('Plack::Runner=HASH(0x803ea0)') called at /usr/local/bin/plackup line 10 in (eval 114) l. 1
+[5235] debug @0.013560> [hit #3]coming here roo in (eval 114) l. 1

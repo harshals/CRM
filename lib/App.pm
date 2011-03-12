@@ -16,6 +16,13 @@
 #===============================================================================
 
 package App;
+
+use File::chdir;
+use File::Spec::Functions qw/catfile rel2abs/;
+use File::Temp qw/tmpnam/;
+use PDF::Reuse;
+
+
 use strict;
 use warnings;
 
@@ -40,13 +47,27 @@ get '/debug' => sub {
 };
 
 get '/pdf/:path' => sub {
+	
+	my $filename = params->{'path'};
 
 	send_error({error => 'No PDF dir defined ' }) unless -d config->{'pdf_dir'};
 
-	my $pdf = config->{'pdf_dir'} . "/" . params->{'path'};
+	my $pdf = config->{'pdf_dir'} . "/" . $filename . ".tt";
 	
-	debug "coming here";
 	send_error({error => 'No PDF template defined' }) unless -f $pdf;
+	
+	content_type 'application/pdf';
+	
+	eval {
+		template $pdf, { pdf_template => "$filename.pdf" };
+	};
+
+	if ($@) {
+		
+		debug $@;
+	}
+
+	debug "coming here roo";
 
 };
 
