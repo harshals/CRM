@@ -16,11 +16,10 @@
  
   <!-- <link rel="stylesheet" href="css/960_24_col.css" type="text/css" /> -->
   
-  <link rel="stylesheet/less" href="css/main.css" type="text/css"> 
-  <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css"> 
-  <link rel="stylesheet" href="css/facebox.css" type="text/css" />
-  <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
-  <script src="javascript/less.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/facebox.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+    <script src="javascript/less.js" type="text/javascript"></script>
 
       	<script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="javascript/jquery.form.js"></script>
@@ -34,6 +33,7 @@
   	<script type="text/javascript" src="javascript/jquery.tablesorter.pager.js"></script>
   	<script type="text/javascript" src="javascript/jquery.formTowizard.js"></script>
 	<script type="text/javascript" src="javascript/jquery.facebox.js"></script>
+        <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 
   	<script type="text/javascript" src="javascript/sammy/sammy.js"></script>
   	<script type="text/javascript" src="javascript/sammy/min/plugins/sammy.template-latest.min.js"></script>
@@ -47,6 +47,7 @@
 	<script type="text/javascript" src="javascript/controllers/task.js"></script>
 	<script type="text/javascript" src="javascript/controllers/plugins.js"></script> 
         <script type="text/javascript" src="javascript/controllers/contact.js"></script>
+        <script type="text/javascript" src="javascript/controllers/profile.js"></script>
         
 
   <!-- <script type="text/javascript" src="javascript/firebug-lite-debug.js"></script> -->
@@ -85,7 +86,7 @@
 
 				/* Do something if main menu is clicked */
 
-		this.before(/(home|table|form|menu|overview)$/, function(context) {
+		this.before(/(home|table|form|menu|overview|profile)$/, function(context) {
 			
 			/* some additional log */
 			$("#main-content").html('');
@@ -107,6 +108,7 @@
 		MainController(this);  
 		TaskController(this);
                 ContactController(this);
+                ProfileController(this);
 		
      });
 
