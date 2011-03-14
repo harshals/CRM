@@ -36,6 +36,7 @@
   	<script type="text/javascript" src="javascript/jquery.tablesorter.pager.js"></script>
   	<script type="text/javascript" src="javascript/jquery.formTowizard.js"></script>
 	<script type="text/javascript" src="javascript/jquery.facebox.js"></script>
+      <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 
   	<script type="text/javascript" src="javascript/sammy/sammy.js"></script>
   	<script type="text/javascript" src="javascript/sammy/min/plugins/sammy.template-latest.min.js"></script>
@@ -49,7 +50,7 @@
 	<script type="text/javascript" src="javascript/controllers/task.js"></script>
 	<script type="text/javascript" src="javascript/controllers/plugins.js"></script> 
     <script type="text/javascript" src="javascript/controllers/contact.js"></script>
-		
+	<script type="text/javascript" src="javascript/controllers/profile.js"></script>	
 
 
   <!-- <script type="text/javascript" src="javascript/firebug-lite-debug.js"></script> -->
@@ -141,7 +142,7 @@
        
         <form id="search_engine" method="post" action="."
         accept-charset="UTF-8">
-          <input class="small-field" name="search_query" type="text"          id="keywords" value="Search Keywords"  />
+          <input class="small-field" name="search_query" type="text" id="keywords" value="Search Keywords"  />
           <input class="small-button" name="submit" type="submit" value="Search" />
         </form>
       </div>
