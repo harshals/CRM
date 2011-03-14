@@ -36,6 +36,6 @@ MainController = function(app) { with (app) {
 	});
         app.get('#/profile', function(context) {
         	//context.render('views/profile-menu').replace("#section-menu");
-                context.redirect("#/profile-list");
+                context.redirect("#/profile-detail");
 	});
 }};
