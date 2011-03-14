@@ -110,7 +110,8 @@
 	  
 		MainController(this);  
 		TaskController(this);
-                ContactController(this);
+            ContactController(this);
+            ProfileController(this);
 		
      });
 
