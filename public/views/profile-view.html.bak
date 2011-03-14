@@ -83,61 +83,61 @@
                  </li>
                  <li class="fat">
                    <label class="grid_3">Language</label>
-                   <input type="text" name="language" value="[%language%]"/>
+                   <input type="text" name="language" value=""/>
                  </li>
 <!-------------------------------Company Details------------------------------->
                  <li class="fat">
                    <label class="grid_3">Company Name</label>
-                   <input type="text" name="name" value="[%name%]"/>
+                   <input type="text" name="name" value=""/>
                  </li>
                  <li class="fat ">
                    <label class="grid_3">Your Profession</label>
-                   <input type="text" name="title" value="[%title%]"/>
+                   <input type="text" name="title" value=""/>
                  </li>
                  <li>
                    <label class="grid_3">Office Address:-</label>
-                   <input type="text" name="business_street" value="[%business_street%]"/>
-                   <input type="text" name="business_street_2" value="[%business_street_2%]"/>
-                   <input type="text" name="business_street_3" value="[%business_street_3%]"/>
+                   <input type="text" name="business_street" value="street 1"/>
+                   <input type="text" name="business_street_2" value="street 2"/>
+                   <input type="text" name="business_street_3" value="street 3"/>
                  </li>
                  <li>
                    <label class="grid_3">Postal Code</label>
-                   <input type="text" name="business_postal_code" value="[%business_postal_code%]"/>
+                   <input type="text" name="business_postal_code" value=""/>
                    <label class="grid_2">City</label>
-                   <input type="text" name="business_city" value="[%business_city%]"/>
+                   <input type="text" name="business_city" value=""/>
 		 </li>
                  <li>
                     <label class="grid_3">Country</label>
-                    <input type="text" name="business_country" value="[%business_country%]"/>
+                    <input type="text" name="business_country" value=""/>
                     <label class="grid_2">email id</label>
-                    <input type="text" name="web_page" value="[%web_page%]" />
+                    <input type="text" name="web_page" value="" />
                  </li>
                  <li>
 	            <label class="grid_3">Phone No</label>
-                    <input type="text" name="business_phone" value="[%business_phone%]"/>
+                    <input type="text" name="business_phone" value=""/>
 		    <label class="grid_2">Fax</label>
-                    <input type="text" name="business_fax" value="[%business_fax%]"/>
+                    <input type="text" name="business_fax" value=""/>
                  </li>
             </ul>
 <!--------------shows personal details after click on advance details---------->
             <ul id="adv_detail" class="form hii">
                 <li>
                    <label class="grid_3">Personal Address</label>
-                   <input type="text" name="home_street" value="[%home_street%]"/>
-		   <input type="text" name="home_street_2" value="[%home_street_2%]"/>
-                   <input type="text" name="home_street_3" value="[%home_street_3%]"/>
+                   <input type="text" name="home_street" value="street 1"/>
+		   <input type="text" name="home_street_2" value="street 2"/>
+                   <input type="text" name="home_street_3" value="street 3"/>
                 </li>
                 <li>
                   <label class="grid_3">Postal Code</label>
-                  <input type="text" name="home_postal_code" value="[%home_postal_code%]"/>
+                  <input type="text" name="home_postal_code" value=""/>
 		  <label class="grid_2">State</label>
-                  <input type="text" name="home_state" value="[%home_state%]"/>
+                  <input type="text" name="home_state" value=""/>
 		</li>
                 <li>
                   <label class="grid_3">Country</label>
-                  <input type="text" name="home_country" value="[%home_country%]"/>
+                  <input type="text" name="home_country" value=""/>
                   <label class="grid_2">Phone No</label>
-                  <input type="text" name="home_phone" value="[%home_phone%]"/>
+                  <input type="text" name="home_phone" value=""/>
                 </li>
                 </ul>
           </fieldset>

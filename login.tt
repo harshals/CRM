@@ -9,55 +9,65 @@
         <meta name="description" content="App Name app" />
         <meta name="keywords" content="App Name" />
         
-        <link rel="stylesheet/less" href="css/main.css" type="text/css"/>
-        <link rel="stylesheet/less" href="css/rmsforms.css" type="text/css"/>
-        <link rel="stylesheet" href="css/facebox.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="css/facebox.css" type="text/css"/>
         <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
-        <script src="javascript/less.js" type="text/javascript"></script>
 
-      	<script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="javascript/jquery.form.js"></script>
         <script type="text/javascript" src="javascript/jquery.validate.js"></script>
         <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
-        
+        <script type="text/javascript" src="javascript/jcap.js"></script>
+        <script type="text/javascript" src="javascript/md5.js"></script>
+        <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                var json={};
-                $("#LoginForm").validate({
+
+            ;(function($) {
+
+                $(function() {
+                    $("#reCaptcha").hide();
+
+                    var attempt = "<% login_attempt %>";
+                    alert(<% login_attempt %>);
+                    attempt = (typeof(attempt) != 'undefined' ) ? parseInt(attempt) : 0 ;
+                    console.log(attempt);
+
+                    if (attempt > 3 ) {
+                        $("#reCaptcha").show();
+                        $("#submit").click(function(){
+                            return jcap();
+                        });
+                    }
+			
+                    $("form[name=login]").validate({
                         rules: {
                             username: {
                                 required:true
                             },
                             password: {
                                 required: true,
-				minlength: 4,
+                                minlength: 4,
                                 maxlength:15
-			    }
+                            }
                         },
                         messages: {
-                            user: "Enter User Id ",
+                            username: "Enter User Id ",
                             password: "Enter Password with 4 char"
-                        }
+                        },
+                        errorContainer: "#message_box",
+                        errorLabelContainer: "#message_box ul"
+                    })
+
                 });
 
-                $("#LoginForm").submit(function() {
-                    var user=$("#LoginForm").find("input[name=user]").val();
-                    //alert(user);
-                    var pass=$("#LoginForm").find("input[name=password]").val();
-                   // alert(pass);
-                    var json={"username":user, "password":pass}
-                    var OBJ=JSON.stringify(json)
-                   // alert(OBJ);
-                });
-
-             
-
-            });
+            })(jQuery);
+	
         </script>
     </head>
 
     <body>
+        <!-- container_24 -->
         <div class="container_24" id="content">
 
             <!-- header -->
@@ -67,38 +77,48 @@
                     <span class="right">sub name or slogan</span>
                 </div>
             </div>
-            
             <div class="grid_6">
             </div>
             <!-- header -->
+
+
+            <div class="clear"></div><!-- sidebar form container -->
 
             <!-- menu -->
             <div  class="grid_24" id="main-menu">
             </div>
             <!-- menu -->
 
+            <div class="clear"></div>
+
             <!-- main content -->
             <div class="grid_18 main push_4" id="main-content">
-                <h2>Login</h2>
-                <form action="index.html" method="POST" class="" id="LoginForm" >
-                    <fieldset class="grid_17 yellow box  ">
+                <h2>Login2</h2>
+                <div id="message_box" class="box negative notice grid_15">
+                    <ul><li> <% message %></li></ul>
+                </div>
+                <form action="/login" method="POST" class="" name="login" id="Login_Form">
+                    <fieldset class="grid_15 yellow box  ">
                         <legend>This is a legend</legend>
-                        <ul class="form big tar fat" >
+                        <ul class="form big tar fat">
                             <li class="required">
                                 <label>Username</label>
-                                <input type="text" value="" class="required" name="user"/>
+                                <input type="text"  name="username"/>
                             </li>
                             <li class="required" id="PASS">
-                                <label>Password</label><input type="text" value="" class="required" name="password"/>
-                                <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
-                                <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
+                                <label>Password</label>
+                                <input type="password" value="" class="required" name="password"/>
                             </li>
-                            <li id="SECRET">
+                            <li id=reCaptcha>
+                                <script type="text/javascript">sjcap();</script>;
                             </li>
-                            <li id="ANSWER" class="required">
+                            <li>
+                                <a class="leftNote offset1 small" href="/forgot_password">Forgot password ?</a>
+                                <a class="leftNote  small" id="Register" href="/register">Register ?</a>
                             </li>
                             <li class="tar">
-                                <label></label><input type="submit" value="submit" id="submit" class="button tar"/>
+                                <label></label>
+                                <input type="submit" value="submit" id="submit" class="button tar"/>
                                 <input type="reset" value="reset" class="button tar"/>
                             </li>
                         </ul>
@@ -111,6 +131,9 @@
             <div class="grid_6 main right "  >
             </div>
             <!-- grid_6 right sidebar -->
+
+            <div class="clear">
+            </div>
 
             <!-- further content -->
             <div class="grid_24" id="content-extra" >
@@ -132,7 +155,8 @@
                 </div>
             </div>
             <!-- footer -->
-    
+
         </div>
+        <!-- container_24 -->
     </body>
 </html>

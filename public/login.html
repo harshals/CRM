@@ -19,10 +19,16 @@
         <script type="text/javascript" src="javascript/jquery.form.js"></script>
         <script type="text/javascript" src="javascript/jquery.validate.js"></script>
         <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="javascript/jcap.js"></script>
+        <script type="text/javascript" src="javascript/md5.js"></script>
+        <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
         
 
         <script type="text/javascript">
             $(document).ready(function() {
+                $("#error").hide();
+                $("#error1").hide();
+                $("#recaptcha").hide();
                 var json={};
                 $("#LoginForm").validate({
                         rules: {
@@ -37,23 +43,28 @@
                         },
                         messages: {
                             user: "Enter User Id ",
-                            password: "Enter Password with 4 char"
+                            password: "Enter Password"
                         }
                 });
 
+                var   clickCount=0;
                 $("#LoginForm").submit(function() {
                     var user=$("#LoginForm").find("input[name=user]").val();
-                    //alert(user);
                     var pass=$("#LoginForm").find("input[name=password]").val();
-                   // alert(pass);
                     var json={"username":user, "password":pass}
                     var OBJ=JSON.stringify(json)
-                   // alert(OBJ);
+                    //alert(OBJ);
+                     $("#error").show();
+                    clickCount =($.cookie("clickCount"),clickCount);
+                       clickCount++;
+                   if (clickCount >= 3) {
+                      $("#error").hide();
+                      $("#error1").show();
+                      $("#recaptcha").show();
+                       return jcap();
+                   }
                 });
-
-             
-
-            });
+        });
         </script>
     </head>
 
@@ -89,13 +100,20 @@
                                 <input type="text" value="" class="required" name="user"/>
                             </li>
                             <li class="required" id="PASS">
-                                <label>Password</label><input type="text" value="" class="required" name="password"/>
-                                <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
-                                <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
+                                <label>Password</label><input type="password" value="" class="required" name="password"/>
                             </li>
-                            <li id="SECRET">
+                            <li id="error">
+                              <font color="red" style="margin-left:125px"> Enter correct user name & password </font>
                             </li>
-                            <li id="ANSWER" class="required">
+                            <li id="error1">
+                              <font color="red" style="margin-left:125px">Enter the correct username &  password and then type the characters</font>
+                            </li>
+                            <li id="recaptcha">
+                                <script type="text/javascript">sjcap();</script>
+                            </li>
+                            <li>
+                             <a class="leftNote offset1 small" href="Forget_Password.html">Forgot password ?</a>
+                              <a class="leftNote  small" id="Register" href="regi_form.html">Register ?</a>
                             </li>
                             <li class="tar">
                                 <label></label><input type="submit" value="submit" id="submit" class="button tar"/>

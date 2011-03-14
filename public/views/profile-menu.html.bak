@@ -3,9 +3,9 @@
         <p>Actions</p>
 
         <ul >
-          <li><a id="create" class="change_password">Change Password</a></li>
+          <li><a id="create" class="change_pass">Change Password</a></li>
 
-          <li><a id="create" class="back_up">Back Up</a></li>
+          <li><a id="create" href="#/">Back Up</a></li>
 
           <li><a id="create" href="#/">Change Picture</a></li>
 

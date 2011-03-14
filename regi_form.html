@@ -52,6 +52,9 @@
                             minlength: 4,
                             maxlength: 15
                         },
+                        re_password: {
+                            equalTo: '#password'
+                        },
                         verify: {
                             required: true
                         },
@@ -84,23 +87,8 @@
                $("#regi_form").submit(function() {
                    var pass=$("#regi_form").find("input[name=password]").val();
                    var re_pass=$("#regi_form").find("input[name=re_password]").val();
-                   if(pass=='' & re_pass=='')
-                   {
-                       alert("please Enter Your Password")
-                   }
-                  else{
-                     if(pass==re_pass){
-                     return true
-                     }
-                     else{
-                     alert("please check your password");
-                     return false;
-                     }
-                 }
-                 
-             })
-               
-            })
+               })
+         })
  </script>
       </head>
       <body>
