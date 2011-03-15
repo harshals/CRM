@@ -16,7 +16,7 @@ MainController = function(app) { with (app) {
                            
        	    var profile_id=$.cookie("profile_id");
 
-            if (typeof(profile_id) == 'undefined') {
+            if (profile_id == 'null') {
 
                 $("#logout").click();
             }
