@@ -14,7 +14,7 @@ ProfileController = function(app) {with (app) {
 
 //==================================AFTER LOADING===============================
 //------------------------------------LOADING PROFILE--------------------------
-        app.get('#/profile-list', function(context) {
+        app.get('#/profile-detail', function(context) {
               context .render("views/profile-view.html").replace("#main-content")
                       .then (function(){
                            $("#adv_detail").hide();
