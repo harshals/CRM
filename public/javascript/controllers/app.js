@@ -16,9 +16,10 @@ MainController = function(app) { with (app) {
                            
        	    var profile_id=$.cookie("profile_id");
 
-            if (profile_id == 'null') {
+            if (profile_id == 'null ') {
 
                 $("#logout").click();
+                console.log("LOG OUT");
             }
             console.log(profile_id);
             context.load('/api/Contact/' + profile_id)
