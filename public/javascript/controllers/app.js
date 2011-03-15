@@ -14,12 +14,17 @@ MainController = function(app) { with (app) {
 
 	app.get('#/home', function(context) {
                            
-       	    context.render('views/index.html').replace("#main-content");
-            var profile_id=$.cookie("profile_id");
-            //alert(profile_id);
-            console.log(profile_id)
-            //context.render('views/profiler.html',{"name":profile_id}).replace("#profile");
+       	    var profile_id=$.cookie("profile_id");
 
+            if (typeof(profile_id) == 'undefined') {
+
+                $("#logout").click();
+            }
+            console.log(profile_id);
+            context.load('/api/Contact/' + profile_id)
+            .then(function(json){
+                $("#profile").text(data['name']);
+            })
 	});
 
 	app.get('#/task', function(context) {
