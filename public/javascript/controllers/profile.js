@@ -14,25 +14,29 @@ ProfileController = function(app) {with (app) {
 
 //==================================AFTER LOADING===============================
 //------------------------------------LOADING PROFILE--------------------------
-        app.get('#/profile-detail', function(context) {
-              context .render("views/profile-view.html").replace("#main-content")
-                      .then (function(){
-                           $("#adv_detail").hide();
-                       });
-             context .render('views/profile-menu.html').replace("#section-menu")
-                     .then (function(){
-                           $("#shown").find("a.expand").click(function(ev) {
-                               alert("shows personal details");
-                               $("#adv_detail").show();
-                           })
-						   $("#shown").find("a.change_password").click(function(ev) {
-                              context .render('views/change_password.html')
-                                      .replace("#sidebar-content");
-							})
-							$("#shown").find("a.back_up").click(function(ev) {
-                              context .render('views/back_up.html')
-                                      .replace("#sidebar-content")
-							})
-						})
-      });
+            app.get('#/profile-detail', function(context) {
+                context .load("null.html")
+                        .then(function(html) {
+                            this.wait();
+                            context .jemplate('profile-view.html', {}, '#main-content', this)
+                            context .jemplate('profile-menu.html', {}, '#section-menu', this)
+                        })
+                        .then (function(){
+                            $("#adv_detail").hide();
+                            this.wait();
+
+                        })
+                        .then (function(){
+                            $("#shown").find("a.expand").click(function(ev) {
+                                alert("shows personal details");
+                                $("#adv_detail").show();
+                            })
+                            $("#shown").find("a.change_password").click(function(ev) {
+                                context .jemplate('change_password.html', {}, '#sidebar-content', this)
+                            })
+                            $("#shown").find("a.back_up").click(function(ev) {
+                                context .jemplate('back_up.html', {}, '#sidebar-content', this)
+                            })
+                        })
+            });
 }}
