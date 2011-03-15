@@ -52,12 +52,46 @@ get '/pdf/:path' => sub {
 
 	send_error({error => 'No PDF dir defined ' }) unless -d config->{'pdf_dir'};
 
-	my $pdf = config->{'pdf_dir'} . "/" . $filename . ".tt";
+	my $pdf_template = config->{'pdf_dir'} . "/" . $filename . ".tt";
 	
-	send_error({error => 'No PDF template defined' }) unless -f $pdf;
+	send_error({error => 'No PDF template defined' }) unless -f $pdf_template;
 	
-	content_type 'application/pdf';
-	
+ 	my $template = <<'EOT';
+    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% USE barcode = Catalyst::View::PDF::Reuse::Barcode %]
+    [% PROCESS $pdf_template %]
+EOT
+
+    my $tempfile = tmpnam();
+    prInitVars();
+    prFile($tempfile);
+    
+	foreach my $path (@{config->{'template_toolkit'}->{INCLUDE_PATH}}) {
+        $path = rel2abs($path);
+    }
+
+    my $output;
+    SEARCH: foreach my $path (@{$self->config->{INCLUDE_PATH}}) {
+        if (-e catfile($path,$c->stash->{pdf_template})) {
+            local $CWD = $path;
+            $output = $self->render($c,\$template);
+            last SEARCH;
+        }
+    }
+    
+    prEnd();
+
+    my $pdf;
+    local $/ = undef;
+    open PDF,'<',$tempfile;
+    $pdf = (<PDF>);
+    close PDF;
+    unlink $tempfile;
+
+    return (UNIVERSAL::isa($output, 'Template::Exception')) ? $output : $pdf;
+    
+
+
 	eval {
 		template $pdf, { pdf_template => "$filename.pdf" };
 	};
