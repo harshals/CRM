@@ -15,11 +15,12 @@ ProfileController = function(app) {with (app) {
 //==================================AFTER LOADING===============================
 //------------------------------------LOADING PROFILE--------------------------
             app.get('#/profile-detail', function(context) {
-                context .load("null.html")
-                        .then(function(html) {
+				
+                context .load("/api/Contact/" + app.profile_id)
+                        .then(function(json) {
                             this.wait();
-                            context .jemplate('profile-view.html', {}, '#main-content', this)
-                            context .jemplate('profile-menu.html', {}, '#section-menu', this)
+                            context .jemplate('profile-view.html', json['data'], '#main-content', this)
+                            context .jemplate('profile-menu.html', json['data'], '#section-menu', this)
                         })
                         .then (function(){
                             $("#adv_detail").hide();

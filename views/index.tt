@@ -67,7 +67,7 @@
 		var main_menu = $.sammy('body', function() {
         this.debug = true;
         var form_fields = null;
-		
+		this.profile_id = <% profile_id %>;
 		
 		/* generic application wide before method */
 
@@ -82,8 +82,10 @@
 			$(el).parent("li").siblings("li").removeClass("active");
 			$(el).parent("li").addClass("active");
 			
-			
-		
+            context.load('/api/Contact/' + main_menu.profile_id)
+            .then(function(json){
+                $("#profile").text(json['data']['name']);
+            })
 
 		});	
 
@@ -110,8 +112,8 @@
 	  
 		MainController(this);  
 		TaskController(this);
-            ContactController(this);
-            ProfileController(this);
+        ContactController(this);
+        ProfileController(this);
 		
      });
 

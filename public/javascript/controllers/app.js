@@ -2,30 +2,16 @@
 MainController = function(app) { with (app) {
 
 	app.use(utils);
-	app.profile = {
-		
-		id : 1,
-		name : 'Harshal Shah'
-	};
-        app.config={};
-        $.getJSON("config.json",function(json){
-            $.extend(app.config,json);
-        });
+    
+    app.config={};
+
+    $.getJSON("config.json",function(json){
+    	$.extend(app.config,json);
+    });
 
 	app.get('#/home', function(context) {
                            
-       	    var profile_id=$.cookie("profile_id");
-
-            if (profile_id == null) {
-                console.log("LOG OUT");
-                context.redirect("/logout")
-            }
-            console.log(profile_id);
-            context.load('/api/Contact/' + profile_id)
-            .then(function(json){
-                $("#profile").text(data['name']);
-            })
-	});
+     });
 
 	app.get('#/task', function(context) {
 

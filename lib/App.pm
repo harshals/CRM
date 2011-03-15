@@ -38,7 +38,7 @@ before sub {
 
 get '/' => sub {
 		
-	template 'index';
+	template 'index', { profile_id => session('profile_id') };
 };
 
 get '/debug' => sub {
