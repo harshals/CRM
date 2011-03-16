@@ -1,44 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                
-                $("#profile_data").validate({
-                       rules: {
-                           location:{
-								required:true
-                            },
-                            email:{
-								required:true,
-                                email:true
-                            },
-							last_name:{
-								required:true
-                            }
-                        },
-                        messages: {
-                            location:"Fill location",
-                            last_name:"Enter name",
-                            email:"Enter email"
-                        },
-                         errorClass: "small"
-                });
-                $( "#datepicker" ).datepicker();
-            });
-        </script>
-    </head>
-
-    <body> 
-      <div class="grid_17 main blue box" id="data_11">
-         
-        <form action="" method="post" id="profile_data">
-        <fieldset class="">
+ 
+<div class="grid_17 main blue box" id="data_11">
              <form action="" method="post">
                 <fieldset class="">
-                     <img src="images/temp.jpg" alt="Car" height="200" width="250" id="primary_photo"/>
+                    <img src="images/temp.jpg" alt="Car" height="200" width="250" id="primary_photo"/>
+                     
                     <ul class="form hii">
                         <li>
                             <label class="grid_2">Initial</label>
@@ -48,49 +13,42 @@
                                 <option value="ms">Ms.
                             </select>
                         </li>
-                        <li class="required">
+                        <li class="">
                             <label class="grid_2">Name</label>
                             <input   type="text" name="first_name" value="[%first_name%]" />
                             <input   type="text" name="last_name" value="[%last_name%]"/>
                         </li>
-                        <li class="required">
-                            <label class="grid_2 ">Location</label>
-                            <input type="text" name="location" value="[%location%]" />
-                        </li>
-                        <li class=" ">
+                        <li class="">
                             <label class="grid_2">Mobile No</label>
-                            <input type="text" name="mobile_phone" value="[%mobile_phone%]" />
+                            <input type="text" name="mobile_phone" value="[%mobile_phone%]" style="width:260px"/>
+						
                         </li>
                         <li class="">
                             <label class="grid_2">email</label>
-                            <input type="text" name="email" value="[%email%]" />
+                            <input type="text" name="email" value="[%email%]" style="width:260px"/>
                         </li>
+                        <li>
+                    	    <label class="grid_3">Select Gender</label>
+			  	    <input type="radio" name="gender" value="Male"/><label>Male</label>
+              	 	    <input type="radio" name="gender" value="Female"/><label>Female</label>
+                 		</li>
                     </ul>
             </fieldset>
-       </form>
 <!--------------------Second form---------------------------------------->
-       <form id="profie_data_2">
-            <fieldset class="">
+       
+            <fieldset class="vertical">
+              <a class="push_2">Change Profile Image</a>
               <ul class="form hii">
                  <li>
-                   <label class="grid_3">Select Gender</label>
-                   <input type="radio" name="gender" value="Male"/><label>Male</label>
-                   <input type="radio" name="gender" value="Female"/><label>Female</label>
-                 </li>
-                 <li class="fat">
                    <label class="grid_3">Date of Birth</label>
                    <input type="text" name="birthdate" value="" id="datepicker"/>
-                 </li>
-                 <li class="fat">
-                   <label class="grid_3">Language</label>
+                   <label class="grid_3 push_1">Language</label>
                    <input type="text" name="language" value="[%language%]"/>
                  </li>
 <!-------------------------------Company Details------------------------------->
-                 <li class="fat">
+                 <li>
                    <label class="grid_3">Company Name</label>
                    <input type="text" name="name" value="[%name%]"/>
-                 </li>
-                 <li class="fat ">
                    <label class="grid_3">Your Profession</label>
                    <input type="text" name="title" value="[%title%]"/>
                  </li>
@@ -103,53 +61,32 @@
                  <li>
                    <label class="grid_3">Postal Code</label>
                    <input type="text" name="business_postal_code" value="[%business_postal_code%]"/>
-                   <label class="grid_2">City</label>
+                   <label class="grid_3 push_2">City</label>
                    <input type="text" name="business_city" value="[%business_city%]"/>
-		 </li>
+		    </li>
                  <li>
                     <label class="grid_3">Country</label>
                     <input type="text" name="business_country" value="[%business_country%]"/>
-                    <label class="grid_2">email id</label>
+                    <label class="grid_3">Company email</label>
                     <input type="text" name="web_page" value="[%web_page%]" />
                  </li>
                  <li>
 	            <label class="grid_3">Phone No</label>
                     <input type="text" name="business_phone" value="[%business_phone%]"/>
-		    <label class="grid_2">Fax</label>
+		    <label class="grid_3 push_2">Fax</label>
                     <input type="text" name="business_fax" value="[%business_fax%]"/>
                  </li>
             </ul>
-<!--------------shows personal details after click on advance details---------->
-            <ul id="adv_detail" class="form hii">
-                <li>
-                   <label class="grid_3">Personal Address</label>
-                   <input type="text" name="home_street" value="[%home_street%]"/>
-		   <input type="text" name="home_street_2" value="[%home_street_2%]"/>
-                   <input type="text" name="home_street_3" value="[%home_street_3%]"/>
-                </li>
-                <li>
-                  <label class="grid_3">Postal Code</label>
-                  <input type="text" name="home_postal_code" value="[%home_postal_code%]"/>
-		  <label class="grid_2">State</label>
-                  <input type="text" name="home_state" value="[%home_state%]"/>
-		</li>
-                <li>
-                  <label class="grid_3">Country</label>
-                  <input type="text" name="home_country" value="[%home_country%]"/>
-                  <label class="grid_2">Phone No</label>
-                  <input type="text" name="home_phone" value="[%home_phone%]"/>
-                </li>
-                </ul>
+
           </fieldset>
+          <ul>
+             <li class="form hii right">
+               <input type="submit" value="Save & Exit" class="button" />
+               <input type=reset value="Reset" name="reset" class="button" />
+             </li>
+          </ul>
       </form> <!--end of inside form-->
-                <li class="form hii right">
-                    <input type="submit" value="Save & Exit" class="button" />
-                    <input type=reset value="Reset" name="reset" class="button" />
-                </li>
-               
-      </fieldset>
-</form>
-       <!--end of big form-->
    </div>
-  </body>
-</html>
+
+
+

@@ -9,6 +9,25 @@
 if (typeof(Jemplate) == 'undefined')
     throw('Jemplate.js must be loaded before any Jemplate template files');
 
+Jemplate.templateMap['BAckup.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '\n\n<form method="POST" name="" action="#/contact-add" id=contact-form>\n    <div id="MSGBOX" class="box negative notice">\n    <ul></ul>\n </div>\n        <h1><font color="red" allign="center">Personal Information Form</font></h1>\n  <p class="form-steps form">\n\n\n\n        <a  class="nav-step" id="nav-step1">Personal Details :-1</a>|\n        <a  class="nav-step" id="nav-step2">Personal Details :-2</a>|\n        <a  class="nav-step" id="nav-step3">Company Details :-1</a>|\n        <a  class="nav-step" id="nav-step4">Company Details :-2</a>\n   </p>\n   <p class="form-steps form right">\n        <input type="submit" value="Save" name="save" id="save" class="button " />\n       <input type=reset value="Reset" name="reset" class="button" />\n   </p>\n        <input type=hidden value="';
+//line 21 "BAckup.html"
+output += stash.get(['data', 0, 'id', 0]);
+output += '" name="id" />\n\n\n\n        <fieldset class="grid_17 blue box step" id="step1">\n            <legend>I m a legend</legend>\n            <h3>Personal Details :-1</h3>\n            <ul class="form tar">\n                <li>\n                        <label>Initial</label>\n                        <select name="suffix initials">\n                            <option value="i1">Mr.\n                            <option value="i2">Mrs.\n                            <option value="i3">Ms.\n                        </select>\n                </li>\n                <li>\n                        <label>Enter Name :- </label>\n                        <input type="text"  name="first_name" value="" />\n                        <input type="text"  name="middle_name" value="" />\n                        <input type="text" name="last_name" value="" />\n                </li>\n                <li>\n                        <label>Select Gender</label>\n                        <input type="radio" name="gender" value="Male"/>Male<br>\n                        <input type="radio" name="gender" value="Female"/>Female\n                </li>\n                <li>\n                        <label>Birth-Date</label>\n                        <input type="text" name="birthday" value="" class="datepicker"/>\n                </li>\n                <li>\n                        <label>Language</label>\n                        <input type="text"  name="language" value="">\n                </li>\n                <li>\n                        <label>Country</label>\n                        <input type="text" name="home_country" value="">\n                </li>\n                <li>\n                        <label>State</label>\n                        <input type="text" name="home_state" value="">\n                </li>\n                <li>\n                        <label>City</label>\n                        <input type="text" name="home_city" value="">\n                </li>\n\n                <li>\n                         <label>Street</label>\n                         <input type="text" name="home_street" value=""/>\n                </li>\n                <li>\n                         <label>Street 2</label>\n                         <input type="text" name="home_street_2" value=""/>\n                </li>\n                <li>\n                         <label>Street 3</label>\n                         <input type="text" name="home_street_3" value=""/>\n                </li>\n                <li>\n                         <label>Postal Code</label>\n                         <input type="text" name="home_postal_code" value=""/>\n               </li>\n           </ul>\n    </fieldset>\n\n\n    <fieldset class="grid_17 blue box step" id="step2">\n         <legend>I m a legend</legend>\n        <h3>Personal Details :-2</h3>\n        <ul class="form tar">\n            <li>\n                      <label>email-id</label>\n                      <input type="text" value="" name="email_address">\n            </li>\n            <li>\n                      <label>Alternate email-id</label>\n                      <input type="text" value="" name="email_address_2">\n            </li>\n            <li>\n                      <label>Landline No.</label>\n                      <input type="text" name="home_phone" value=""/>\n            </li>\n            <li>\n                       <label>Alternate No</label>\n                       <input type="text" name="home_phone_2" value=""/>\n            </li>\n            <li>\n                       <label>Mobile No.</label>\n                       <input type="text" value="+91-" name="mobile_phone" value=""/>\n            </li>\n             <li>\n                       <label >Fax No.</label>\n                       <input type="text" name="home_fax" value=""/>\n            </li>\n        </ul>\n    </fieldset>\n\n\n    <fieldset class="grid_17 blue box step" id="step3">\n         <legend>I m a legend</legend>\n        <h3>Company Details 1</h3>\n        <ul class="form tar">\n            <li>\n                  <label class="required">Company\'s Name</label>\n                  <input type="text" name="name" value="<%=data.name%>">\n            </li>\n             <li>\n                  <label class="required">Company ID</label>\n                  <input type="text" name="company_id" value="<%=data.id%>">\n            </li>\n            <li>\n                  <label class="required">Company/Employee</label>\n                  <input type="text" name="is_human" value="<%=data.is_human%>">\n            </li>\n            <li>\n                  <label class="required">Your Profession</label>\n                  <input type="text" name="title" value="<%=data.title%>">\n            </li>\n            <li>\n                 <label class="required">User Id</label>\n                 <input type="text" name="user_id" value="<%=data.user_id%>">\n            </li>\n            <li>\n                 <label>Department</label>\n                 <input type="text" name="department" value=""/>\n            </li>\n            <li>\n                   <label>Country</label>\n                   <input type="text" name="business_country" value=""/>\n            </li>\n             <li>\n                   <label>State</label>\n                   <input type="text" name="business_state" value=""/>\n             </li>\n             <li>\n                   <label class="required">City</label>\n                   <input type="text" name="business_city" value="<%=data.business_city%>">\n             </li>\n             <li>\n                   <label>Office Address</label>\n             </li>\n             <li>\n                   <label>Street 1</label>\n                   <input type="text" name="business_street" value=""/>\n             </li>\n             <li>\n                   <label>Street 2</label>\n                   <input type="text" name="business_street_2" value=""/>\n             </li>\n             <li>\n                   <label>Street 3</label>\n                   <input type="text" name="business_street_3" value=""/>\n             </li>\n             <li>\n                   <label>Postal Code</label>\n                   <input type="text" name="business_postal_code" value=""/>\n             </li>\n        </ul>\n    </fieldset>\n\n\n    <fieldset class="grid_17 blue box step" id="step4">\n        <legend>I m a legend</legend>\n        <h3>Company Details 2</h3>\n        <ul class="form tar">\n            <li>\n                <label class="required" for="webpage">Company\'s web page</label>\n                <input type="text" name="web_page" value="<%=data.web_page%>"/>\n            </li>\n            <li>\n                 <label class="required">email-id</label>\n                 <input id="email" name="email" value="<%=data.email%>" class="required email" />\n            </li>\n            <li>\n                 <label class="required">Landline No.</label>\n                 <input type="text" name="business_phone" value="<%=data.primary_phone%>">\n            </li>\n            <li>\n                <label>Alternate No</label>\n                <input type="text" name="business_phone_2" value=""/>\n             </li>\n            <li>\n                <label >Fax No.</label>\n                <input type="text" name="business_fax" value=""/>\n            </li>\n             <li>\n                   <label>Referred By</label>\n                   <select name="refferred" value="reff">\n                           <option value="email">email\n                           <option value="client">By Client\n                           <option value="other">Others\n                   </select>\n            </li>\n            <li>\n                <label >Billing Payment</label>\n                <select name="bill_pay" value="billpay" name=""billing_information>\n                    <option >mode Of Pay\n                    <option value="cash">Cash\n                    <option value="cheque">Cheque\n                   <option value="dd">D.D.\n                </select>\n            </li>\n        </ul>\n    </fieldset>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['Expand.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -83,7 +102,7 @@ Jemplate.templateMap['back_up.html'] = function(context) {
     var output = '';
 
     try {
-output += '<form action="" method="POST" class="" id="back_up">\n        <fieldset class="grid_6 yellow box  ">\n               <h2>Back Up</h2>\n               <label class="grid_3">File Upload</label>\n               <input type="file" id="back_up" name="back_up">\n               <li class="form tar">\n                   <input type="submit" value="submit" id="submit" class="button tar"/>\n                   <input type="reset" value="reset" class="button tar"/>\n               </li>\n        </fieldset>\n</form>';
+output += '<form action="" method="POST" class="" id="backup" name="backup">\n        <fieldset class="grid_6 yellow box  ">\n               <h2>Back Up</h2>\n               <label class="grid_3">Enter File Name</label>\n               <input type="text" id="file_name" name="file_name">\n               <li class="form tar">\n                   <input type="button" value="submit" id="submit" class="button tar"/>\n                   <input type="reset" value="reset" class="button tar"/>\n               </li>\n               <div id="ADD">\n               </div>\n        </fieldset>\n</form>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -99,7 +118,62 @@ Jemplate.templateMap['change_password.html'] = function(context) {
     var output = '';
 
     try {
-output += '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n\n<html xmlns="http://www.w3.org/1999/xhtml">\n    <head>\n        <meta name="generator" content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org" />\n        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />\n        <meta name="description" content="App Name app" />\n        <meta name="keywords" content="App Name" />\n\n		<link rel="stylesheet" href="css/style.css" type="text/css"/>\n        <link rel="stylesheet" href="css/facebox.css" type="text/css" />\n        <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />\n\n      	<script type="text/javascript" src="javascript/jquery-1.4.2.min.js"></script>\n        <script type="text/javascript" src="javascript/jquery.form.js"></script>\n        <script type="text/javascript" src="javascript/jquery.validate.js"></script>\n        <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>\n        <script type="text/javascript">\n            $(document).ready(function() {\n                \n                $("#change_password").validate({\n                       \n                        rules: {\n							old_password: {\n                                required:true,\n                                minlength:4,\n                                maxlength:15\n                            },\n                            password: {\n                                required:true,\n                                minlength:4,\n                                maxlength:15\n                            },\n                            re_password: {\n                                equalTo:"#password"\n                            }\n                        },\n                        messages: {\n                            old_password:"Enter Password",\n                            password:"Enter Your New Password with min 4 char",\n                            re_password: "Enter same password again"\n                        },\n                         errorClass: "small"\n                })\n            });\n        </script>\n    </head>\n\n    <body>\n        <div>\n			<!-- main content -->\n            <div class="grid_6 main" id="main-content">\n                <form action="index.html" method="POST" class="" id="change_password">\n                    <fieldset class="grid_6 yellow box  ">\n                        <h2>Change Password</h2>\n                        <ul class="form hii " id="change_pass">\n                            <li class="required">\n                                <label>Enter Old Password</label>\n                                <input type="password" value=""  name="old_password"/>\n                            </li>\n                            <li class="required">\n                                <label>Enter New Password</label>\n                                <input type="password" value=""  name="password" id="password"/>\n                            </li>\n                            <li class="required">\n                                <label>Re-Enter Password</label>\n                                <input type="password" value=""  name="re_password"/>\n                            </li>\n                            <li class="tar">\n                                <label></label><input type="submit" value="submit" id="submit" class="button tar"/>\n                                <input type="reset" value="reset" class="button tar"/>\n                            </li>\n                        </ul>\n                    </fieldset>\n                </form>\n            </div>\n            <!-- main content -->\n		</div>\n    </body>\n</html>\n';
+output += '<form action="/change_password" method="POST" id="change_password">\n       <fieldset class="grid_6 yellow box">\n               <h2>Change Password</h2>\n                    <ul class="form hii">\n                       <li class="required">\n                           <label>Enter New Password</label>\n                           <input type="password" value=""  name="password" id="password"/>\n                       </li>\n                       <li class="required">\n                            <label>Re-Enter Password</label>\n                            <input type="password" value=""  name="re_password" id="re_password"/>\n                       </li>\n                       <li class="tar">\n                            <input type="submit" value="submit" id="submit" class="button tar"/>\n                            <input type="reset" value="reset" class="button tar"/>\n                        </li>\n                       </ul>\n         </fieldset>\n</form>\n   ';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['company-id.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += 'var i=0';
+//line 6 "company-id.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('contacts');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['contact'] = value;
+output += '\n<option value="';
+//line 2 "company-id.html"
+output += stash.get('contact');
+output += '" ';
+//line 2 "company-id.html"
+if (stash.get(['contact', 0, 'i', 0, 'company_id', 0]) == stash.get('match')) {
+output += ' selected ';
+}
+
+output += '>\n	';
+//line 3 "company-id.html"
+output += stash.get('contact');
+output += '\n</option>\ni=i+1;\n';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -426,7 +500,7 @@ Jemplate.templateMap['profile-menu.html'] = function(context) {
     var output = '';
 
     try {
-output += '\n  <form name="shown" id="shown">\n        <p>Actions</p>\n\n        <ul >\n          <li><a id="create" class="change_password">Change Password</a></li>\n\n          <li><a id="create" class="back_up">Back Up</a></li>\n\n          <li><a id="create" href="#/">Change Picture</a></li>\n\n          <li><a id="search" class="expand">Advanced Details</a></li>\n        </ul>\n  </form>\n\n\n';
+output += '\n        <p>Actions</p>\n\n        <ul >\n          <li><a id="profile_details" class="search"  href="#/profile-detail"> Profile Details</a></li>\n\n          <li><a id="change_password" class="create" >Change Password</a></li>\n\n          <li><a id="backup" class="create">Back Up</a></li>\n\n          <li><a id="search" class="expand" href="#/profile-advance" >Advanced Details</a></li>\n        </ul>\n\n\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -442,79 +516,55 @@ Jemplate.templateMap['profile-view.html'] = function(context) {
     var output = '';
 
     try {
-output += '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n\n<html xmlns="http://www.w3.org/1999/xhtml">\n    <head>\n        <script type="text/javascript">\n            $(document).ready(function() {\n                \n                $("#profile_data").validate({\n                       rules: {\n                           location:{\n								required:true\n                            },\n                            email:{\n								required:true,\n                                email:true\n                            },\n							last_name:{\n								required:true\n                            }\n                        },\n                        messages: {\n                            location:"Fill location",\n                            last_name:"Enter name",\n                            email:"Enter email"\n                        },\n                         errorClass: "small"\n                });\n                $( "#datepicker" ).datepicker();\n            });\n        </script>\n    </head>\n\n    <body> \n      <div class="grid_17 main blue box" id="data_11">\n         \n        <form action="" method="post" id="profile_data">\n        <fieldset class="">\n             <form action="" method="post">\n                <fieldset class="">\n                     <img src="images/temp.jpg" alt="Car" height="200" width="250" id="primary_photo"/>\n                    <ul class="form hii">\n                        <li>\n                            <label class="grid_2">Initial</label>\n                            <select name="suffix initials">\n                                <option value="mr">Mr.\n                                <option value="mrs">Mrs.\n                                <option value="ms">Ms.\n                            </select>\n                        </li>\n                        <li class="required">\n                            <label class="grid_2">Name</label>\n                            <input   type="text" name="first_name" value="';
-//line 53 "profile-view.html"
+output += ' \n<div class="grid_17 main blue box" id="data_11">\n             <form action="" method="post">\n                <fieldset class="">\n                    <img src="images/temp.jpg" alt="Car" height="200" width="250" id="primary_photo"/>\n                     \n                    <ul class="form hii">\n                        <li>\n                            <label class="grid_2">Initial</label>\n                            <select name="suffix initials">\n                                <option value="mr">Mr.\n                                <option value="mrs">Mrs.\n                                <option value="ms">Ms.\n                            </select>\n                        </li>\n                        <li class="">\n                            <label class="grid_2">Name</label>\n                            <input   type="text" name="first_name" value="';
+//line 18 "profile-view.html"
 output += stash.get('first_name');
 output += '" />\n                            <input   type="text" name="last_name" value="';
-//line 54 "profile-view.html"
+//line 19 "profile-view.html"
 output += stash.get('last_name');
-output += '"/>\n                        </li>\n                        <li class="required">\n                            <label class="grid_2 ">Location</label>\n                            <input type="text" name="location" value="';
-//line 58 "profile-view.html"
-output += stash.get('location');
-output += '" />\n                        </li>\n                        <li class=" ">\n                            <label class="grid_2">Mobile No</label>\n                            <input type="text" name="mobile_phone" value="';
-//line 62 "profile-view.html"
+output += '"/>\n                        </li>\n                        <li class="">\n                            <label class="grid_2">Mobile No</label>\n                            <input type="text" name="mobile_phone" value="';
+//line 23 "profile-view.html"
 output += stash.get('mobile_phone');
-output += '" />\n                        </li>\n                        <li class="">\n                            <label class="grid_2">email</label>\n                            <input type="text" name="email" value="';
-//line 66 "profile-view.html"
+output += '" style="width:260px"/>\n						\n                        </li>\n                        <li class="">\n                            <label class="grid_2">email</label>\n                            <input type="text" name="email" value="';
+//line 28 "profile-view.html"
 output += stash.get('email');
-output += '" />\n                        </li>\n                    </ul>\n            </fieldset>\n       </form>\n<!--------------------Second form---------------------------------------->\n       <form id="profie_data_2">\n            <fieldset class="">\n              <ul class="form hii">\n                 <li>\n                   <label class="grid_3">Select Gender</label>\n                   <input type="radio" name="gender" value="Male"/><label>Male</label>\n                   <input type="radio" name="gender" value="Female"/><label>Female</label>\n                 </li>\n                 <li class="fat">\n                   <label class="grid_3">Date of Birth</label>\n                   <input type="text" name="birthdate" value="" id="datepicker"/>\n                 </li>\n                 <li class="fat">\n                   <label class="grid_3">Language</label>\n                   <input type="text" name="language" value="';
-//line 86 "profile-view.html"
+output += '" style="width:260px"/>\n                        </li>\n                        <li>\n                    	    <label class="grid_3">Select Gender</label>\n			  	    <input type="radio" name="gender" value="Male"/><label>Male</label>\n              	 	    <input type="radio" name="gender" value="Female"/><label>Female</label>\n                 		</li>\n                    </ul>\n            </fieldset>\n<!--------------------Second form---------------------------------------->\n       \n            <fieldset class="vertical">\n              <a class="push_2">Change Profile Image</a>\n              <ul class="form hii">\n                 <li>\n                   <label class="grid_3">Date of Birth</label>\n                   <input type="text" name="birthdate" value="" id="datepicker"/>\n                   <label class="grid_3 push_1">Language</label>\n                   <input type="text" name="language" value="';
+//line 46 "profile-view.html"
 output += stash.get('language');
-output += '"/>\n                 </li>\n<!-------------------------------Company Details------------------------------->\n                 <li class="fat">\n                   <label class="grid_3">Company Name</label>\n                   <input type="text" name="name" value="';
-//line 91 "profile-view.html"
+output += '"/>\n                 </li>\n<!-------------------------------Company Details------------------------------->\n                 <li>\n                   <label class="grid_3">Company Name</label>\n                   <input type="text" name="name" value="';
+//line 51 "profile-view.html"
 output += stash.get('name');
-output += '"/>\n                 </li>\n                 <li class="fat ">\n                   <label class="grid_3">Your Profession</label>\n                   <input type="text" name="title" value="';
-//line 95 "profile-view.html"
+output += '"/>\n                   <label class="grid_3">Your Profession</label>\n                   <input type="text" name="title" value="';
+//line 53 "profile-view.html"
 output += stash.get('title');
 output += '"/>\n                 </li>\n                 <li>\n                   <label class="grid_3">Office Address:-</label>\n                   <input type="text" name="business_street" value="';
-//line 99 "profile-view.html"
+//line 57 "profile-view.html"
 output += stash.get('business_street');
 output += '"/>\n                   <input type="text" name="business_street_2" value="';
-//line 100 "profile-view.html"
+//line 58 "profile-view.html"
 output += stash.get('business_street_2');
 output += '"/>\n                   <input type="text" name="business_street_3" value="';
-//line 101 "profile-view.html"
+//line 59 "profile-view.html"
 output += stash.get('business_street_3');
 output += '"/>\n                 </li>\n                 <li>\n                   <label class="grid_3">Postal Code</label>\n                   <input type="text" name="business_postal_code" value="';
-//line 105 "profile-view.html"
+//line 63 "profile-view.html"
 output += stash.get('business_postal_code');
-output += '"/>\n                   <label class="grid_2">City</label>\n                   <input type="text" name="business_city" value="';
-//line 107 "profile-view.html"
+output += '"/>\n                   <label class="grid_3 push_2">City</label>\n                   <input type="text" name="business_city" value="';
+//line 65 "profile-view.html"
 output += stash.get('business_city');
-output += '"/>\n		 </li>\n                 <li>\n                    <label class="grid_3">Country</label>\n                    <input type="text" name="business_country" value="';
-//line 111 "profile-view.html"
+output += '"/>\n		    </li>\n                 <li>\n                    <label class="grid_3">Country</label>\n                    <input type="text" name="business_country" value="';
+//line 69 "profile-view.html"
 output += stash.get('business_country');
-output += '"/>\n                    <label class="grid_2">email id</label>\n                    <input type="text" name="web_page" value="';
-//line 113 "profile-view.html"
+output += '"/>\n                    <label class="grid_3">Company email</label>\n                    <input type="text" name="web_page" value="';
+//line 71 "profile-view.html"
 output += stash.get('web_page');
 output += '" />\n                 </li>\n                 <li>\n	            <label class="grid_3">Phone No</label>\n                    <input type="text" name="business_phone" value="';
-//line 117 "profile-view.html"
+//line 75 "profile-view.html"
 output += stash.get('business_phone');
-output += '"/>\n		    <label class="grid_2">Fax</label>\n                    <input type="text" name="business_fax" value="';
-//line 119 "profile-view.html"
+output += '"/>\n		    <label class="grid_3 push_2">Fax</label>\n                    <input type="text" name="business_fax" value="';
+//line 77 "profile-view.html"
 output += stash.get('business_fax');
-output += '"/>\n                 </li>\n            </ul>\n<!--------------shows personal details after click on advance details---------->\n            <ul id="adv_detail" class="form hii">\n                <li>\n                   <label class="grid_3">Personal Address</label>\n                   <input type="text" name="home_street" value="';
-//line 126 "profile-view.html"
-output += stash.get('home_street');
-output += '"/>\n		   <input type="text" name="home_street_2" value="';
-//line 127 "profile-view.html"
-output += stash.get('home_street_2');
-output += '"/>\n                   <input type="text" name="home_street_3" value="';
-//line 128 "profile-view.html"
-output += stash.get('home_street_3');
-output += '"/>\n                </li>\n                <li>\n                  <label class="grid_3">Postal Code</label>\n                  <input type="text" name="home_postal_code" value="';
-//line 132 "profile-view.html"
-output += stash.get('home_postal_code');
-output += '"/>\n		  <label class="grid_2">State</label>\n                  <input type="text" name="home_state" value="';
-//line 134 "profile-view.html"
-output += stash.get('home_state');
-output += '"/>\n		</li>\n                <li>\n                  <label class="grid_3">Country</label>\n                  <input type="text" name="home_country" value="';
-//line 138 "profile-view.html"
-output += stash.get('home_country');
-output += '"/>\n                  <label class="grid_2">Phone No</label>\n                  <input type="text" name="home_phone" value="';
-//line 140 "profile-view.html"
-output += stash.get('home_phone');
-output += '"/>\n                </li>\n                </ul>\n          </fieldset>\n      </form> <!--end of inside form-->\n                <li class="form hii right">\n                    <input type="submit" value="Save & Exit" class="button" />\n                    <input type=reset value="Reset" name="reset" class="button" />\n                </li>\n               \n      </fieldset>\n</form>\n       <!--end of big form-->\n   </div>\n  </body>\n</html>';
+output += '"/>\n                 </li>\n            </ul>\n\n          </fieldset>\n          <ul>\n             <li class="form hii right">\n               <input type="submit" value="Save & Exit" class="button" />\n               <input type=reset value="Reset" name="reset" class="button" />\n             </li>\n          </ul>\n      </form> <!--end of inside form-->\n   </div>\n\n\n\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
