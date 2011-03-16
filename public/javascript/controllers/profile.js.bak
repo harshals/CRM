@@ -19,12 +19,7 @@ ProfileController = function(app) { with (app) {
                                        $("#submit").click(function(){
                                            $("#sidebar-content").find("#change_password").validate({
                                                rules: {
-												  oldpassword: {
-                                                     required:true,
-                                                     minlength:4,
-                                                     maxlength:15
-                                                  },
-                                                  new_password: {
+                                                  password: {
                                                      required:true,
                                                      minlength:4,
                                                      maxlength:15
