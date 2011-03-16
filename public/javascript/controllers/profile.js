@@ -16,10 +16,8 @@ ProfileController = function(app) { with (app) {
 				      context.jemplate('change_password.html',{},'#sidebar-content', this);
 				  }).then(function(html){
 					//submit code
-                                        this.wait();
                                        $("#submit").click(function(){
-                                            alert("click on submit");
-                                           $("#change_password").validate({
+                                           $("#sidebar-content").find("#change_password").validate({
                                                rules: {
                                                   password: {
                                                      required:true,
@@ -31,14 +29,13 @@ ProfileController = function(app) { with (app) {
                                                   }
                                                 },
                                                 messages: {
-                                                      password:"Enter your New Password with min 4 char",
+                                                      password:"Enter Password with min 4 char",
                                                       re_password: "Enter same password again"
                                                 },
                                                 errorClass: "small"
                                             });
-                                               alert("end of validation");
-                                               return false;
                                         });
+					return false;
 				  });
 			  });
 			  $("#section-menu").find("a#backup").click(function() {
