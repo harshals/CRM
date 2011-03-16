@@ -40,7 +40,26 @@ ProfileController = function(app) { with (app) {
                                                 },
                                                 errorClass: "small"
                                             });
-                                        });
+                                            var old_password=$("#sidebar-content")
+                                                                 .find("input[name=old_password]").val();
+                                            var new_password=$("#sidebar-content")
+                                                                 .find("input[name=new_password]").val();
+                                            var json={'old':old_password,'new':new_password}
+                                             context.log(json);
+                                             $.ajax({
+                                                 type: "POST",
+                                                 url: "/change_password",
+                                                 dataType: "json",
+                                                 cache: false,
+                                                 data : json,
+                                                 success: function(data) {
+                                                     alert("success");
+                                                 },
+                                                 error: function(data){
+                                                   alert("FAILED");
+                                                 }
+                                            });
+                                      });
 					return false;
 				  });
 			  });
