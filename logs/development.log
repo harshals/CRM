@@ -63,3 +63,915 @@
 	Plack::Loader::run('Plack::Loader=HASH(0x85acc0)', 'Plack::Handler::Standalone=HASH(0xc40470)') called at /usr/local/lib/perl5/site_perl/5.12.1/Plack/Runner.pm line 256
 	Plack::Runner::run('Plack::Runner=HASH(0x803ea0)') called at /usr/local/bin/plackup line 10 in (eval 114) l. 1
 [5235] debug @0.013560> [hit #3]coming here roo in (eval 114) l. 1
+[5359] debug @0.505018> [hit #1]temp in (eval 115) l. 1
+[5381] debug @0.503038> [hit #1]within temp in (eval 115) l. 1
+[5386] debug @0.505448> [hit #1]within temp in (eval 115) l. 1
+[5395] debug @0.499678> [hit #1]within temp in (eval 115) l. 1
+[5398] debug @0.502176> [hit #1]2within temp in (eval 115) l. 1
+[5417] debug @0.504675> [hit #1]new stuff in (eval 115) l. 1
+[5421] debug @0.502835> [hit #1]/var/folders/bG/bGmYChhMEfS54BnU-NtKcE+++TI/-Tmp-/aUE2waweDQ in (eval 115) l. 1
+[5758] debug @0.507469> [hit #1]coming here in process in (eval 116) l. 1
+[5758] debug @0.002382> [hit #2]coming here in process in (eval 116) l. 1
+[5758] debug @0.004288> [hit #5]coming here in process in (eval 116) l. 1
+[5758] debug @0.004317> [hit #7]coming here in process in (eval 116) l. 1
+[5758] debug @0.004240> [hit #9]coming here in process in (eval 116) l. 1
+[5758] debug @0.004570> [hit #11]coming here in process in (eval 116) l. 1
+[5835] debug @0.589943> [hit #1]coming here in process in (eval 116) l. 1
+[5835] debug @0.004811> [hit #5]coming here in process in (eval 116) l. 1
+[5835] debug @0.003748> [hit #6]coming here in process in (eval 116) l. 1
+[5835] debug @0.004116> [hit #8]coming here in process in (eval 116) l. 1
+[5835] debug @0.003383> [hit #9]coming here in process in (eval 116) l. 1
+[5835] debug @0.004384> [hit #17]coming here in process in (eval 116) l. 1
+[5920] debug @0.498694> [hit #1]in process in (eval 116) l. 1
+[5920] debug @0.003931> [hit #2]in process in (eval 116) l. 1
+[5949] debug @0.006148> [hit #2]in process 2 in (eval 116) l. 1
+[5949] debug @0.004272> [hit #3]in process 2 in (eval 116) l. 1
+[5997] debug @0.507914> [hit #1]in crap 2  in (eval 116) l. 1
+[5997] debug @0.004360> [hit #2]in crap 2  in (eval 116) l. 1
+[6005] debug @0.505922> [hit #1]in crap 3 $VAR1 = {
+          'engines' => {
+                         'template_toolkit' => {
+                                               'subclass' => 'Dancer::Template::PDF'
+                                             }
+                       },
+          'plugins' => {
+                         'DBIC' => {
+                                     'db' => {
+                                               'schema_class' => 'Schema',
+                                               'dsn' => 'dbi:SQLite:dbname=var/small.db'
+                                             },
+                                     'master' => {
+                                                   'schema_class' => 'Master',
+                                                   'dsn' => 'dbi:SQLite:dbname=var/master.db'
+                                                 }
+                                   },
+                         'Email' => {
+                                    'pass' => 'Add1234',
+                                    'ssl' => '1',
+                                    'user' => 'info@adhril.com',
+                                    'port' => '465',
+                                    'host' => 'smtp.gmail.com',
+                                    'driver' => 'smtp'
+                                  }
+                       },
+          'app_id' => '1',
+          'register_message_subject' => 'Welcome to Adhril.com',
+          'import_warnings' => 1,
+          'pdf_dir' => 'views/pdf',
+          'skip_authentication' => 0,
+          'views' => '/Users/harshal/Developments/Projects/CRM/views',
+          'session' => 'PSGI',
+          'show_errors' => 1,
+          'public' => '/Users/harshal/Developments/Projects/CRM/public',
+          'confdir' => '/Users/harshal/Developments/Projects/CRM',
+          'log' => 'debug',
+          'server' => '0.0.0.0',
+          'logger' => 'file',
+          'daemon' => 0,
+          'INCLUDE_PATH' => [],
+          'serializer' => 'JSON',
+          'warnings' => 0,
+          'template' => 'template_toolkit',
+          'access_log' => 0,
+          'traces' => 1,
+          'appdir' => '/Users/harshal/Developments/Projects/CRM',
+          'charset' => '',
+          'port' => '3000',
+          'handlers' => {},
+          'environment' => 'development',
+          'content_type' => 'text/html',
+          'apphandler' => 'PSGI',
+          'auto_reload' => 0
+        }; in (eval 116) l. 1
+[6071] debug @0.506093> [hit #1]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% USE barcode = Catalyst::View::PDF::Reuse::Barcode %]
+    [% PROCESS $pdf_template %] in (eval 116) l. 1
+[6071] debug @0.004346> [hit #2]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% USE barcode = Catalyst::View::PDF::Reuse::Barcode %]
+    [% PROCESS $pdf_template %] in (eval 116) l. 1
+[6071] debug @0.005122> [hit #3]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% USE barcode = Catalyst::View::PDF::Reuse::Barcode %]
+    [% PROCESS $pdf_template %] in (eval 116) l. 1
+[6086] debug @0.587310> [hit #1]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6086] debug @0.004222> [hit #2]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6086] debug @0.004675> [hit #3]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6099] debug @0.507299> [hit #1]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6099] debug @0.004388> [hit #2]    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6111] debug @0.505668> [hit #1]$VAR1 = bless( {
+                 'name' => 'template_toolkit',
+                 'config' => {
+                               'subclass' => 'Dancer::Template::PDF'
+                             },
+                 'type' => 'template'
+               }, 'Dancer::Template::TemplateToolkit' ); in (eval 116) l. 1
+[6121] debug @0.506223> [hit #1]$VAR1 = bless( {
+                 'name' => 'template_toolkit',
+                 'config' => {
+                               'subclass' => 'Dancer::Template::PDF'
+                             },
+                 'type' => 'template'
+               }, 'Dancer::Template::TemplateToolkit' ); in (eval 116) l. 1
+[6121] debug @0.004356> [hit #2]$VAR1 = bless( {
+                 'name' => 'template_toolkit',
+                 'config' => {
+                               'subclass' => 'Dancer::Template::PDF'
+                             },
+                 'type' => 'template'
+               }, 'Dancer::Template::TemplateToolkit' ); in (eval 116) l. 1
+[6137] debug @0.582122> [hit #1]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6141] debug @0.525450> [hit #1]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6141] debug @0.566345> [hit #1]1 in (eval 116) l. 1
+[6154] debug @0.527423> [hit #1]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6154] debug @0.571823> [hit #1]1 in (eval 116) l. 1
+[6161] debug @0.510667> [hit #1]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6161] debug @0.512246> [hit #1] in (eval 116) l. 1
+[6161] debug @0.005317> [hit #2]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6161] debug @0.006378> [hit #2] in (eval 116) l. 1
+[6170] debug @0.504923> [hit #1]$VAR1 = bless( {
+                 'OUTPUT_PATH' => undef,
+                 'DEBUG' => 0,
+                 'OUTPUT' => \*::STDOUT,
+                 'SERVICE' => bless( {
+                                       'DEBUG' => 0,
+                                       'PRE_PROCESS' => [],
+                                       'AUTO_RESET' => 1,
+                                       'POST_PROCESS' => [],
+                                       'ERROR' => undef,
+                                       'PROCESS' => undef,
+                                       '_ERROR' => '',
+                                       'CONTEXT' => bless( {
+                                                             'PREFIX_MAP' => {},
+                                                             'BLOCKS' => {},
+                                                             'TRIM' => 0,
+                                                             'CONFIG' => {
+                                                                           'ANYCASE' => 1,
+                                                                           'END_TAG' => '%>',
+                                                                           'ABSOLUTE' => 1,
+                                                                           'subclass' => 'Dancer::Template::PDF',
+                                                                           'START_TAG' => '<%',
+                                                                           'INCLUDE_PATH' => '/Users/harshal/Developments/Projects/CRM/views'
+                                                                         },
+                                                             'LOAD_PLUGINS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'FACTORY' => {},
+                                                                                          'TOLERANT' => 0,
+                                                                                          'PLUGIN_BASE' => [
+                                                                                                             'Template::Plugin'
+                                                                                                           ],
+                                                                                          'LOAD_PERL' => 0,
+                                                                                          'PLUGINS' => {
+                                                                                                         'pod' => 'Template::Plugin::Pod',
+                                                                                                         'scalar' => 'Template::Plugin::Scalar',
+                                                                                                         'assert' => 'Template::Plugin::Assert',
+                                                                                                         'date' => 'Template::Plugin::Date',
+                                                                                                         'file' => 'Template::Plugin::File',
+                                                                                                         'table' => 'Template::Plugin::Table',
+                                                                                                         'dumper' => 'Template::Plugin::Dumper',
+                                                                                                         'directory' => 'Template::Plugin::Directory',
+                                                                                                         'latex' => 'Template::Plugin::Latex',
+                                                                                                         'dbi' => 'Template::Plugin::DBI',
+                                                                                                         'html' => 'Template::Plugin::HTML',
+                                                                                                         'autoformat' => 'Template::Plugin::Autoformat',
+                                                                                                         'view' => 'Template::Plugin::View',
+                                                                                                         'xml' => 'Template::Plugin::XML',
+                                                                                                         'debug' => 'Template::Plugin::Debug',
+                                                                                                         'iterator' => 'Template::Plugin::Iterator',
+                                                                                                         'url' => 'Template::Plugin::URL',
+                                                                                                         'wrap' => 'Template::Plugin::Wrap',
+                                                                                                         'datafile' => 'Template::Plugin::Datafile',
+                                                                                                         'cgi' => 'Template::Plugin::CGI',
+                                                                                                         'image' => 'Template::Plugin::Image',
+                                                                                                         'format' => 'Template::Plugin::Format',
+                                                                                                         'xmlstyle' => 'Template::Plugin::XML::Style'
+                                                                                                       },
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Plugins' )
+                                                                               ],
+                                                             'LOAD_TEMPLATES' => [
+                                                                                   bless( {
+                                                                                            'SIZE' => undef,
+                                                                                            'COMPILE_DIR' => '',
+                                                                                            'DELIMITER' => ':',
+                                                                                            'UNICODE' => 1,
+                                                                                            'TOLERANT' => 0,
+                                                                                            'DOCUMENT' => 'Template::Document',
+                                                                                            'RELATIVE' => 0,
+                                                                                            '_ERROR' => '',
+                                                                                            'NOTFOUND' => {},
+                                                                                            'INCLUDE_PATH' => [
+                                                                                                                '/Users/harshal/Developments/Projects/CRM/views'
+                                                                                                              ],
+                                                                                            'DEBUG' => 0,
+                                                                                            'STAT_TTL' => 1,
+                                                                                            'ABSOLUTE' => 1,
+                                                                                            'LOOKUP' => {},
+                                                                                            'DEFAULT' => undef,
+                                                                                            'PARSER' => undef,
+                                                                                            'SLOTS' => 0,
+                                                                                            'ENCODING' => undef,
+                                                                                            'PARAMS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'CONFIG'},
+                                                                                            'COMPILE_EXT' => ''
+                                                                                          }, 'Template::Provider' )
+                                                                                 ],
+                                                             'BLKSTACK' => [],
+                                                             'STASH' => bless( {
+                                                                                 '_STRICT' => undef,
+                                                                                 'global' => {},
+                                                                                 'inc' => sub { "DUMMY" },
+                                                                                 '_DEBUG' => 0,
+                                                                                 'dec' => sub { "DUMMY" },
+                                                                                 '_PARENT' => undef
+                                                                               }, 'Template::Stash::XS' ),
+                                                             'DEBUG_FORMAT' => undef,
+                                                             '_ERROR' => '',
+                                                             'DEBUG' => 0,
+                                                             'EVAL_PERL' => 0,
+                                                             'EXPOSE_BLOCKS' => 0,
+                                                             'DEBUG_DIRS' => 0,
+                                                             'RECURSION' => 0,
+                                                             'INIT_BLOCKS' => $VAR1->{'SERVICE'}{'CONTEXT'}{'BLOCKS'},
+                                                             'LOAD_FILTERS' => [
+                                                                                 bless( {
+                                                                                          'DEBUG' => 0,
+                                                                                          'TOLERANT' => 0,
+                                                                                          'FILTERS' => {},
+                                                                                          '_ERROR' => ''
+                                                                                        }, 'Template::Filters' )
+                                                                               ]
+                                                           }, 'Template::Context' ),
+                                       'WRAPPER' => []
+                                     }, 'Template::Service' ),
+                 '_ERROR' => ''
+               }, 'Dancer::Template::PDF' ); in (eval 116) l. 1
+[6170] debug @0.506853> [hit #1] in (eval 116) l. 1
+[6181] debug @0.558858> [hit #1]1 in (eval 116) l. 1
+[6188] debug @0.549281> [hit #1]1 in (eval 116) l. 1
+[6201] debug @0.543894> [hit #1] in (eval 116) l. 1
+[6216] debug @0.604342> [hit #1]
+ 	[%# pdf.prFile('pdf/empty.pdf' ) %]
+
+ 	[%# pdf.prText(100, 500, 'Hello World !') %]
+
+ 	[% "hello world" %]
+ in (eval 116) l. 1
+[6216] debug @0.005964> [hit #2]
+ 	[%# pdf.prFile('pdf/empty.pdf' ) %]
+
+ 	[%# pdf.prText(100, 500, 'Hello World !') %]
+
+ 	[% "hello world" %]
+ in (eval 116) l. 1
+[6225] debug @0.550249> [hit #1]crap:
+ 	[%# pdf.prFile('pdf/empty.pdf' ) %]
+
+ 	[%# pdf.prText(100, 500, 'Hello World !') %]
+
+ 	[% "hello world" %]
+ in (eval 116) l. 1
+[6232] debug @0.543104> [hit #1]crap:
+ 	[%# pdf.prFile('pdf/empty.pdf' ) %]
+
+ 	[%# pdf.prText(100, 500, 'Hello World !') %]
+
+ 	hello world
+ in (eval 116) l. 1
+[6244] debug @0.546512> [hit #1]crap2:
+ 	
+
+ 	
+
+ 	hello world
+ in (eval 116) l. 1
+[6249] debug @0.542278> [hit #1]crap2:    [% USE pdf = Catalyst::View::PDF::Reuse %]
+    [% PROCESS 'pdf/temp.tt' %] in (eval 116) l. 1
+[6258] debug @0.776874> [hit #1]crap2:    
+    
+ 	1
+
+ 	ARRAY(0x21b3540)
+
+ 	hello world
+
+ in (eval 116) l. 1
+[6258] debug @0.009745> [hit #2]crap2:    
+    
+ 	
+
+ 	ARRAY(0x2181ed0)
+
+ 	hello world
+
+ in (eval 116) l. 1
+[6258] debug @0.009415> [hit #3]crap2:    
+    
+ 	
+
+ 	ARRAY(0xcff3e0)
+
+ 	hello world
+
+ in (eval 116) l. 1
+[6258] debug @0.010425> [hit #5]crap2:    
+    
+ 	
+
+ 	ARRAY(0x21ca270)
+
+ 	hello world
+
+ in (eval 116) l. 1
+[6375] debug @0.657160> [hit #1]crap2:    
+    
+ 	
+
+ 	ARRAY(0x21b3310)
+
+ 	hello world
+
+ in (eval 116) l. 1

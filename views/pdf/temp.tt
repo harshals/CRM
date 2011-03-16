@@ -1,8 +1,7 @@
-	[% USE pdf = Catalyst::View::PDF::Reuse %]
 
- 	[% pdf.prFile('empty.pdf' ) %]
+ 	<%# pdf.prFile('pdf/empty.pdf' ) %>
 
- 	[% pdf.prText(100, 500, 'Hello World !') %]
+ 	<% pdf.prText(100, 500, 'Hello World !') %>
 
-	[% pdf.prEnd() %]
+ 	<% "hello world" %>
 

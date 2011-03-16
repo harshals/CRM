@@ -8,6 +8,10 @@ plugins:
         user: info@adhril.com
         pass: Add1234
 
+engines:
+    template_toolkit:
+        subclass: 'Dancer::Template::PDF'
+
 app_id: 1
 
 register_message_subject: Welcome to Adhril.com
