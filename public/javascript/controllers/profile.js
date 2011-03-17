@@ -131,6 +131,15 @@ ProfileController = function(app) { with (app) {
             console.log("i m in advance");
             context.jemplate('contact-details.html',{},'#main-content');
             context.trigger("navigate-form");
-        })
+        });
+
+        app.get("#/svg", function(context){
+
+            //context.jemplate('invoice_form.html', { name : 'roshan' }, '#main-content' );
+            context.jemplate('invoice_form.html', { name:"roshan" }, '#main-content' );
+            
+
+        });
+
 }}
 
